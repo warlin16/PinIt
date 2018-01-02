@@ -17,10 +17,10 @@ export const receiveErrors = (errors) => {
   };
 };
 
-export const login = user => dispatch {
+export const login = user => dispatch => {
   return SessionApiUtil.login(user).then(user =>
-    dispatch(receiveCurrentUser(user)),
-    err => dispatch(receiveErrors(err.responseJSON)));
+  dispatch(receiveCurrentUser(user)),
+  err => dispatch(receiveErrors(err.responseJSON)));
 };
 
 export const signup = user => dispatch => {
