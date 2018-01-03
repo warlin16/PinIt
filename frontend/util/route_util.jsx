@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Route, Redirect, withRouter } from 'react-router-dom';
+import SessionFormContainer from '../components/sessions/session_form_container';
 
 const Auth = ({component: Component, path, loggedIn}) => {
   return(
@@ -20,7 +21,9 @@ const Protected = ({component: Component, path, loggedIn}) => {
        loggedIn ? (
         <Component {...props}/>
       ) : (
-        <Redirect to="/login"/>
+        <Route path={path}
+          render={(props) => ( <SessionFormContainer {...props} /> )}
+          />
       )
     )} />
   );

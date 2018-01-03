@@ -33,7 +33,7 @@ class SessionForm extends React.Component {
     if (this.props.formType === 'login') {
       return <Link to="/signup">Sign Up</Link>;
     } else {
-      return <div>Already a member?<Link to="/login">Log In</Link></div>;
+      return <span>Already a member? <Link to="/login">Log In</Link></span>;
     }
   }
 
