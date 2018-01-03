@@ -33,15 +33,15 @@ class SessionForm extends React.Component {
     if (this.props.formType === 'login') {
       return <Link to="/signup">Sign Up</Link>;
     } else {
-      return <span>Already a member? <Link to="/login">Log In</Link></span>;
+      return <Link to="/login" className={`login-link`}>Log In</Link>;
     }
   }
 
   renderErrors() {
     return(
-      <ul>
+      <ul className={`${this.props.formType}-errors animate fadeIn`}>
         {this.props.errors.map((error, i) => (
-          <li key={`error-${i}`} className={`${this.props.formType}-errors`}>
+          <li key={`error-${i}`}>
             {error}
           </li>
         ))}
@@ -53,8 +53,10 @@ class SessionForm extends React.Component {
     const _class = this.props.formType;
     return (
       <div className={`${_class}-form-container`}>
+        <div className={`${_class}-greeting`}>
+          <h1>Welcome to PinIt</h1>
+        </div>
         <form onSubmit={this.handleSubmit} className={`${_class}-form-box`}>
-          {this.renderErrors()}
           <div className={`${_class}-form`}>
             <label className={`${_class}-user`}>
               <input type="text"
@@ -73,10 +75,11 @@ class SessionForm extends React.Component {
                 className={`${_class}-input`}
               />
             </label>
-            <input type="submit" value="Submit" className={`${_class}-submit`} />
-            <footer className={`${_class}-bottom`}>{this.navLink()}</footer>
+            <input type="submit" value={`${this.props.submitButton}`} className={`${_class}-submit`} />
+            {this.navLink()}
           </div>
         </form>
+        {this.renderErrors()}
       </div>
     );
   }
