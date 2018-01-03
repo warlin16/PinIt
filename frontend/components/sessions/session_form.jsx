@@ -41,7 +41,7 @@ class SessionForm extends React.Component {
     return(
       <ul>
         {this.props.errors.map((error, i) => (
-          <li key={`error-${i}`}>
+          <li key={`error-${i}`} className={`${this.props.formType}-errors`}>
             {error}
           </li>
         ))}
@@ -54,9 +54,8 @@ class SessionForm extends React.Component {
     return (
       <div className={`${_class}-form-container`}>
         <form onSubmit={this.handleSubmit} className={`${_class}-form-box`}>
-          <div className={`${_class}-errors animate fadeInDown`}>{this.renderErrors()}</div>
+          {this.renderErrors()}
           <div className={`${_class}-form`}>
-            <br/>
             <label className={`${_class}-user`}>
               <input type="text"
                 placeholder="Create Username"
@@ -66,7 +65,6 @@ class SessionForm extends React.Component {
                 onClick={() => this.setState({ username: ''})}
               />
             </label>
-            <br/>
             <label className={`${_class}-password`}>
               <input type="password"
                 placeholder="Create Password"
@@ -75,10 +73,9 @@ class SessionForm extends React.Component {
                 className={`${_class}-input`}
               />
             </label>
-            <br/>
-            <input type="submit" value="Submit" />
+            <input type="submit" value="Submit" className={`${_class}-submit`} />
+            <footer className={`${_class}-bottom`}>{this.navLink()}</footer>
           </div>
-          <div className={`${_class}-bottom`}>{this.navLink()}</div>
         </form>
       </div>
     );

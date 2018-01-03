@@ -4,6 +4,7 @@ import { Route, Redirect, Switch,
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import SessionFormContainer from './sessions/session_form_container';
 import LogoutContainer from './logout/logout_container';
+
 const TestComponent = () => {
   return(
     <h1> I should Only render If you're logged in.</h1>
@@ -13,7 +14,7 @@ const TestComponent = () => {
 const App = () => {
   return(
     <div>
-      <nav>
+      <nav className={`main-nav`}>
         <Link to='/'>Git PinIt!</Link>
         <LogoutContainer />
       </nav>

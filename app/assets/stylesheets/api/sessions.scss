@@ -1,28 +1,66 @@
 // Place all the styles related to the api/sessions controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-
+html {
+  height: 100vh;
+}
 .signup-form-container {
   background-color: #F8F8FF;
   width: 315px;
   margin: auto;
   margin-top: 195px;
-  height: 200px;
+  height: 340px;
+  border-radius: 8px;
+  box-shadow: 2px 3px #DCDCDC;
 }
 
 .signup-form {
   text-align: center;
-  padding-top: 15px;
+  padding-top: 45px;
+  display: flex;
+  flex-direction: column;
 }
 
 .signup-user {
   margin-bottom: 5px;
+
+  input {
+    background-color: light-grey;
+    padding: 12px 30px 7px 3px;
+    font-size: 17px;
+    margin-top: 25px;
+  }
 }
 
 .signup-password {
   margin-top: 5px;
+
+  input {
+    background-color: light-grey;
+    padding: 12px 30px 7px 3px;
+    font-size: 17px;
+    margin-top: 25px;
+  }
 }
 
 .signup-bottom {
   text-align: center;
+}
+
+.signup-errors {
+  list-style: none;
+  text-align: center;
+}
+
+.signup-submit {
+  border-radius: 25px;
+  transition: border-radius 0.55s cubic-bezier(.96,2,.36,.25), background-color 0.3s linear;
+  margin-top: 10px;
+  width: 125px;
+  font-size: 15px;
+  margin-left: 65px;
+}
+
+.signup-submit:hover {
+  border-radius: 5px;
 }
