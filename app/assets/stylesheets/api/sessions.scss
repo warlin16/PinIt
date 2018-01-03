@@ -1,3 +1,28 @@
 // Place all the styles related to the api/sessions controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.signup-form-container {
+  background-color: #F8F8FF;
+  width: 315px;
+  margin: auto;
+  margin-top: 195px;
+  height: 200px;
+}
+
+.signup-form {
+  text-align: center;
+  padding-top: 15px;
+}
+
+.signup-user {
+  margin-bottom: 5px;
+}
+
+.signup-password {
+  margin-top: 5px;
+}
+
+.signup-bottom {
+  text-align: center;
+}

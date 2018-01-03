@@ -54,21 +54,22 @@ class SessionForm extends React.Component {
     return (
       <div className={`${_class}-form-container`}>
         <form onSubmit={this.handleSubmit} className={`${_class}-form-box`}>
-          <br/>
-          {this.navLink()}
-          {this.renderErrors()}
+          <div className={`${_class}-errors animate fadeInDown`}>{this.renderErrors()}</div>
           <div className={`${_class}-form`}>
             <br/>
-            <label>Username:
+            <label className={`${_class}-user`}>
               <input type="text"
+                placeholder="Create Username"
                 value={this.state.username}
                 onChange={this.update('username')}
                 className={`${_class}-input`}
+                onClick={() => this.setState({ username: ''})}
               />
             </label>
             <br/>
-            <label>Password:
+            <label className={`${_class}-password`}>
               <input type="password"
+                placeholder="Create Password"
                 value={this.state.password}
                 onChange={this.update('password')}
                 className={`${_class}-input`}
@@ -77,6 +78,7 @@ class SessionForm extends React.Component {
             <br/>
             <input type="submit" value="Submit" />
           </div>
+          <div className={`${_class}-bottom`}>{this.navLink()}</div>
         </form>
       </div>
     );
