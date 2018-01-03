@@ -4,4 +4,11 @@
   	window.currentUser =
       <%= render("api/users/user.json.jbuilder", user: current_user).html_safe %>
   <% end %>
+
 </script>
+
+<script type="text/javascript">
+  window.staticImages = {
+    pinitLogo: "<%= asset_url("dart.png") %>"
+  }
+  </script>

@@ -15,7 +15,6 @@ const App = () => {
   return(
     <div>
       <nav className={`main-nav`}>
-        <Link to='/'>Git PinIt!</Link>
         <LogoutContainer />
       </nav>
       <Switch>
