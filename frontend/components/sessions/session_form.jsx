@@ -50,19 +50,20 @@ class SessionForm extends React.Component {
   }
 
   render() {
+    const _class = this.props.formType;
     return (
-      <div className="login-form-container">
-        <form onSubmit={this.handleSubmit} className="login-form-box">
+      <div className={`${_class}-form-container`}>
+        <form onSubmit={this.handleSubmit} className={`${_class}-form-box`}>
           <br/>
           {this.navLink()}
           {this.renderErrors()}
-          <div className="login-form">
+          <div className={`${_class}-form`}>
             <br/>
             <label>Username:
               <input type="text"
                 value={this.state.username}
                 onChange={this.update('username')}
-                className="login-input"
+                className={`${_class}-input`}
               />
             </label>
             <br/>
@@ -70,7 +71,7 @@ class SessionForm extends React.Component {
               <input type="password"
                 value={this.state.password}
                 onChange={this.update('password')}
-                className="login-input"
+                className={`${_class}-input`}
               />
             </label>
             <br/>

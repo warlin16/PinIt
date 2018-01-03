@@ -5,7 +5,7 @@ const Logout = (props) => {
   if (props.currentUser) {
     return(
     <div>
-      {props.currentUser.username}
+      <div>{props.currentUser.username}</div>
       <button onClick={props.logout}>Logout</button>
     </div>
     );

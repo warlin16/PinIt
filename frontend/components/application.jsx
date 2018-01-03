@@ -13,8 +13,10 @@ const TestComponent = () => {
 const App = () => {
   return(
     <div>
-      <h1>Git PinIt!</h1>
-      <LogoutContainer />
+      <nav>
+        <Link to='/'>Git PinIt!</Link>
+        <LogoutContainer />
+      </nav>
       <Switch>
         <AuthRoute path='/login' component={SessionFormContainer} />
         <ProtectedRoute path='/' component={TestComponent} />
