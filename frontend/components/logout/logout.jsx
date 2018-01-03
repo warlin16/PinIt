@@ -5,15 +5,12 @@ const Logout = (props) => {
   if (props.currentUser) {
     return(
     <div>
+      {props.currentUser.username}
       <button onClick={props.logout}>Logout</button>
     </div>
     );
   } else {
-    return(
-      <div>
-        <Link to={'/login'}>Sign In</Link>
-      </div>
-    );
+    return null;
   }
 };
 
