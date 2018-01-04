@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { Route, Redirect, Switch,
   Link, HashRouter } from 'react-router-dom';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
@@ -7,26 +8,34 @@ import LogoutContainer from './logout/logout_container';
 
 const TestComponent = () => {
   return(
-    <h1> I should Only render If you're logged in.</h1>
+    <div>
+      <nav>
+        <LogoutContainer />
+      </nav>
+    </div>
   );
 };
 
 const SecondTestComponent = () => {
   return (
-    <h1>This is where eventually I'll show the user details lol</h1>
-  );
-};
-const App = () => {
-  return(
     <div>
-      <nav className={`main-nav`}>
-        <LogoutContainer />
-      </nav>
-      <AuthRoute path='/login' component={SessionFormContainer} />
-      <ProtectedRoute path='/' component={TestComponent} />
-      <ProtectedRoute path='/user/:userId' component={SecondTestComponent} />
+      <h1>This is where eventually I'll show the user details lol</h1>
+      <Link to='/'>Back to feed BRO</Link>
     </div>
   );
 };
+
+const App = ({ currentUser }) => {
+  return(
+    <Switch>
+      <AuthRoute path="/signup" component={SessionFormContainer} />
+      <AuthRoute path='/login' component={SessionFormContainer} />
+      <ProtectedRoute path='/user/:userId' component={SecondTestComponent} />
+      <ProtectedRoute path="/" component={TestComponent} />
+    </Switch>
+  );
+};
+
+
 
 export default App;

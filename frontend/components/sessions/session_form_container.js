@@ -11,7 +11,7 @@ const mapStateToProps = (state, {location}) => {
 };
 
 const mapDispatchToProps = (dispatch, { location }) => {
-  const formType = location.pathname.slice(1) || 'signup';
+  const formType = location.pathname.slice(1);
   const processForm = (formType === 'login') ? login : signup;
   const submitButton = (formType === 'login') ? 'Log In' : 'Join!';
   const formGreeting = (formType === 'login') ? 'Log in to see more' : 'Welcome to PinIt';

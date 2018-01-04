@@ -13,7 +13,7 @@ class SessionForm extends React.Component {
   }
 
   componentDidMount() {
-    this.props.clearError();
+    // this.props.clearError();
   }
 
   componentWillReceiveProps(nextProps) {
@@ -33,7 +33,7 @@ class SessionForm extends React.Component {
 
   navLink() {
     if (this.props.formType === 'login') {
-      return <Link to="/" className={`signup-link`}>Sign Up</Link>;
+      return <Link to="/signup" className={`signup-link`}>Sign Up</Link>;
     } else {
       return <Link to="/login" className={`login-link`}>Log In</Link>;
     }
