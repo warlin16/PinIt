@@ -58,6 +58,7 @@ class SessionForm extends React.Component {
     const _class = this.props.formType;
     return (
       <div className={`${_class}-background`}>
+        {this.renderErrors()}
         <div className={`${_class}-form-container`}>
           {this.navLink()}
           <div className={`${_class}-logo`}>
@@ -87,7 +88,6 @@ class SessionForm extends React.Component {
               <input type="submit" value={`${this.props.submitButton}`} className={`${_class}-submit`} />
             </div>
           </form>
-          {this.renderErrors()}
         </div>
       </div>
     );
