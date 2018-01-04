@@ -11,16 +11,20 @@ const TestComponent = () => {
   );
 };
 
+const SecondTestComponent = () => {
+  return (
+    <h1>This is where eventually I'll show the user details lol</h1>
+  );
+};
 const App = () => {
   return(
     <div>
       <nav className={`main-nav`}>
         <LogoutContainer />
       </nav>
-      <Switch>
-        <AuthRoute path='/login' component={SessionFormContainer} />
-        <ProtectedRoute path='/' component={TestComponent} />
-      </Switch>
+      <AuthRoute path='/login' component={SessionFormContainer} />
+      <ProtectedRoute path='/' component={TestComponent} />
+      <ProtectedRoute path='/user/:userId' component={SecondTestComponent} />
     </div>
   );
 };

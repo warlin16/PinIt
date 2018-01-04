@@ -3,6 +3,9 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .signup-background {
   background-image: image-url('dart_background.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
   height: 100vh;
   display: flex;
   justify-content: center;

@@ -1,17 +1,41 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const Logout = (props) => {
-  if (props.currentUser) {
-    return(
-    <div>
-      <div>{props.currentUser.username}</div>
-      <button onClick={props.logout}>Logout</button>
-    </div>
-    );
-  } else {
-    return null;
+
+class Logout extends React.Component {
+  constructor(props) {
+    super(props);
+    this.handleLogout = this.handleLogout.bind(this);
   }
-};
+
+  handleLogout(e) {
+    e.preventDefault();
+    this.props.logout();
+    this.props.history.push('/');
+  }
+
+  navBar() {
+    if (this.props.currentUser) {
+      return(
+        <div>
+          <Link to={`/user/${this.props.currentUser.id}`}>
+            {this.props.currentUser.username}</Link>
+          <button onClick={this.handleLogout}>Logout</button>
+        </div>
+      );
+    } else {
+      return null;
+    }
+  }
+
+  render() {
+    return(
+      <div>
+        {this.navBar()}
+      </div>
+    )
+  }
+}
+
 
 export default Logout;
