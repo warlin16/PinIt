@@ -1,11 +1,18 @@
 // Place all the styles related to the api/sessions controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.signup-background {
+  background-image: image-url('dart_background.jpg');
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .signup-form-container {
   background-color: #F8F8FF;
   width: 380px;
   margin: auto;
-  margin-top: 160px;
   padding-top: 40px;
   padding-bottom: 40px;
   border-radius: 8px;
@@ -45,6 +52,7 @@
 }
 
 .signup-errors {
+  top: 160px;
   list-style: none;
   text-align: center;
   position: fixed;
