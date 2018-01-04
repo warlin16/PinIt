@@ -5,6 +5,7 @@ import { Route, Redirect, Switch,
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import SessionFormContainer from './sessions/session_form_container';
 import LogoutContainer from './logout/logout_container';
+import UserShowContainer from './users/user_container';
 
 const TestComponent = () => {
   return(
@@ -16,21 +17,12 @@ const TestComponent = () => {
   );
 };
 
-const SecondTestComponent = () => {
-  return (
-    <div>
-      <h1>This is where eventually I'll show the user details lol</h1>
-      <Link to='/'>Back to feed BRO</Link>
-    </div>
-  );
-};
-
 const App = ({ currentUser }) => {
   return(
     <Switch>
       <AuthRoute path="/signup" component={SessionFormContainer} />
       <AuthRoute path='/login' component={SessionFormContainer} />
-      <ProtectedRoute path='/user/:userId' component={SecondTestComponent} />
+      <ProtectedRoute path='/user/:userId' component={UserShowContainer} />
       <ProtectedRoute path="/" component={TestComponent} />
     </Switch>
   );

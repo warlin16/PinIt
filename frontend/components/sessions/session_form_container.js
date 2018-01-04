@@ -20,7 +20,7 @@ const mapDispatchToProps = (dispatch, { location }) => {
     formType,
     submitButton,
     formGreeting,
-    clearError: () => dispatch(receiveErrors([])),
+    clearErrors: () => dispatch(receiveErrors([])),
   };
 };
 
