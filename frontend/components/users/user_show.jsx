@@ -8,14 +8,16 @@ class UserShow extends React.Component {
 
   render() {
     return(
-      <div>
-        <Link to='/'> BACK TO THE FEED BRO</Link>
-        <br />
-        <h1> MY
-          NAME IS {this.props.user ? this.props.user.username : ""}
-          HAHAHHAHAHAHAHAHA
-        </h1>
-        <br />
+      <div className='show-container'>
+        <div className='main-link-div'>
+          <Link to='/'> BACK TO THE FEED BRO</Link>
+        </div>
+          <div className='main-info-box'>
+            <h1> MY
+              NAME IS {this.props.user ? this.props.user.username : ""}
+              AND I'M IN A DIV
+            </h1>
+          </div>
       </div>
     );
   }

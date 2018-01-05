@@ -40,11 +40,11 @@ class SessionForm extends React.Component {
 
   renderErrors() {
     return(
-      <div className={`${this.props.formType}-errors animated fadeIn`}>
+      <div className={`${this.props.formType}-errors`}>
         <ul>
           {this.props.errors.map((error, i) => (
             <li key={`error-${i}`}
-              className='animated fadeInLeft'>
+              className='animated fadeInDown'>
               {error}
             </li>
           ))}
@@ -57,8 +57,8 @@ class SessionForm extends React.Component {
     const _class = this.props.formType;
     return (
       <div className={`${_class}-background`}>
-        {this.renderErrors()}
         <div className={`${_class}-form-container`}>
+          {this.renderErrors()}
           {this.navLink()}
           <div className={`${_class}-logo`}>
             <img src={window.staticImages.pinitLogo} />

@@ -16,13 +16,13 @@
   background-color: #F8F8FF;
   width: 380px;
   margin: auto;
-  padding-top: 40px;
-  padding-bottom: 40px;
+  padding-top: 50px;
+  padding-bottom: 85px;
   border-radius: 8px;
   box-shadow: 2px 3px 5px 3px #DCDCDC;
   text-align: center;
   box-sizing: border-box;
-  font-family: 'Indie Flower', cursive;
+  font-family: 'Dekko', cursive;
 }
 
 .signup-form {
@@ -55,15 +55,24 @@
 }
 
 .signup-errors {
-  top: 160px;
-  height: 30px;
-  list-style: none;
-  text-align: center;
-  position: fixed;
-  bottom: 288px;
   color: red;
-  margin-left: 15px;
+  padding-bottom: 25px;
+  margin-right: 5px;
   font-family: 'Roboto', sans-serif;
+
+  ul:last-of-type::after {
+    content: '';
+  	position: absolute;
+  	bottom: 0;
+  	left: 50%;
+  	width: 0;
+  	height: 0;
+  	border: 19px solid transparent;
+  	border-top-color: #00aabb;
+  	border-bottom: 0;
+  	margin-left: -19px;
+  	margin-bottom: -19px;
+  }
 }
 
 .signup-submit {
