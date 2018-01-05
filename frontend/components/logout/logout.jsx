@@ -17,7 +17,7 @@ class Logout extends React.Component {
   navBar() {
     if (this.props.currentUser) {
       return(
-        <div>
+        <div className='main-nav'> CLICK HERE FOR SHOW PAGE
           <Link to={`/user/${this.props.currentUser.id}`}>
             {this.props.currentUser.username}</Link>
           <button onClick={this.handleLogout}>Logout</button>
