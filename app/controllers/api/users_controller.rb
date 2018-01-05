@@ -13,7 +13,7 @@ class Api::UsersController < ApplicationController
 
   def show
     @user = User.find_by_id(params[:id])
-    @boards = User.boards
+    @boards = @user.boards
     render 'api/users/show'
   end
 
