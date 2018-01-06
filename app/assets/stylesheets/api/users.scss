@@ -8,7 +8,7 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  
+
 }
 
 .show-container {
@@ -22,7 +22,7 @@
 
 
 .user-bio-box {
-  height: 50%;
+  height: 400px;
   width: 100%;
   margin-top: 65px;
   display: flex;
@@ -148,8 +148,5 @@
     margin-bottom: 15px;
     margin-top: 15px;
     cursor: pointer;
-  }
-  h1 {
-    font-size: 20px;
   }
 }

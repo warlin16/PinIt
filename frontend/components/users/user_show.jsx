@@ -1,9 +1,24 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import UserBoardItem from './user_board_item';
 
 class UserShow extends React.Component {
+
   componentDidMount() {
     this.props.fetchUser(this.props.match.params.userId);
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (this.props.match.params.userId !== nextProps.match.params.userId) {
+      this.props.fetchUser(nextProps.match.params.userId);
+    }
+  }
+
+  boardRender() {
+    const boards = this.props.boards.map(board => <UserBoardItem
+      key={board.id} title={board.title}
+      description={board.description} />);
+    return boards;
   }
 
   render() {
@@ -48,35 +63,7 @@ class UserShow extends React.Component {
                 </h1>
               </div>
 
-              <div>
-                <h1>
-                  testing 😅
-                </h1>
-              </div>
-
-              <div>
-                <h1>
-                  IN A DIV 😎
-                </h1>
-              </div>
-
-              <div>
-                <h1>
-                  IN A DIV 😎
-                </h1>
-              </div>
-
-              <div>
-                <h1>
-                  IN A DIV 😎
-                </h1>
-              </div>
-
-              <div>
-                <h1>
-                  I should be on the second row lol
-                </h1>
-              </div>
+              {this.boardRender()}
             </div>
           </section>
 

@@ -2,7 +2,7 @@ json.extract! user, :id, :username
 
 
 
-json.board_ids user.boards do |board|
+json.boardIds user.boards do |board|
   json.id board.id
   json.title board.title
   json.description board.description

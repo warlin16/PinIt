@@ -11,7 +11,7 @@ const boardsReducer = (state = {}, action) => {
       return merge({}, state, { [action.board.id]: action.board } );
       case RECEIVE_USER:
       newState = {};
-      action.user.board_ids.forEach(board => newState[board.id] = board);
+      action.user.boardIds.forEach(board => newState[board.id] = board);
       return merge({}, state, newState);
       return state;
     default:
