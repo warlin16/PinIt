@@ -3,6 +3,11 @@ import { Link } from 'react-router-dom';
 import UserBoardItem from './user_board_item';
 
 class UserShow extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.boards = [];
+  }
 
   componentDidMount() {
     this.props.fetchUser(this.props.match.params.userId);
@@ -14,15 +19,11 @@ class UserShow extends React.Component {
     }
   }
 
-  boardRender() {
-    const boards = this.props.boards.map(board => <UserBoardItem
-      key={board.id} title={board.title}
-      description={board.description} />);
-    return boards;
-  }
-
   render() {
     const user = this.props.user ? this.props.user : { username: '' };
+    this.boards = this.props.boards.map(board => <UserBoardItem
+      key={board.id} title={board.title}
+      description={board.description} />);
     return(
       <div className='show-container'>
         <div className='user-bio-box'>
@@ -63,7 +64,7 @@ class UserShow extends React.Component {
                 </h1>
               </div>
 
-              {this.boardRender()}
+              {this.boards}
             </div>
           </section>
 

@@ -30,10 +30,14 @@
   padding-top: 20px;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
 }
 
 .signup-user {
   margin-bottom: 5px;
+  width: 228px;
 
   input {
     padding: 12px 30px 7px 3px;
@@ -45,6 +49,7 @@
 
 .signup-password {
   margin-top: 5px;
+  width: 228px;
 
   input {
     padding: 12px 30px 7px 3px;
@@ -59,20 +64,6 @@
   padding-bottom: 25px;
   margin-right: 5px;
   font-family: 'Roboto', sans-serif;
-
-  ul:last-of-type::after {
-    content: '';
-  	position: absolute;
-  	bottom: 0;
-  	left: 50%;
-  	width: 0;
-  	height: 0;
-  	border: 19px solid transparent;
-  	border-top-color: #00aabb;
-  	border-bottom: 0;
-  	margin-left: -19px;
-  	margin-bottom: -19px;
-  }
 }
 
 .signup-submit {
@@ -80,7 +71,6 @@
     transition: border-radius 0.55s cubic-bezier(0.96, 2, 0.36, 0.25), background-color 0.3s linear;
     margin-top: 10px;
     width: 230px;
-    margin-left: 60px;
     height: 34px;
     font-size: 20px;
     background-color: #da70d6;
