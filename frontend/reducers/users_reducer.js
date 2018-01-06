@@ -6,6 +6,7 @@ const usersReducer = (state = {}, action) => {
   switch (action.type) {
     case RECEIVE_USER:
       return merge({}, state, { [action.user.id]: action.user} );
+      // Object.keys(action.user.board) => board_ids
     default:
       return state;
   };
