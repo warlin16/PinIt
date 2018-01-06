@@ -5,11 +5,14 @@ import merge from 'lodash/merge';
 
 const boardsReducer = (state = {}, action) => {
   Object.freeze(state);
+  let newState;
   switch (action.type) {
     case RECEIVE_BOARD:
       return merge({}, state, { [action.board.id]: action.board } );
       case RECEIVE_USER:
-      debugger
+      newState = {};
+      action.user.board_ids.forEach(board => newState[board.id] = board);
+      return merge({}, state, newState);
       return state;
     default:
       return state;

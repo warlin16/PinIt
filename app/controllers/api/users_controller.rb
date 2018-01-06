@@ -12,7 +12,6 @@ class Api::UsersController < ApplicationController
 
   def show
     @user = User.find_by_id(params[:id])
-    @boards = @user.boards.to_a
     render 'api/users/show'
   end
 
