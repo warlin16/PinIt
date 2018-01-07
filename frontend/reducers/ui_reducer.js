@@ -1,4 +1,4 @@
-import merge from 'lodash';
+import merge from 'lodash/merge';
 import { CREATE_BOARD_MODAL, CLOSE_MODAL } from '../actions/ui_actions';
 
 const defaultState = {
@@ -6,13 +6,14 @@ const defaultState = {
 };
 
 export const uiReducer = (state = defaultState, action) => {
-  let newState = state;
   switch (action.type) {
     case CREATE_BOARD_MODAL:
       return merge({}, state, { boardModal: 'create'} );
     case CLOSE_MODAL:
-      return newState;
+      return defaultState;
     default:
       return state;
   }
-}
+};
+
+export default uiReducer;

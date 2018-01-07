@@ -1,12 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import UserBoardItem from './user_board_item';
+import BoardForm from '../boards/board_form';
 
 class UserShow extends React.Component {
   constructor(props) {
     super(props);
 
     this.boards = [];
+    this.createBoard = this.createBoard.bind(this);
+    this.closeModal = this.closeModal.bind(this);
   }
 
   componentDidMount() {
@@ -19,6 +22,23 @@ class UserShow extends React.Component {
     }
   }
 
+  createBoard(e) {
+    e.preventDefault();
+    this.props.createBoardModal();
+  }
+
+  closeModal() {
+    this.props.closeModal();
+  }
+
+  renderBoardCreate() {
+    if (this.props.boardModal === 'create') {
+      return(
+        <BoardForm closeModal={this.closeModal} />
+      );
+    }
+  }
+
   render() {
     const user = this.props.user ? this.props.user : { username: '' };
     this.boards = this.props.boards.map(board => <UserBoardItem
@@ -26,6 +46,7 @@ class UserShow extends React.Component {
       description={board.description} />);
     return(
       <div className='show-container'>
+        {this.renderBoardCreate()}
         <div className='user-bio-box'>
           <div className='user-bio'>
             <div className='user-info'>
@@ -58,7 +79,7 @@ class UserShow extends React.Component {
 
           <section className='user-content-box'>
             <div className='user-content'>
-              <div className='board-create'>
+              <div className='board-create' onClick={this.createBoard}>
                 <div className='board-create-button'>
                   <div>+</div>
                 </div>
