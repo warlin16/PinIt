@@ -1,3 +1,50 @@
 // Place all the styles related to the api/boards controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.user-content {
+  height: 75%;
+  width: 95%;
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: 170px;
+  margin-right: 170px;
+  padding-bottom: 50px;
+
+  div {
+    width: 275px;
+    height: 257px;
+    margin-left: 10px;
+    margin-right: 10px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    margin-top: 15px;
+    cursor: pointer;
+  }
+}
+
+.board-create {
+
+  div {
+    width: 60px;
+    height: 60px;
+    background-color: crimson;
+    border-radius: 50px;
+
+    h1 {
+      font-size: 30px;
+      text-align: center;
+    }
+  }
+}
+
+.board-create:hover {
+  background-color: #DCDCDC;
+}
+
+.board-items:hover {
+  background-color: #DCDCDC;
+}

@@ -16,7 +16,6 @@ class Api::BoardsController < ApplicationController
   end
 
   def destroy
-    @board = boa
 
   end
 
