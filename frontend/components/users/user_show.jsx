@@ -46,6 +46,25 @@ class UserShow extends React.Component {
     }
   }
 
+  createBoardForm() {
+    if (!this.props.user) return null;
+    if (this.props.user.id === this.props.currentUser.id) {
+      return(
+        <div className='board-create' onClick={this.createBoard}>
+          <div className='board-create-button'>
+            <div>+</div>
+          </div>
+
+          <div className='board-create-title'>
+            <div>Create A Board!</div>
+          </div>
+        </div>
+      );
+    } else {
+      return null;
+    }
+  }
+
   render() {
     const user = this.props.user ? this.props.user : { username: '' };
     this.boards = this.props.boards.map(board => <UserBoardItem
@@ -53,7 +72,6 @@ class UserShow extends React.Component {
       description={board.description} />);
     return(
       <div className='show-container'>
-        {this.renderBoardCreate()}
         <div className='user-bio-box'>
           <div className='user-bio'>
             <div className='user-info'>
@@ -86,16 +104,8 @@ class UserShow extends React.Component {
 
           <section className='user-content-box'>
             <div className='user-content'>
-              <div className='board-create' onClick={this.createBoard}>
-                <div className='board-create-button'>
-                  <div>+</div>
-                </div>
-
-                <div className='board-create-title'>
-                  <div>Create A Board!</div>
-                </div>
-              </div>
-
+              {this.renderBoardCreate()}
+              {this.createBoardForm()}
               {this.boards}
             </div>
           </section>

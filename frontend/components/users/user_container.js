@@ -10,6 +10,7 @@ const mapStateToProps = (state, ownProps) => {
     user: state.entities.users[ownProps.match.params.userId],
     boards: Object.values(state.entities.boards),
     boardModal: state.ui.boardModal,
+    currentUser: state.session.currentUser,
   };
 }
 
