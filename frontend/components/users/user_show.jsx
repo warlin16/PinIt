@@ -59,11 +59,11 @@ class UserShow extends React.Component {
           <section className='user-content-box'>
             <div className='user-content'>
               <div className='board-create'>
-                <div>
-                  <div><h1>+</h1></div>
+                <div className='board-create-button'>
+                  <div>+</div>
                 </div>
 
-                <div>
+                <div className='board-create-title'>
                   <div>Create A Board!</div>
                 </div>
               </div>
