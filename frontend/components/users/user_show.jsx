@@ -27,14 +27,20 @@ class UserShow extends React.Component {
     this.props.createBoardModal();
   }
 
-  closeModal() {
+  closeModal(e) {
     this.props.closeModal();
+  }
+
+  stopPropagation(e) {
+    e.stopPropagation();
   }
 
   renderBoardCreate() {
     if (this.props.boardModal === 'create') {
       return(
-        <BoardForm closeModal={this.closeModal} />
+        <BoardForm
+          closeModal={this.closeModal}
+          stopPropagation={this.stopPropagation} />
       );
     }
   }
