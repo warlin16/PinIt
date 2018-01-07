@@ -3,12 +3,12 @@ import React from 'react';
 const UserBoardItem = ({title, description}) => {
   return(
     <div className='board-items'>
-      <div>
-        IMG COMING SOON JU HERDDD
+      <div className='board-item-img'>
+        <div>IMG COMING SOON JU HERDDD</div>
       </div>
 
-      <div>
-        {title}
+      <div className='board-item-title'>
+        <div>{title}</div>
       </div>
     </div>
   );
