@@ -21,6 +21,8 @@ class Logout extends React.Component {
     }
   }
 
+  
+
   navBar() {
     if (this.props.currentUser) {
       return(
@@ -41,9 +43,8 @@ class Logout extends React.Component {
                 placeholder={`This feature doesn't work yet lol`} />
             </div>
 
-            <div className='show-page-logo'>
-              <Link to={`/user/${this.props.currentUser.id}`}>
-                {this.props.currentUser.username}</Link>
+            <div className='home-page'>
+              <Link to='/'>Home</Link>
             </div>
 
             <button onClick={this.handleLogout}>Logout</button>
