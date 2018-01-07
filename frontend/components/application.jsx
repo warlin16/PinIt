@@ -10,21 +10,22 @@ import UserShowContainer from './users/user_container';
 const TestComponent = () => {
   return(
     <div>
-      <nav>
-        <LogoutContainer />
-      </nav>
+      Hello human!
     </div>
   );
 };
 
 const App = ({ currentUser }) => {
   return(
-    <Switch>
-      <AuthRoute path="/signup" component={SessionFormContainer} />
-      <AuthRoute path='/login' component={SessionFormContainer} />
-      <ProtectedRoute path='/user/:userId' component={UserShowContainer} />
-      <ProtectedRoute path="/" component={TestComponent} />
-    </Switch>
+    <div>
+      <LogoutContainer />
+      <Switch>
+        <AuthRoute path="/signup" component={SessionFormContainer} />
+        <AuthRoute path='/login' component={SessionFormContainer} />
+        <ProtectedRoute path='/user/:userId' component={UserShowContainer} />
+        <ProtectedRoute path="/" component={TestComponent} />
+      </Switch>
+    </div>
   );
 };
 
