@@ -23,12 +23,10 @@ class UserShow extends React.Component {
   }
 
   createBoard(e) {
-    e.preventDefault();
     this.props.createBoardModal();
   }
 
   closeModal(e) {
-    e.preventDefault();
     this.props.closeModal();
   }
 
@@ -41,7 +39,9 @@ class UserShow extends React.Component {
       return(
         <BoardForm
           closeModal={this.closeModal}
-          stopPropagation={this.stopPropagation} />
+          stopPropagation={this.stopPropagation}
+          createBoard={this.props.createBoard}
+          currentUserId={this.props.currentUser.id} />
       );
     }
   }

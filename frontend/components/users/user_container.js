@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { fetchUser } from '../../actions/user_actions';
 import { createBoardModal, closeModal } from '../../actions/ui_actions';
-import { createBoard } from '../../util/board_api_util';
+import { createBoard } from '../../actions/board_actions';
 import UserShow from './user_show';
 
 const mapStateToProps = (state, ownProps) => {

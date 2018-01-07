@@ -4,7 +4,9 @@ class BoardForm extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = { title: '', description: '' };
+    this.state = { title: '',
+      description: '',
+      author_id: this.props.currentUserId };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -14,8 +16,15 @@ class BoardForm extends React.Component {
     }
   }
 
-  handleSubmit() {
+  clearForm() {
+    this.setState({ title: '', description: '', author_id: this.props.currentUserId });
+  }
 
+  handleSubmit(e) {
+    e.preventDefault();
+    this.props.createBoard(this.state);
+    this.clearForm();
+    this.props.closeModal();
   }
 
   render() {
@@ -23,7 +32,7 @@ class BoardForm extends React.Component {
       <div className='create-board-container' onClick={this.props.closeModal}>
 
         <div className='board-form-container' onClick={this.props.stopPropagation}>
-          <form className='board-form'>
+          <form className='board-form' onSubmit={this.handleSubmit}>
             <div className='board-form-title'>
               <h2>Create Board</h2>
               <button onClick={this.props.closeModal}><strong>X</strong></button>
