@@ -211,8 +211,35 @@
   height: 20%;
 
   button {
-    width: 50px;
+    height: 35px;
     border: 0;
     background-color: #c0c0c05e;
+    border-radius: 4px;
+    font-size: 15px;
+    width: 70px;
+    transition:
+    cubic-bezier(0.96, 2, 0.36, 0.25),
+    background-color 0.3s  linear, color 0.3s linear;
+
   }
+
+  button:hover {
+    cursor: pointer;
+    border-radius: 2px;
+    background-color: #c0c0c0de;
+  }
+}
+
+.board-cancel {
+  margin-right: 25px;
+  font-weight: 530;
+}
+
+.board-submit-button {
+  margin-right: 15px;
+  color: #B5B5B5;
+}
+
+.board-submit-button:hover {
+  color: #575454;
 }
