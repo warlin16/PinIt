@@ -28,6 +28,7 @@ class UserShow extends React.Component {
   }
 
   closeModal(e) {
+    e.preventDefault();
     this.props.closeModal();
   }
 
@@ -71,7 +72,7 @@ class UserShow extends React.Component {
             </div>
 
             <div className='user-img'>
-              <div><img src={window.staticImages.tempLogo} /></div>
+              <div><img alt={'Squeezy'} src={window.staticImages.tempLogo} /></div>
             </div>
           </div>
 

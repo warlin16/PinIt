@@ -57,6 +57,7 @@
     padding-top: 10px;
     letter-spacing: -1px;
     text-transform: capitalize;
+    font-weight: 700;
   }
 }
 .content-selector {
@@ -104,6 +105,14 @@
   div:last-of-type {
     color: #9e9e9eb5;
   }
+}
+
+.followers:hover {
+  cursor: pointer;
+}
+
+.following:hover {
+  cursor: pointer;
 }
 
 .user-img {
