@@ -7,20 +7,49 @@ class BoardShow extends React.Component {
       show: false,
       deleteButton: false,
     }
+
+    this.renderButton = this.renderButton.bind(this);
+    this.handleButton = this.handleButton.bind(this);
   }
 
   componentDidMount() {
     this.props.fetchBoard(this.props.match.params.boardId);
-    // window.onscroll = () => this.toggleScroll();
+    window.onscroll = () => this.toggleScroll();
   }
 
   toggleScroll() {
-    // console.log(document.documentElement.scrollTop);
+    // if (document.documentElement.scrollTop >= 68) {
+    //   console.log('Im gonna show when youre ready');
+    // }
+    // if (document.documentElement.scrollTop < 68) {
+    //   console.log(`You're almost getting it!`);
+    // }
+  }
+
+  renderButton() {
+    if (!this.state.deleteButton) {
+      return(
+        <div className='edit-bar animated fadeInUp'>
+          <div><img src={window.staticImages.edit} /></div>
+          <button onClick={this.handleButton}>Organize</button>
+        </div>
+      );
+    } else {
+      return(
+        <div className='edit-bar animated fadeInDown'>
+          <button
+            className='hidden-button'>Delete</button>
+          <button
+            onClick={this.handleButton}
+            className='hidden-button'>Cancel</button>
+        </div>
+      );
+    }
   }
 
   handleButton(e) {
     e.preventDefault();
-    console.log('Im working bro lol');
+    this.setState({ deleteButton: !this.state.deleteButton });
   }
 
   render() {
@@ -28,9 +57,9 @@ class BoardShow extends React.Component {
     this.props.board : {title: '', description: ''};
     return(
         <div className='board-show-content'>
-          <div className='edit-bar animated fadeIn'>
-            <div><img src={window.staticImages.edit} /></div>
-            <button onClick={this.handleButton}>Organize</button>
+          {this.renderButton()}
+          <div className='show-board-title'>
+            {board.title}
           </div>
         </div>
     );
