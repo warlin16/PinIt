@@ -9,11 +9,19 @@ import UserShowContainer from './users/user_container';
 
 const TestComponent = () => {
   return(
-    <div>
+    <div className='Testing'>
       Hello human!
     </div>
   );
 };
+
+const SecondComponent = () => {
+  return(
+    <div className='Testing'>
+      You've found me human!
+    </div>
+  )
+}
 
 const App = ({ currentUser }) => {
   return(
@@ -22,7 +30,8 @@ const App = ({ currentUser }) => {
       <Switch>
         <AuthRoute path="/signup" component={SessionFormContainer} />
         <AuthRoute path='/login' component={SessionFormContainer} />
-        <ProtectedRoute path='/user/:userId' component={UserShowContainer} />
+        <ProtectedRoute exact path='/user/:userId' component={UserShowContainer} />
+        <ProtectedRoute path='/user/board/:boardId' component={SecondComponent} />
         <ProtectedRoute path="/" component={TestComponent} />
       </Switch>
     </div>

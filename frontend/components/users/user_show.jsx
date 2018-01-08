@@ -68,7 +68,7 @@ class UserShow extends React.Component {
   render() {
     const user = this.props.user ? this.props.user : { username: '' };
     this.boards = this.props.boards.map(board => <UserBoardItem
-      key={board.id} title={board.title}
+      key={board.id} id={board.id} title={board.title}
       description={board.description} />);
     return(
       <div className='show-container'>
