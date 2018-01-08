@@ -10,6 +10,7 @@ class BoardShow extends React.Component {
 
     this.renderButton = this.renderButton.bind(this);
     this.handleButton = this.handleButton.bind(this);
+    this.toggleScroll = this.toggleScroll.bind(this);
   }
 
   componentDidMount() {
@@ -18,12 +19,24 @@ class BoardShow extends React.Component {
   }
 
   toggleScroll() {
-    // if (document.documentElement.scrollTop >= 68) {
-    //   console.log('Im gonna show when youre ready');
-    // }
-    // if (document.documentElement.scrollTop < 68) {
-    //   console.log(`You're almost getting it!`);
-    // }
+    if (document.documentElement.scrollTop > 67) {
+      this.setState({ show: true });
+    }
+    if (document.documentElement.scrollTop < 68) {
+      this.setState({ show: false });
+    }
+  }
+
+  renderTitle() {
+    if (this.state.show) {
+      return(
+        <section className='fixed-title animated lightSpeedIn'>
+          {this.props.board ? this.props.board.title : ''}
+        </section>
+      );
+    } else {
+      return null;
+    }
   }
 
   renderButton() {
@@ -31,6 +44,7 @@ class BoardShow extends React.Component {
       return(
         <div className='edit-bar animated fadeInUp'>
           <div><img src={window.staticImages.edit} /></div>
+            {this.renderTitle()}
           <button onClick={this.handleButton}>Organize</button>
         </div>
       );
@@ -39,6 +53,7 @@ class BoardShow extends React.Component {
         <div className='edit-bar animated fadeInDown'>
           <button
             className='hidden-button'>Delete</button>
+            {this.renderTitle()}
           <button
             onClick={this.handleButton}
             className='hidden-button'>Cancel</button>
@@ -60,6 +75,9 @@ class BoardShow extends React.Component {
           {this.renderButton()}
           <div className='show-board-title'>
             {board.title}
+          </div>
+          <div className='pins-count'>
+            0 Pins
           </div>
         </div>
     );

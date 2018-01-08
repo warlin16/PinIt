@@ -59,10 +59,28 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  height: 31%;
-  font-size: 30px;
+  height: 50px;
+  font-size: 40px;
   max-width: 620px;
   width: 100%;
   font-weight: 800;
   text-transform: capitalize;
+  margin-top: 90px;
+}
+
+.fixed-title {
+  font-size: 20px;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.pins-count {
+  max-width: 620px;
+  width: 100%;
+  padding-top: 10px;
+  height: 27px;
+  align-items: center;
+  display: flex;
+  justify-content: flex-start;
+  font-size: 17px;
 }
