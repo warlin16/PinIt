@@ -6,6 +6,8 @@ import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import SessionFormContainer from './sessions/session_form_container';
 import LogoutContainer from './logout/logout_container';
 import UserShowContainer from './users/user_container';
+import BoardShowContainer from './boards/board_show_container';
+
 
 const TestComponent = () => {
   return(
@@ -15,14 +17,6 @@ const TestComponent = () => {
   );
 };
 
-const SecondComponent = () => {
-  return(
-    <div className='Testing'>
-      You've found me human!
-    </div>
-  )
-}
-
 const App = ({ currentUser }) => {
   return(
     <div>
@@ -31,7 +25,7 @@ const App = ({ currentUser }) => {
         <AuthRoute path="/signup" component={SessionFormContainer} />
         <AuthRoute path='/login' component={SessionFormContainer} />
         <ProtectedRoute exact path='/user/:userId' component={UserShowContainer} />
-        <ProtectedRoute path='/user/board/:boardId' component={SecondComponent} />
+        <ProtectedRoute path='/user/board/:boardId' component={BoardShowContainer} />
         <ProtectedRoute path="/" component={TestComponent} />
       </Switch>
     </div>

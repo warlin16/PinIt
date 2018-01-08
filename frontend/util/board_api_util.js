@@ -20,3 +20,10 @@ export const updateBoard = board => {
     data: { board }
   });
 };
+
+export const deleteBoard = id => {
+  return $.ajax({
+    method: 'delete',
+    url: `/api/boards/${id}`,
+  });
+};
