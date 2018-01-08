@@ -21,7 +21,7 @@ class Logout extends React.Component {
     }
   }
 
-  
+
 
   navBar() {
     if (this.props.currentUser) {
@@ -47,7 +47,12 @@ class Logout extends React.Component {
               <Link to='/'>Home</Link>
             </div>
 
-            <button onClick={this.handleLogout}>Logout</button>
+            <div className='show-page'>
+              <Link to={`/user/${this.props.currentUser.id}`}><img src={window.staticImages.tempLogo} />
+              <h1>{this.props.currentUser.username}</h1></Link>
+            </div>
+
+            <button onClick={this.handleLogout }className='logout'>Logout</button>
           </div>
         </nav>
       );

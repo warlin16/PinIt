@@ -69,13 +69,14 @@
 }
 
 .home-page {
-  margin-left: 15px;
-  width: 54px;
+  margin-left: 20px;
+  width: 80px;
   height: 40px;
   display: flex;
   justify-content: center;
   align-items: center;
   transition: border-radius 0.55s cubic-bezier(0.96, 2, 0.36, 0.25), background-color 0.3s linear;
+  font-size: 20px;
   a {
     text-decoration: none;
     font-weight: 700;
@@ -86,4 +87,57 @@
 .home-page:hover {
   border-radius: 50px;
   background-color: #e3e0e0;
+  cursor: pointer;
+}
+
+.show-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 88px;
+  height: 45px;
+  transition: border-radius 0.55s cubic-bezier(0.96, 2, 0.36, 0.25), background-color 0.3s linear;
+  padding-left: 5px;
+
+  a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+  }
+
+  img {
+    width: 40px;
+  border-radius: 20px;
+  margin-right: 6px;
+  }
+
+  h1 {
+    font-size: 20px;
+    margin-left: 4px;
+    text-transform: capitalize;
+    color: #a7a7a7;
+    font-weight: 800;
+  }
+}
+
+.show-page:hover {
+  border-radius: 50px;
+  background-color: #e3e0e0;
+  cursor: pointer;
+}
+
+.logout {
+  margin-left: 15px;
+  border: 0;
+  font-size: 20px;
+  width: 90px;
+  height: 33px;
+  transition: border-radius 0.55s cubic-bezier(0.96, 2, 0.36, 0.25), background-color 0.3s linear;
+}
+
+.logout:hover {
+  border-radius: 50px;
+  background-color: #e3e0e0;
+  cursor: pointer;
 }
