@@ -1,0 +1,50 @@
+.board-show-content {
+  height: 100vh;
+  display: flex;
+  // justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-family: 'Rosario', sans-serif;
+  padding-top: 68px;
+}
+
+.edit-bar {
+  max-width: 820px;
+  width: 50%;
+  height: 55px;
+  position: fixed;
+  padding: 10px 10px 10px 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  div {
+    width: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 45px;
+    border-radius: 10px;
+    transition: border-radius 0.55s cubic-bezier(0.96, 2, 0.36, 0.25), background-color 0.3s linear;
+  }
+
+  img {
+    width: 50px;
+  }
+
+  div:hover {
+    background-color: #e3e0e0;
+    cursor: pointer;
+    border-radius: 15px;
+  }
+
+  button {
+    border: 0;
+    background-color: gainsboro;
+    margin-right: 30px;
+    width: 95px;
+    height: 30px;
+    font-size: 15px;
+    cursor: pointer;
+  }
+}
