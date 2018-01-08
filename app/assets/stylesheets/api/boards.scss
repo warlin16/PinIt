@@ -75,11 +75,12 @@
 .board-show-link {
   text-decoration: none;
   color: black;
+  height: 274px;
 }
 
 .board-items {
   width: 275px;
-  height: 257px;
+  height: 274px;
   margin-left: 10px;
   margin-right: 10px;
   align-items: center;
@@ -96,6 +97,7 @@
 .board-item-title {
   display: flex;
   justify-content: flex-start;
+  flex-direction: column;
   width: 85%;
   height: 10px;
   padding-bottom: 9px;
@@ -113,7 +115,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 13px;
 }
 
 .create-board-container {
@@ -257,4 +258,28 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.board-update-icon {
+}
+
+.edit-pencil {
+  width: 21px;
+  float: right;
+  height: 21px;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  border: 0;
+  background-color: #e9e9e9;
+  cursor: pointer;
+  
+  img {
+    width: 17px;
+  }
+}
+
+.edit-pencil:hover {
+  background-color: #AFAFAF;
+  border-radius: 15px;
 }

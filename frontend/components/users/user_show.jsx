@@ -26,6 +26,10 @@ class UserShow extends React.Component {
     this.props.createBoardModal();
   }
 
+  updateBoard() {
+    
+  }
+
   closeModal(e) {
     this.props.closeModal();
   }
