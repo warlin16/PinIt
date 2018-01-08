@@ -21,6 +21,7 @@ const mapDispatchToProps = (dispatch, { location }) => {
     submitButton,
     formGreeting,
     clearErrors: () => dispatch(receiveErrors([])),
+    login: user => dispatch(login(user)),
   };
 };
 

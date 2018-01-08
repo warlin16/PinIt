@@ -118,3 +118,27 @@
     margin-bottom: 15px;
   }
 }
+
+.guest-login {
+  padding-top: 20px;
+  font-size: 20px;
+}
+
+.guest-button-box {
+  padding-top: 15px;
+
+  button {
+    border-radius: 25px;
+    transition: border-radius 0.55s cubic-bezier(0.96, 2, 0.36, 0.25), background-color 0.3s linear;
+    width: 230px;
+    height: 34px;
+    font-size: 20px;
+    background-color: #5DB93E;
+    color: whitesmoke;
+    cursor: pointer
+  }
+
+  button:hover {
+    background-color: #90cf7b;
+  }
+}

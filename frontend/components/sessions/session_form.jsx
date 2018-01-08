@@ -10,6 +10,7 @@ class SessionForm extends React.Component {
       password: ''
     };
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleGuestLogin = this.handleGuestLogin.bind(this);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -25,9 +26,10 @@ class SessionForm extends React.Component {
   }
 
   handleSubmit(e) {
+    debugger
     e.preventDefault();
     const user = this.state;
-    this.props.processForm({user});
+    this.props.processForm(user);
   }
 
   navLink() {
@@ -51,6 +53,30 @@ class SessionForm extends React.Component {
         </ul>
       </div>
     );
+  }
+
+  guestLogin() {
+    if (this.props.formType === 'signup') {
+      return (
+        <div className='guest-login'>
+          Or try guest login!
+          <div className='guest-button-box'>
+            <button onClick={this.handleGuestLogin}>Guest Login</button>
+          </div>
+        </div>
+      );
+    } else {
+      return null;
+    }
+  }
+
+  handleGuestLogin(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    const user = {username: 'gw', password: 'password'}
+    this.setState(user, () => {
+      this.props.login(user);
+    });
   }
 
   render() {
@@ -86,6 +112,7 @@ class SessionForm extends React.Component {
               </label>
               <input type="submit" value={`${this.props.submitButton}`} className={`${_class}-submit`} />
             </div>
+            {this.guestLogin()}
           </form>
         </div>
       </div>
