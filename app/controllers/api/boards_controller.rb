@@ -16,7 +16,7 @@ class Api::BoardsController < ApplicationController
   end
 
   def update
-    @board = current_user.boards.find(params[:id])
+    @board = Board.find_by_id(params[:id])
     if @board.update_attributes(board_params)
       render 'api/boards/show'
     else

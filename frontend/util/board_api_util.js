@@ -15,7 +15,7 @@ export const createBoard = board => {
 
 export const updateBoard = board => {
   return $.ajax({
-    method: 'post',
+    method: 'patch',
     url: `/api/boards/${board.id}`,
     data: { board }
   });

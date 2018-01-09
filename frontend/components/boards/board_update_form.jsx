@@ -5,8 +5,10 @@ class UpdateBoardForm extends React.Component {
     super(props);
     this.state = {
       title: '',
-      description: ''
+      description: '',
+      id: this.props.boardId,
     };
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   update(field) {
@@ -33,7 +35,7 @@ class UpdateBoardForm extends React.Component {
         <div className='board-form-container' onClick={this.props.stopPropagation}>
           <form className='board-form' onSubmit={this.handleSubmit}>
             <div className='board-form-title'>
-              <h2>Create Board</h2>
+              <h2>Edit This Board</h2>
               <button onClick={this.props.closeModal}><strong>X</strong></button>
             </div>
             <div className='board-info'>
@@ -41,7 +43,7 @@ class UpdateBoardForm extends React.Component {
               <input
                 type='text'
                 value={this.state.title}
-                placeholder='Pick A Title'
+                placeholder={this.props.title}
                 className='board-title'
                 onChange={this.update('title')} />
             </div>
@@ -50,7 +52,7 @@ class UpdateBoardForm extends React.Component {
               <input
                 type='text'
                 value={this.state.description}
-                placeholder='Write a brief description'
+                placeholder={this.props.description}
                 className='board-description'
                 onChange={this.update('description')} />
             </div>
@@ -59,7 +61,7 @@ class UpdateBoardForm extends React.Component {
               <button
                 onClick={this.props.closeModal}
                 className='board-cancel'>Cancel</button>
-              <button className='board-submit-button'>Submit</button>
+              <button className='board-submit-button'>Save</button>
             </div>
           </form>
         </div>

@@ -112,8 +112,10 @@ class BoardShow extends React.Component {
         <UpdateBoardForm
           closeModal={this.closeModal}
           stopPropagation={this.stopPropagation}
-          updateBoard={this.updateBoard}
-          boardId={this.props.board.id} />
+          updateBoard={this.props.updateBoard}
+          boardId={this.props.board.id}
+          title={this.props.board.title}
+          description={this.props.board.description} />
       );
     }
   }
