@@ -5,14 +5,15 @@ import { Link } from 'react-router-dom';
 class Logout extends React.Component {
   constructor(props) {
     super(props);
+    this.handleDropdown = this.handleDropdown.bind(this);
     this.handleLogout = this.handleLogout.bind(this);
-    this.state = { search: '' };
+    this.state = { search: '', dropdown: false };
   }
 
-  handleLogout(e) {
+  handleDropdown(e) {
     e.preventDefault();
-    this.props.logout();
-    this.props.history.push('/');
+    console.log(this.state.dropdown);
+    this.setState({ dropdown: !this.state.dropdown });
   }
 
   update(field) {
@@ -21,7 +22,36 @@ class Logout extends React.Component {
     }
   }
 
+  handleLogout() {
+    this.props.history.push('/');
+    this.props.logout();
+  }
 
+  dropDown() {
+    if (this.state.dropdown) {
+      return(
+        <div className='dropdown-menu'>
+          <div className='dropdown-settings'>
+            <p>Settings</p>
+          </div>
+
+          <section>
+            <a href='https://linkedin.com/in/warlin16'>LinkedIn</a>
+          </section>
+
+          <section>
+            <a href='https://github.com/warlin16'>GitHub</a>
+          </section>
+
+          <div className='dropdown-logout' onClick={this.handleLogout}>
+            <p>Logout</p>
+          </div>
+        </div>
+      );
+    } else {
+      return null;
+    }
+  }
 
   navBar() {
     if (this.props.currentUser) {
@@ -51,9 +81,12 @@ class Logout extends React.Component {
               <Link to={`/user/${this.props.currentUser.id}`}><img src={this.props.currentUser.avatarUrl} />
               <h1>{this.props.currentUser.username}</h1></Link>
             </div>
-
-            <button onClick={this.handleLogout }className='logout'>Logout</button>
+            <div className='logout'
+                onClick={this.handleDropdown} >
+              <img src={window.staticImages.drop} />
+            </div>
           </div>
+          {this.dropDown()}
         </nav>
       );
     } else {
