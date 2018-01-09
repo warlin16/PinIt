@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import UserBoardItem from './user_board_item';
-import BoardForm from '../boards/board_form';
+import BoardForm from '../modals/board_create_modal';
 
 class UserShow extends React.Component {
   constructor(props) {

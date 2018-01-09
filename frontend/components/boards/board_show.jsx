@@ -1,5 +1,6 @@
 import React from 'react';
-import UpdateBoardForm from './board_update_form';
+import UpdateBoardForm from '../modals/board_update_modal';
+import DeleteBoardForm from '../modals/board_delete_modal';
 import { Link } from 'react-router-dom';
 
 class BoardShow extends React.Component {
@@ -15,6 +16,7 @@ class BoardShow extends React.Component {
     this.toggleScroll = this.toggleScroll.bind(this);
     this.updateBoard = this.updateBoard.bind(this);
     this.closeModal = this.closeModal.bind(this);
+    this.deleteModal = this.deleteModal.bind(this);
   }
 
   componentDidMount() {
@@ -62,7 +64,9 @@ class BoardShow extends React.Component {
       return(
         <div className='edit-bar animated fadeInDown'>
           <button
-            className='hidden-button'>Delete</button>
+            onClick={this.deleteModal}
+            className='hidden-button'>
+            Delete</button>
             {this.renderTitle()}
           <button
             onClick={this.handleButton}
@@ -98,12 +102,28 @@ class BoardShow extends React.Component {
     this.props.updateModal();
   }
 
+  deleteModal() {
+    this.props.deleteModal();
+  }
+
   closeModal() {
     this.props.closeModal();
   }
 
   stopPropagation(e) {
     e.stopPropagation();
+  }
+
+  renderBoardDelete() {
+    if (this.props.boardModal === 'delete') {
+      return(
+        <DeleteBoardForm
+          closeModal={this.closeModal}
+          stopPropagation={this.stopPropagation}
+          deleteBoad={this.props.deleteBoard}
+          boardId={this.props.board.id} />
+      );
+    }
   }
 
   renderBoardUpdate() {
@@ -137,6 +157,7 @@ class BoardShow extends React.Component {
             <div className="board-content">
               {this.createPinForm()}
               {this.renderBoardUpdate()}
+              {this.renderBoardDelete()}
               <div className='pin-items'>
                 <div className='pin-item-img'>
                   <div>IMG COMING SOON</div>

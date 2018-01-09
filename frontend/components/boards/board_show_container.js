@@ -1,8 +1,12 @@
 import { connect } from 'react-redux';
-import { fetchBoard,
-         updateBoard,
-         deleteBoard } from '../../actions/board_actions';
-import { updateBoardModal, closeModal } from '../../actions/ui_actions';
+import {
+  fetchBoard,
+  updateBoard,
+  deleteBoard } from '../../actions/board_actions';
+import {
+  updateBoardModal,
+  closeModal,
+  deleteBoardModal } from '../../actions/ui_actions';
 import BoardShow from './board_show';
 
 const mapStateToProps = (state, ownProps) => {
@@ -19,6 +23,7 @@ const mapDispatchToProps = dispatch => {
     updateBoard: board => dispatch(updateBoard(board)),
     deleteBoard: boardId => dispatch(deleteBoard(boardId)),
     updateModal: () => dispatch(updateBoardModal()),
+    deleteModal: () => dispatch(deleteBoardModal()),
     closeModal: () => dispatch(closeModal()),
   };
 }
