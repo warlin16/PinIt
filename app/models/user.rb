@@ -12,7 +12,8 @@ class User < ApplicationRecord
 
   has_many :boards,
     class_name: 'Board',
-    foreign_key: :author_id
+    foreign_key: :author_id,
+    dependent: :destroy
 
   def self.find_by_credentials(username, password)
     user = User.find_by(username: username)
