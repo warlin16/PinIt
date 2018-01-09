@@ -1,4 +1,6 @@
 import React from 'react';
+import UpdateBoardForm from './board_update_form';
+import { Link } from 'react-router-dom';
 
 class BoardShow extends React.Component {
   constructor(props) {
@@ -6,13 +8,13 @@ class BoardShow extends React.Component {
     this.state = {
       show: false,
       deleteButton: false,
-      fade: 'FadeInDown',
-      fadeOut: 'fadeDownOut'
     }
 
     this.renderButton = this.renderButton.bind(this);
     this.handleButton = this.handleButton.bind(this);
     this.toggleScroll = this.toggleScroll.bind(this);
+    this.updateBoard = this.updateBoard.bind(this);
+    this.closeModal = this.closeModal.bind(this);
   }
 
   componentDidMount() {
@@ -49,7 +51,9 @@ class BoardShow extends React.Component {
     if (!this.state.deleteButton) {
       return(
         <div className='edit-bar animated fadeInUp'>
-          <div><img src={window.staticImages.edit} /></div>
+          <div onClick={this.updateBoard}>
+            <img src={window.staticImages.edit} />
+          </div>
             {this.renderTitle()}
           <button onClick={this.handleButton}>Organize</button>
         </div>
@@ -67,7 +71,7 @@ class BoardShow extends React.Component {
       );
     }
   }
-  
+
   handleButton(e) {
     e.preventDefault();
     this.setState({ deleteButton: !this.state.deleteButton });
@@ -90,6 +94,30 @@ class BoardShow extends React.Component {
     }
   }
 
+  updateBoard() {
+    this.props.updateModal();
+  }
+
+  closeModal() {
+    this.props.closeModal();
+  }
+
+  stopPropagation(e) {
+    e.stopPropagation();
+  }
+
+  renderBoardUpdate() {
+    if (this.props.boardModal === 'update') {
+      return(
+        <UpdateBoardForm
+          closeModal={this.closeModal}
+          stopPropagation={this.stopPropagation}
+          updateBoard={this.updateBoard}
+          boardId={this.props.board.id} />
+      );
+    }
+  }
+
   render() {
     const board = this.props.board ?
     this.props.board : {title: '', description: ''};
@@ -106,7 +134,7 @@ class BoardShow extends React.Component {
           <section className='board-content-box'>
             <div className="board-content">
               {this.createPinForm()}
-
+              {this.renderBoardUpdate()}
               <div className='pin-items'>
                 <div className='pin-item-img'>
                   <div>IMG COMING SOON</div>

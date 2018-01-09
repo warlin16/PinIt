@@ -2,12 +2,14 @@ import { connect } from 'react-redux';
 import { fetchBoard,
          updateBoard,
          deleteBoard } from '../../actions/board_actions';
+import { updateBoardModal, closeModal } from '../../actions/ui_actions';
 import BoardShow from './board_show';
 
 const mapStateToProps = (state, ownProps) => {
   return {
     board: state.entities.boards[ownProps.match.params.boardId],
     user: state.session.currentUser,
+    boardModal: state.ui.boardModal,
   };
 }
 
@@ -16,6 +18,8 @@ const mapDispatchToProps = dispatch => {
     fetchBoard: boardId => dispatch(fetchBoard(boardId)),
     updateBoard: board => dispatch(updateBoard(board)),
     deleteBoard: boardId => dispatch(deleteBoard(boardId)),
+    updateModal: () => dispatch(updateBoardModal()),
+    closeModal: () => dispatch(closeModal()),
   };
 }
 
