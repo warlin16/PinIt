@@ -20,6 +20,13 @@ class UserShow extends React.Component {
     if (this.props.match.params.userId !== nextProps.match.params.userId) {
       this.props.fetchUser(nextProps.match.params.userId);
     }
+    if (this.props.match.url !== nextProps.match.url ) {
+      window.scrollTo(0,0);
+    }
+  }
+
+  componentWillUnmount() {
+    window.scrollTo(0, 0);
   }
 
   createBoard(e) {
