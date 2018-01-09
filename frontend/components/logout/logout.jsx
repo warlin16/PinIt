@@ -37,10 +37,12 @@ class Logout extends React.Component {
 
           <section>
             <a href='https://linkedin.com/in/warlin16'>LinkedIn</a>
+            <img src={window.staticImages.linked} />
           </section>
 
           <section>
             <a href='https://github.com/warlin16'>GitHub</a>
+            <img src={window.staticImages.git} />
           </section>
 
           <div className='dropdown-logout' onClick={this.handleLogout}>
