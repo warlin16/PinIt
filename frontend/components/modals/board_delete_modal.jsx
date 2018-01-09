@@ -1,4 +1,5 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 
 class DeleteBoardForm extends React.Component {
   constructor(props) {
@@ -9,8 +10,11 @@ class DeleteBoardForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    debugger
-    console.log('hey');
+    this.props.deleteBoard(this.props.boardId).then(() => {
+      this.props.closeModal();
+    }).then(() => {
+      this.props.history.push(`/user/${this.props.userId}`)
+    });
   }
 
   render() {
@@ -41,4 +45,4 @@ class DeleteBoardForm extends React.Component {
   }
 }
 
-export default DeleteBoardForm;
+export default withRouter(DeleteBoardForm);

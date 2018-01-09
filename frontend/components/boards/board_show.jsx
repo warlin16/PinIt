@@ -23,6 +23,15 @@ class BoardShow extends React.Component {
     window.onscroll = () => this.toggleScroll();
   }
 
+  shouldComponentUpdate(nextProps) {
+    debugger
+    if (nextProps.board) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
   toggleScroll() {
     if (document.documentElement.scrollTop >= 140) {
       this.setState({ show: true });
@@ -115,14 +124,14 @@ class BoardShow extends React.Component {
 
   renderBoardDelete() {
     if (this.props.boardModal === 'delete') {
+      debugger
       return(
         <DeleteBoardForm
           closeModal={this.closeModal}
           stopPropagation={this.stopPropagation}
           deleteBoard={this.props.deleteBoard}
           boardId={this.props.board.id}
-          userId={this.props.user.id}
-          history={this.history} />
+          userId={this.props.user.id} />
       );
     }
   }

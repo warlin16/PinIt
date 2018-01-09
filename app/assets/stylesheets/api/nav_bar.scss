@@ -49,9 +49,10 @@
   background-color: gainsboro;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   border-radius: 2px;
   padding-left: 15px;
+  width: 76%;
 
   img {
     width: 22px;
