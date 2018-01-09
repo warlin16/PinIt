@@ -123,7 +123,6 @@ class BoardShow extends React.Component {
 
   renderBoardDelete() {
     if (this.props.boardModal === 'delete') {
-      debugger
       return(
         <DeleteBoardForm
           closeModal={this.closeModal}
