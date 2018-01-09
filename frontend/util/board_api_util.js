@@ -21,9 +21,9 @@ export const updateBoard = board => {
   });
 };
 
-export const deleteBoard = id => {
+export const deleteBoard = boardId => {
   return $.ajax({
     method: 'delete',
-    url: `/api/boards/${id}`,
+    url: `/api/boards/${boardId}`,
   });
 };

@@ -25,7 +25,8 @@ class Api::BoardsController < ApplicationController
   end
 
   def destroy
-
+    board = Board.find_by_id(params[:id])
+    board.destroy
   end
 
   private
