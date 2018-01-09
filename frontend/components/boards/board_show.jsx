@@ -24,7 +24,6 @@ class BoardShow extends React.Component {
   }
 
   shouldComponentUpdate(nextProps) {
-    debugger
     if (nextProps.board) {
       return true;
     } else {
