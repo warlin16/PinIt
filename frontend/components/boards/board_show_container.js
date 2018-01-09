@@ -7,7 +7,7 @@ import BoardShow from './board_show';
 const mapStateToProps = (state, ownProps) => {
   return {
     board: state.entities.boards[ownProps.match.params.boardId],
-    currentUser: state.session.currentUser,
+    user: state.session.currentUser,
   };
 }
 

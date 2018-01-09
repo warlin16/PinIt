@@ -6,6 +6,8 @@ class BoardShow extends React.Component {
     this.state = {
       show: false,
       deleteButton: false,
+      fade: 'FadeInDown',
+      fadeOut: 'fadeDownOut'
     }
 
     this.renderButton = this.renderButton.bind(this);
@@ -19,10 +21,10 @@ class BoardShow extends React.Component {
   }
 
   toggleScroll() {
-    if (document.documentElement.scrollTop > 67) {
+    if (document.documentElement.scrollTop >= 140) {
       this.setState({ show: true });
     }
-    if (document.documentElement.scrollTop < 68) {
+    if (document.documentElement.scrollTop < 140) {
       this.setState({ show: false });
     }
   }
@@ -30,12 +32,16 @@ class BoardShow extends React.Component {
   renderTitle() {
     if (this.state.show) {
       return(
-        <section className='fixed-title animated lightSpeedIn'>
+        <section className='fixed-title animated fadeInRight'>
           {this.props.board ? this.props.board.title : ''}
         </section>
       );
     } else {
-      return null;
+      return(
+        <section className='fixed-title animated fadeOutRight'>
+          {this.props.board ? this.props.board.title : ''}
+        </section>
+      );
     }
   }
 
@@ -61,10 +67,27 @@ class BoardShow extends React.Component {
       );
     }
   }
-
+  
   handleButton(e) {
     e.preventDefault();
     this.setState({ deleteButton: !this.state.deleteButton });
+  }
+
+  createPinForm() {
+    if (!this.props.board) return null;
+    if (this.props.board.author_id === this.props.user.id) {
+      return(
+        <div className='pin-create' onClick={this.createBoard}>
+          <div className='pin-create-button'>
+            <div>+</div>
+          </div>
+
+          <div className='pin-create-title'>
+            <div>Create A Pin!</div>
+          </div>
+        </div>
+      );
+    }
   }
 
   render() {
@@ -79,13 +102,76 @@ class BoardShow extends React.Component {
           <div className='pins-count'>
             0 Pins
           </div>
+
+          <section className='board-content-box'>
+            <div className="board-content">
+              {this.createPinForm()}
+
+              <div className='pin-items'>
+                <div className='pin-item-img'>
+                  <div>IMG COMING SOON</div>
+                </div>
+
+                <div className='pin-item-title'>
+                  <div>Pin Title Coming Soon!</div>
+                </div>
+              </div>
+
+              <div className='pin-items'>
+                <div className='pin-item-img'>
+                  <div>IMG COMING SOON</div>
+                </div>
+
+                <div className='pin-item-title'>
+                  <div>Pin Title Coming Soon!</div>
+                </div>
+              </div>
+
+              <div className='pin-items'>
+                <div className='pin-item-img'>
+                  <div>IMG COMING SOON</div>
+                </div>
+
+                <div className='pin-item-title'>
+                  <div>Pin Title Coming Soon!</div>
+                </div>
+              </div>
+
+              <div className='pin-items'>
+                <div className='pin-item-img'>
+                  <div>IMG COMING SOON</div>
+                </div>
+
+                <div className='pin-item-title'>
+                  <div>Pin Title Coming Soon!</div>
+                </div>
+              </div>
+
+              <div className='pin-items'>
+                <div className='pin-item-img'>
+                  <div>IMG COMING SOON</div>
+                </div>
+
+                <div className='pin-item-title'>
+                  <div>Pin Title Coming Soon!</div>
+                </div>
+              </div>
+
+              <div className='pin-items'>
+                <div className='pin-item-img'>
+                  <div>IMG COMING SOON</div>
+                </div>
+
+                <div className='pin-item-title'>
+                  <div>Pin Title Coming Soon!</div>
+                </div>
+              </div>
+            </div>
+
+          </section>
         </div>
     );
   }
 }
-
-
-
-
 
 export default BoardShow;
