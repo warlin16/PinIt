@@ -14,11 +14,23 @@ class DeleteBoardForm extends React.Component {
 
   render() {
     return(
-      <div className='create-board-container' onClick={this.props.closeModal}>
+      <div className='board-delete-container' onClick={this.props.closeModal}>
 
-        <div className='board-form-container' onClick={this.props.stopPropagation}>
-          <h1> Are you sure you want to delete this board? </h1>
-          <button onClick={this.handleSubmit}>Delete :(</button>
+        <div className='board-delete-box' onClick={this.props.stopPropagation}>
+          <div className='board-delete-title'>
+            <h1> Don't do it... </h1>
+            <strong>X</strong>
+          </div>
+          <div className='board-delete-content'>
+            <p>
+              Once you delete a board and all it's pins,
+               you can't go back! Think about it... </p>
+          </div>
+          <div className='board-delete-buttons'>
+            <button className='delete-cancel'>Cancel</button>
+            <button className='delete-submit' onClick={this.handleSubmit}>Delete :(</button>
+          </div>
+
         </div>
 
       </div>
