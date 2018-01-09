@@ -97,7 +97,7 @@ class UserShow extends React.Component {
             </div>
 
             <div className='user-img'>
-              <div><img alt={'Squeezy'} src={window.staticImages.tempLogo} /></div>
+              <div><img alt={'Squeezy'} src={this.props.user ? this.props.user.avatarUrl : ''} /></div>
             </div>
           </div>
 
