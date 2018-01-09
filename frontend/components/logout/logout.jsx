@@ -48,7 +48,7 @@ class Logout extends React.Component {
             </div>
 
             <div className='show-page'>
-              <Link to={`/user/${this.props.currentUser.id}`}><img src={window.staticImages.tempLogo} />
+              <Link to={`/user/${this.props.currentUser.id}`}><img src={this.props.currentUser.avatarUrl} />
               <h1>{this.props.currentUser.username}</h1></Link>
             </div>
 
