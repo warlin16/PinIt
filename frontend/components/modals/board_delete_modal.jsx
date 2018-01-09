@@ -9,7 +9,8 @@ class DeleteBoardForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    console.log('LOL IM WORKING BROOOO');
+    debugger
+    console.log('hey');
   }
 
   render() {
@@ -19,7 +20,7 @@ class DeleteBoardForm extends React.Component {
         <div className='board-delete-box' onClick={this.props.stopPropagation}>
           <div className='board-delete-title'>
             <h1> Don't do it... </h1>
-            <strong>X</strong>
+            <strong onClick={this.props.closeModal}>X</strong>
           </div>
           <div className='board-delete-content'>
             <p>
@@ -27,7 +28,9 @@ class DeleteBoardForm extends React.Component {
                you can't go back! Think about it... </p>
           </div>
           <div className='board-delete-buttons'>
-            <button className='delete-cancel'>Cancel</button>
+            <button
+              className='delete-cancel'
+              onClick={this.props.closeModal} >Cancel</button>
             <button className='delete-submit' onClick={this.handleSubmit}>Delete :(</button>
           </div>
 

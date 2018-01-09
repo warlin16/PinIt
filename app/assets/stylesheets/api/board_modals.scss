@@ -12,6 +12,7 @@
   right: 0;
   overflow: scroll;
   z-index: 5;
+  cursor: zoom-out;
 }
 
 .board-delete-box {
@@ -23,6 +24,7 @@
   align-items: center;
   background-color: white;
   flex-direction: column;
+  cursor: default;
 }
 
 .board-delete-title {

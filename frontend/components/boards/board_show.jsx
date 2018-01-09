@@ -10,7 +10,6 @@ class BoardShow extends React.Component {
       show: false,
       deleteButton: false,
     }
-
     this.renderButton = this.renderButton.bind(this);
     this.handleButton = this.handleButton.bind(this);
     this.toggleScroll = this.toggleScroll.bind(this);
@@ -120,8 +119,10 @@ class BoardShow extends React.Component {
         <DeleteBoardForm
           closeModal={this.closeModal}
           stopPropagation={this.stopPropagation}
-          deleteBoad={this.props.deleteBoard}
-          boardId={this.props.board.id} />
+          deleteBoard={this.props.deleteBoard}
+          boardId={this.props.board.id}
+          userId={this.props.user.id}
+          history={this.history} />
       );
     }
   }
