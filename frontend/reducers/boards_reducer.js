@@ -19,7 +19,7 @@ const boardsReducer = (state = {}, action) => {
       return newState;
     default:
       return state;
-  };
+  }
 };
 
 export default boardsReducer;

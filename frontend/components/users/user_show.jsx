@@ -142,6 +142,10 @@ class UserShow extends React.Component {
           <div className='user-content'>
             <div>
               Let us see who is superior!
+              <img
+                src={this.props.user.pinIds[0].img}
+                className='animated fadeIn'/>
+
             </div>
           </div>
         );
