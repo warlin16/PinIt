@@ -81,15 +81,15 @@ class UserShow extends React.Component {
       (this.props.match.url === `/user/${this.props.user.id}`)) {
       return(
         <Link to={`/user/${this.props.user.id}`}
-          className='user-board-link-styled'>
-          Boards
+          className='user-board-link styled'>
+          <p>Boards</p>
         </Link>
       );
     } else if (this.props.user) {
       return(
         <Link to={`/user/${this.props.user.id}`}
           className='user-board-link'>
-          Boards
+          <p>Boards</p>
         </Link>
       );
     } else {
@@ -102,15 +102,15 @@ class UserShow extends React.Component {
     (this.props.match.url === `/user/${this.props.user.id}/pins`)) {
       return(
         <Link to={`/user/${this.props.user.id}/pins`}
-          className='user-pin-link-styled'>
-          Pins
+          className='user-pins-link styled'>
+          <p>Pins</p>
         </Link>
       );
     } else if (this.props.user) {
       return(
         <Link to={`/user/${this.props.user.id}/pins`}
           className='user-pins-link'>
-          Pins
+          <p>Pins</p>
         </Link>
       );
     } else {
