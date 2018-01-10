@@ -1,4 +1,5 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 
 class PinForm extends React.Component {
   constructor(props) {
@@ -8,12 +9,13 @@ class PinForm extends React.Component {
       title: '',
       description: '',
       imageFile: null,
-      imageUrl: null
+      imageUrl: null,
+      author_id: this.props.currentUserId,
     };
 
-    debugger
     this.toggleModal = this.toggleModal.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.updateFile = this.updateFile.bind(this);
   }
 
   toggleModal(e) {
@@ -35,19 +37,27 @@ class PinForm extends React.Component {
     }
 
     if (file) {
-      fileReader.readAsDataUrl(file);
+      fileReader.readAsDataURL(file);
     }
   }
 
   handleSubmit(e) {
-
+    e.preventDefault();
+    const formData = new FormData();
+    formData.append('pin[title]', this.state.title);
+    formData.append('pin[description]', this.state.description);
+    formData.append('pin[author_id]', this.state.author_id);
+    if (this.state.imageFile) formData.append('pin[image]', this.state.imageFile);
+    this.props.createPin(formData).then(() => {
+      this.props.closeModal();
+    });
   }
 
   render() {
     return(
       <div className='create-pin-container' onClick={this.props.closeModal}>
         <div className='pin-form-container animated fadeIn' onClick={this.props.stopPropagation}>
-          <form className='pin-form'>
+          <form className='pin-form' onSubmit={this.handleSubmit}>
             <div className='pin-form-title'>
               <div className='pin-title'><h1> Create A Pin </h1></div>
               <div className='pin-close-button'><button onClick={this.toggleModal}>X</button></div>
@@ -57,7 +67,7 @@ class PinForm extends React.Component {
               <div className='pin-file-box'>
                 <div>
                   <label>Click to pin img!
-                    <input type='file' />
+                    <input type='file' onChange={this.updateFile} />
                   </label>
                   <img src={window.staticImages.camera} />
                 </div>
@@ -66,12 +76,14 @@ class PinForm extends React.Component {
               <div className='pin-input-box'>
                 <div className='pin-input-title'>
                   <h3>Title</h3>
-                  <input type='text' placeholder='Pin a title' />
+                  <input type='text' placeholder='Pin a title'
+                    onChange={this.update('title')} />
                 </div>
 
                 <div className='pin-input-description'>
                   <h3>Description</h3>
-                  <textarea placeholder='Pin a description'></textarea>
+                  <textarea placeholder='Pin a description'
+                    onChange={this.update('description')}></textarea>
                 </div>
               </div>
 
@@ -87,4 +99,4 @@ class PinForm extends React.Component {
   }
 }
 
-export default PinForm;
+export default withRouter(PinForm);

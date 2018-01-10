@@ -7,6 +7,7 @@ class Api::PinsController < ApplicationController
 
   def create
     @pin = Pin.new(pin_params)
+    debugger
 
     if @pin.save
       render 'api/pins/show'
@@ -36,6 +37,6 @@ class Api::PinsController < ApplicationController
 
   private
   def pin_params
-    params.require(:pin).permit(:title, :description, :image)
+    params.require(:pin).permit(:title, :description, :image, :author_id)
   end
 end
