@@ -12,6 +12,7 @@ class UserShow extends React.Component {
     this.boards = [];
     this.pins = [];
     this.createBoard = this.createBoard.bind(this);
+    this.createPin = this.createPin.bind(this);
     this.closeModal = this.closeModal.bind(this);
     this.boardIndex = this.boardIndex.bind(this);
     this.pinIndex = this.pinIndex.bind(this);
@@ -36,16 +37,31 @@ class UserShow extends React.Component {
     window.scrollTo(0, 0);
   }
 
-  createBoard(e) {
+  createBoard() {
     this.props.createBoardModal();
   }
 
-  closeModal(e) {
+  closeModal() {
     this.props.closeModal();
+  }
+
+  createPin() {
+    this.props.createPinModal();
   }
 
   stopPropagation(e) {
     e.stopPropagation();
+  }
+
+  renderPinCreate() {
+    if (this.props.pinModal === 'create') {
+      return(
+        <PinForm
+          closeModal={this.closeModal}
+          stopPropagation={this.stopPropagation}
+          />
+      );
+    }
   }
 
   renderBoardCreate() {
@@ -83,7 +99,7 @@ class UserShow extends React.Component {
     if (!this.props.user) return null;
     if (this.props.user.id === this.props.currentUser.id) {
       return(
-        <div className='pin-create'>
+        <div className='pin-create' onClick={this.createPin}>
           <div className='pin-create-button'>
             <div>+</div>
           </div>
@@ -165,6 +181,7 @@ class UserShow extends React.Component {
       (this.props.match.url === `/user/${this.props.user.id}/pins`)) {
         return(
           <div className='user-content'>
+            {this.renderPinCreate()}
             {this.createPinForm()}
             {this.pins}
           </div>

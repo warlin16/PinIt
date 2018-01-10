@@ -16,4 +16,143 @@
   right: 0;
   overflow: scroll;
   z-index: 5;
+  cursor: zoom-out;
+}
+
+.pin-form-container {
+  max-width: 610px;
+  width: 100%;
+  height: 500px;
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  flex-direction: columm;
+  z-index: 7;
+  cursor: default;
+}
+
+.pin-form {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.pin-form-title {
+  width: 100%;
+  height: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 2px solid gainsboro;
+}
+
+.pin-title {
+  width: 92%;
+  display: flex;
+  justify-content: center;
+
+  h1 {
+    font-size: 20px;
+    font-weight: 600;
+  }
+}
+
+.pin-close-button {
+  width: 40px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 15px;
+
+  button {
+    border: 0;
+    font-size: 20px;
+    border-radius: 50px;
+    background: none;
+    background-color: none;
+  }
+
+  button:hover {
+    background-color: gainsboro;
+    cursor: pointer;
+  }
+}
+
+.pin-close-button:hover {
+  background-color: gainsboro;
+  cursor: pointer;
+}
+
+.pin-form-body {
+  height: 75%;
+  width: 100%;
+  display: flex;
+  border-bottom: 2px solid gainsboro;
+}
+
+.pin-file-box {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  div {
+    height: 70%;
+    width: 70%;
+    background-color: #DBDADA;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  label {
+    color: #575756;
+    cursor: pointer;
+    input {
+      display: none;
+    }
+  }
+
+  img {
+    width: 30px;
+    padding-top: 5px;
+  }
+}
+
+.pin-input-box {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.pin-input-title {
+  height: 20%;
+
+  input {
+    border: 0;
+    background-color: gainsboro;
+    padding: 10px;
+    font-size: 17px;
+    margin-top: 5px;
+  }
+}
+
+.pin-input-description {
+  height: 50%;
+
+  textarea {
+    border: 0;
+    background-color: gainsboro;
+    padding: 10px;
+    font-size: 17px;
+    margin-top: 5px;
+    resize: none;
+  }
 }
