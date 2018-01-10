@@ -156,3 +156,27 @@
     resize: none;
   }
 }
+
+.pin-form-submit {
+  height: 15%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  button {
+    height: 35px;
+    width: 70px;
+    border: 0;
+    background-color: #a51728;
+    color: white;
+    font-weight: 500;
+    font-size: 13px;
+    transition: cubic-bezier(0.96, 2, 0.36, 0.25), background-color 0.3s linear;
+  }
+
+  button:hover {
+    background-color: #c61b30;
+    cursor: pointer;
+  }
+}

@@ -32,7 +32,7 @@ class UpdateBoardForm extends React.Component {
     return(
       <div className='create-board-container' onClick={this.props.closeModal}>
 
-        <div className='board-form-container' onClick={this.props.stopPropagation}>
+        <div className='board-form-container animated fadeIn' onClick={this.props.stopPropagation}>
           <form className='board-form' onSubmit={this.handleSubmit}>
             <div className='board-form-title'>
               <h2>Edit This Board</h2>

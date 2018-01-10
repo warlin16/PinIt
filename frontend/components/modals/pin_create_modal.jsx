@@ -22,7 +22,7 @@ class PinForm extends React.Component {
   render() {
     return(
       <div className='create-pin-container' onClick={this.props.closeModal}>
-        <div className='pin-form-container' onClick={this.props.stopPropagation}>
+        <div className='pin-form-container animated fadeIn' onClick={this.props.stopPropagation}>
           <form className='pin-form'>
             <div className='pin-form-title'>
               <div className='pin-title'><h1> Create A Pin </h1></div>
@@ -32,7 +32,7 @@ class PinForm extends React.Component {
             <div className='pin-form-body'>
               <div className='pin-file-box'>
                 <div>
-                  <label>Click to Pin!
+                  <label>Click to pin img!
                     <input type='file' />
                   </label>
                   <img src={window.staticImages.camera} />
@@ -54,6 +54,7 @@ class PinForm extends React.Component {
             </div>
 
             <div className='pin-form-submit'>
+              <button> Pin It! :) </button>
             </div>
           </form>
         </div>

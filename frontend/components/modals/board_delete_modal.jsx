@@ -21,7 +21,7 @@ class DeleteBoardForm extends React.Component {
     return(
       <div className='board-delete-container' onClick={this.props.closeModal}>
 
-        <div className='board-delete-box' onClick={this.props.stopPropagation}>
+        <div className='board-delete-box animated fadeIn' onClick={this.props.stopPropagation}>
           <div className='board-delete-title'>
             <h1> Don't do it... </h1>
             <strong onClick={this.props.closeModal}>X</strong>
