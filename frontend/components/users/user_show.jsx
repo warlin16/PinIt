@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import UserBoardItem from './user_board_item';
+import UserPinItem from './user_pin_item';
 import BoardForm from '../modals/board_create_modal';
 
 class UserShow extends React.Component {
@@ -8,6 +9,7 @@ class UserShow extends React.Component {
     super(props);
 
     this.boards = [];
+    this.pins = [];
     this.createBoard = this.createBoard.bind(this);
     this.closeModal = this.closeModal.bind(this);
     this.boardIndex = this.boardIndex.bind(this);
@@ -141,11 +143,7 @@ class UserShow extends React.Component {
         return(
           <div className='user-content'>
             <div>
-              Let us see who is superior!
-              <img
-                src={this.props.user.pinIds[0].img}
-                className='animated fadeIn'/>
-
+              {this.pins}
             </div>
           </div>
         );
@@ -161,6 +159,9 @@ class UserShow extends React.Component {
     this.boards = this.props.boards.map(board => <UserBoardItem
       key={board.id} id={board.id} title={board.title}
       description={board.description} />);
+      this.pins = this.props.pins.map(pin => <UserPinItem
+      key={pin.id} id={pin.id} title={pin.title}
+      description={pin.description} url={pin.img} />);
     return(
       <div className='show-container'>
         <div className='user-bio-box'>

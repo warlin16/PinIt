@@ -6,10 +6,12 @@ import { Link } from 'react-router-dom';
 class BoardShow extends React.Component {
   constructor(props) {
     super(props);
+
     this.state = {
       show: false,
       deleteButton: false,
-    }
+    };
+    this.pins = [];
     this.renderButton = this.renderButton.bind(this);
     this.handleButton = this.handleButton.bind(this);
     this.toggleScroll = this.toggleScroll.bind(this);
@@ -168,7 +170,7 @@ class BoardShow extends React.Component {
               {this.renderBoardDelete()}
               <div className='pin-items'>
                 <div className='pin-item-img'>
-                  <div>IMG COMING SOON</div>
+                  <div>😎</div>
                 </div>
 
                 <div className='pin-item-title'>

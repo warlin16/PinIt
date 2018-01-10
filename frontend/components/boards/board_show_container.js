@@ -13,6 +13,7 @@ const mapStateToProps = (state, ownProps) => {
   return {
     board: state.entities.boards[ownProps.match.params.boardId],
     user: state.session.currentUser,
+    pins: Object.values(state.entities.pins),
     boardModal: state.ui.boardModal,
   };
 }

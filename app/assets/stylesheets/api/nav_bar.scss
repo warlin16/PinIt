@@ -12,6 +12,7 @@
   border-bottom: 2px solid gainsboro;
   background: white;
   z-index: 1;
+  overflow: scroll;
 }
 
 .nav-container {
@@ -165,6 +166,8 @@
   align-items: center;
   flex-direction: column;
   border: 1px solid #DCDCDC;
+  background: white;
+  z-index: 7;
 
   section {
     width: 100%;
