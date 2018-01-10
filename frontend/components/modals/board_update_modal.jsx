@@ -4,8 +4,8 @@ class UpdateBoardForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      title: '',
-      description: '',
+      title: this.props.title,
+      description: this.props.description,
       id: this.props.boardId,
     };
     this.handleSubmit = this.handleSubmit.bind(this);
