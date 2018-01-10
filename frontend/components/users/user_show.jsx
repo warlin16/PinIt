@@ -141,7 +141,7 @@ class UserShow extends React.Component {
         return(
           <div className='user-content'>
             <div>
-              Let's us see who is superior!
+              Let us see who is superior!
             </div>
           </div>
         );

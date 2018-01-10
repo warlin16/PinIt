@@ -9,10 +9,9 @@ json.boardIds user.boards do |board|
   json.description board.description
 end
 
-# json.board_ids user.boards, :id, :title, :description
-
-# user.boards.to_a.each do |board|
-#   json.set! board.id do
-#     json.extract! board, :id
-#   end
-# end
+json.pinIds user.pins do |pin|
+  json.id pin.id
+  json.title pin.title
+  json.description pin.description
+  json.img asset_path(pin.image.url)
+end
