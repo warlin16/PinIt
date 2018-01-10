@@ -59,6 +59,8 @@ class UserShow extends React.Component {
         <PinForm
           closeModal={this.closeModal}
           stopPropagation={this.stopPropagation}
+          currentUserId={this.props.currentUser.id}
+          createPin={this.props.createPin}
           />
       );
     }

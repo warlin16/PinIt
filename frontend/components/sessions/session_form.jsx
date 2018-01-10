@@ -87,7 +87,8 @@ class SessionForm extends React.Component {
           {this.renderErrors()}
           {this.navLink()}
           <div className={`${_class}-logo`}>
-            <img src={window.staticImages.pinitLogo} />
+            <img src={window.staticImages.pinitLogo}
+              className='animated slideInRight' />
           </div>
           <div className={`${_class}-greeting`}>
             <h1>{this.props.formGreeting}</h1>

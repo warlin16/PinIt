@@ -11,12 +11,36 @@ class PinForm extends React.Component {
       imageUrl: null
     };
 
+    debugger
     this.toggleModal = this.toggleModal.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   toggleModal(e) {
     e.preventDefault();
     this.props.closeModal();
+  }
+
+  update(field) {
+    return e => {
+      this.setState({ [field]: e.target.value });
+    }
+  }
+
+  updateFile(e) {
+    const file = e.currentTarget.files[0];
+    const fileReader = new FileReader();
+    fileReader.onloadend = () => {
+      this.setState({ imageFile: file, imageUrl: fileReader.result });
+    }
+
+    if (file) {
+      fileReader.readAsDataUrl(file);
+    }
+  }
+
+  handleSubmit(e) {
+
   }
 
   render() {

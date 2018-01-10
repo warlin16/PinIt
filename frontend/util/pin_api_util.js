@@ -12,11 +12,13 @@ export const fetchPins = () => {
   });
 };
 
-export const createPin = pin => {
+export const createPin = formData => {
   return $.ajax({
     method: 'post',
     url: `/api/pins`,
-    data: { pin }
+    contentType: false,
+    processData: false,
+    data: formData
   });
 };
 

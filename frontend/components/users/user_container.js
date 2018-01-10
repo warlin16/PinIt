@@ -5,6 +5,7 @@ import { createBoardModal,
   closeModal,
   createPinModal } from '../../actions/ui_actions';
 import { createBoard } from '../../actions/board_actions';
+import { createPin } from '../../actions/pin_actions';
 import UserShow from './user_show';
 
 const mapStateToProps = (state, ownProps) => {
@@ -25,6 +26,7 @@ const mapDispatchToProps = dispatch => {
     closeModal: () => dispatch(closeModal()),
     createPinModal: () => dispatch(createPinModal()),
     createBoard: board => dispatch(createBoard(board)),
+    createPin: formData => dispatch(createPin(formData)),
   };
 }
 

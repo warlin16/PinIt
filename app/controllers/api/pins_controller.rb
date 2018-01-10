@@ -2,7 +2,7 @@ class Api::PinsController < ApplicationController
 
   def index
     @pins = Pin.all
-    render 'api/pins/show'
+    render 'api/pins/index'
   end
 
   def create
@@ -36,6 +36,6 @@ class Api::PinsController < ApplicationController
 
   private
   def pin_params
-    params.require(:pin).permit(:title, :)
+    params.require(:pin).permit(:title, :description, :image)
   end
 end
