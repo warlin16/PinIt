@@ -12,8 +12,11 @@ class Logout extends React.Component {
 
   handleDropdown(e) {
     e.preventDefault();
-    console.log(this.state.dropdown);
     this.setState({ dropdown: !this.state.dropdown });
+  }
+
+  componentWillReceiveProps(nextProps) {
+    this.setState({ dropdown: false });
   }
 
   update(field) {

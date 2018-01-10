@@ -24,6 +24,7 @@ const App = ({ currentUser }) => {
       <Switch>
         <AuthRoute path="/signup" component={SessionFormContainer} />
         <AuthRoute path='/login' component={SessionFormContainer} />
+        <ProtectedRoute exact path='/user/:userId/pins' component={UserShowContainer} />
         <ProtectedRoute exact path='/user/:userId' component={UserShowContainer} />
         <ProtectedRoute path='/user/board/:boardId' component={BoardShowContainer} />
         <ProtectedRoute path="/" component={TestComponent} />

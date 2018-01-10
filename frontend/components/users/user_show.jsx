@@ -10,6 +10,10 @@ class UserShow extends React.Component {
     this.boards = [];
     this.createBoard = this.createBoard.bind(this);
     this.closeModal = this.closeModal.bind(this);
+    this.boardIndex = this.boardIndex.bind(this);
+    this.pinIndex = this.pinIndex.bind(this);
+    this.renderBoards = this.renderBoards.bind(this);
+    this.renderPins = this.renderPins.bind(this);
   }
 
   componentDidMount() {
@@ -72,8 +76,84 @@ class UserShow extends React.Component {
     }
   }
 
+  boardIndex() {
+    if (this.props.user &&
+      (this.props.match.url === `/user/${this.props.user.id}`)) {
+      return(
+        <Link to={`/user/${this.props.user.id}`}
+          className='user-board-link-styled'>
+          Boards
+        </Link>
+      );
+    } else if (this.props.user) {
+      return(
+        <Link to={`/user/${this.props.user.id}`}
+          className='user-board-link'>
+          Boards
+        </Link>
+      );
+    } else {
+      return null;
+    }
+  }
+
+  pinIndex() {
+    if (this.props.user &&
+    (this.props.match.url === `/user/${this.props.user.id}/pins`)) {
+      return(
+        <Link to={`/user/${this.props.user.id}/pins`}
+          className='user-pin-link-styled'>
+          Pins
+        </Link>
+      );
+    } else if (this.props.user) {
+      return(
+        <Link to={`/user/${this.props.user.id}/pins`}
+          className='user-pins-link'>
+          Pins
+        </Link>
+      );
+    } else {
+      return null;
+    }
+  }
+
+  renderBoards() {
+    if (this.props.user &&
+      (this.props.match.url === `/user/${this.props.user.id}`)) {
+        return(
+          <div className='user-content'>
+            {this.renderBoardCreate()}
+            {this.createBoardForm()}
+            {this.boards}
+          </div>
+        );
+    } else if (this.props.user) {
+        return null;
+    } else {
+        return null;
+    }
+  }
+
+  renderPins() {
+    if (this.props.user &&
+      (this.props.match.url === `/user/${this.props.user.id}/pins`)) {
+        return(
+          <div className='user-content'>
+            <div>
+              Let's us see who is superior!
+            </div>
+          </div>
+        );
+    } else if (this.props.user) {
+        return null;
+    } else {
+        return null;
+    }
+  }
+
   render() {
-    const user = this.props.user ? this.props.user : { username: '' };
+    const user = this.props.user ? this.props.user : { username: '', id: '' };
     this.boards = this.props.boards.map(board => <UserBoardItem
       key={board.id} id={board.id} title={board.title}
       description={board.description} />);
@@ -102,19 +182,15 @@ class UserShow extends React.Component {
           </div>
 
           <div className='content-selector'>
-            <Link to='/'>BACK TO FEED</Link>
-            <button>BOARDS</button>
-            <button>PINS</button>
+            {this.boardIndex()}
+            {this.pinIndex()}
           </div>
 
         </div>
 
           <section className='user-content-box'>
-            <div className='user-content'>
-              {this.renderBoardCreate()}
-              {this.createBoardForm()}
-              {this.boards}
-            </div>
+            {this.renderBoards()}
+            {this.renderPins()}
           </section>
 
       </div>
