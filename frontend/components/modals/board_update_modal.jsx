@@ -40,7 +40,7 @@ class UpdateBoardForm extends React.Component {
             </div>
             <div className='board-info'>
               <h3> Name </h3>
-              <input
+              <input onClick={this.clearForm}
                 type='text'
                 value={this.state.title}
                 placeholder={this.props.title}
@@ -49,7 +49,7 @@ class UpdateBoardForm extends React.Component {
             </div>
             <div className="board-info">
               <h3> Description </h3>
-              <input
+              <input onClick={this.clearForm}
                 type='text'
                 value={this.state.description}
                 placeholder={this.props.description}

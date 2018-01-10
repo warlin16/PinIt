@@ -1,7 +1,9 @@
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { fetchUser } from '../../actions/user_actions';
-import { createBoardModal, closeModal } from '../../actions/ui_actions';
+import { createBoardModal,
+  closeModal,
+  createPinModal } from '../../actions/ui_actions';
 import { createBoard } from '../../actions/board_actions';
 import UserShow from './user_show';
 
@@ -11,6 +13,7 @@ const mapStateToProps = (state, ownProps) => {
     boards: Object.values(state.entities.boards),
     pins: Object.values(state.entities.pins),
     boardModal: state.ui.boardModal,
+    pinModal: state.ui.pinModal,
     currentUser: state.session.currentUser,
   };
 }
@@ -20,6 +23,7 @@ const mapDispatchToProps = dispatch => {
     fetchUser: userId => dispatch(fetchUser(userId)),
     createBoardModal: () => dispatch(createBoardModal()),
     closeModal: () => dispatch(closeModal()),
+    createPinModal: () => dispatch(createPinModal()),
     createBoard: board => dispatch(createBoard(board)),
   };
 }

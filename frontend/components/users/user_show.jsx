@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import UserBoardItem from './user_board_item';
 import UserPinItem from './user_pin_item';
 import BoardForm from '../modals/board_create_modal';
+import PinForm from '../modals/pin_create_modal';
 
 class UserShow extends React.Component {
   constructor(props) {
@@ -78,6 +79,23 @@ class UserShow extends React.Component {
     }
   }
 
+  createPinForm() {
+    if (!this.props.user) return null;
+    if (this.props.user.id === this.props.currentUser.id) {
+      return(
+        <div className='pin-create'>
+          <div className='pin-create-button'>
+            <div>+</div>
+          </div>
+
+          <div className='pin-create-title'>
+            <div>Create A Pin!</div>
+          </div>
+        </div>
+      );
+    }
+  }
+
   boardIndex() {
     if (this.props.user &&
       (this.props.match.url === `/user/${this.props.user.id}`)) {
@@ -147,6 +165,7 @@ class UserShow extends React.Component {
       (this.props.match.url === `/user/${this.props.user.id}/pins`)) {
         return(
           <div className='user-content'>
+            {this.createPinForm()}
             {this.pins}
           </div>
         );

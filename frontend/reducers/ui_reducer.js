@@ -2,10 +2,12 @@ import merge from 'lodash/merge';
 import { CREATE_BOARD_MODAL,
   CLOSE_MODAL,
   UPDATE_BOARD_MODAL,
-  DELETE_BOARD_MODAL } from '../actions/ui_actions';
+  DELETE_BOARD_MODAL,
+  CREATE_PIN_MODAL } from '../actions/ui_actions';
 
 const defaultState = {
   boardModal: null,
+  pinModal: null
 };
 
 export const uiReducer = (state = defaultState, action) => {
@@ -16,6 +18,8 @@ export const uiReducer = (state = defaultState, action) => {
       return merge({}, state, { boardModal: 'update'} );
     case DELETE_BOARD_MODAL:
       return merge({}, state, { boardModal: 'delete' });
+    case CREATE_PIN_MODAL:
+      return merge({}, state, { pinModal: 'create' });
     case CLOSE_MODAL:
       return defaultState;
     default:

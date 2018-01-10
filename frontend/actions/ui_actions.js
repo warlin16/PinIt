@@ -2,6 +2,7 @@ export const CREATE_BOARD_MODAL = 'CREATE_BOARD_MODAL';
 export const UPDATE_BOARD_MODAL = 'UPDATE_BOARD_MODAL';
 export const CLOSE_MODAL = 'CLOSE_MODAL';
 export const DELETE_BOARD_MODAL = 'DELETE_BOARD_MODAL';
+export const CREATE_PIN_MODAL = 'CREATE_PIN_MODAL';
 
 export const createBoardModal = () => {
   return {
@@ -24,5 +25,11 @@ export const deleteBoardModal = () => {
 export const closeModal = () => {
   return {
     type: CLOSE_MODAL,
+  };
+};
+
+export const createPinModal = () => {
+  return {
+    type: CREATE_PIN_MODAL,
   };
 };
