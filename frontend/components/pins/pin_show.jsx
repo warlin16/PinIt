@@ -3,21 +3,46 @@ import React from 'react';
 class PinShow extends React.Component {
   constructor(props) {
     super(props);
+
+    this.handleGoBack = this.handleGoBack.bind(this);
   }
 
   componentDidMount() {
     this.props.fetchPin(this.props.match.params.pinId);
   }
 
+  handleGoBack() {
+    this.props.history.goBack();
+  }
+
+  stopPropagation(e) {
+    e.stopPropagation();
+  }
+
+  handlePinIt(e) {
+    e.preventDefault();
+    console.log(`I'm working broooooo`);
+  }
+
+  renderEditTools() {
+    if (this.props.pin &&
+      (this.props.pin.author_id === this.props.currentUser.id)) {
+      return (
+        <h1>I am the father!</h1>
+      );
+    } else {
+      return null;
+    }
+  }
 
   render() {
     const pin = this.props.pin ? this.props.pin : {};
     return(
-      <section className='pin-show-container'>
-        <div className='pin-content-box'>
+      <section className='pin-show-container' onClick={this.handleGoBack}>
+        <div className='pin-content-box' onClick={this.stopPropagation}>
           <div className='pin-content'>
             <nav className='pin-save-icon'>
-              <button className='pin-save-button'>
+              <button className='pin-save-button' onClick={this.handlePinIt}>
                 <img src={window.staticImages.dart} />
                 Pin it!
               </button>
@@ -30,12 +55,19 @@ class PinShow extends React.Component {
               </div>
 
               <div className='pin-show-info'>
-                <h1> {pin.title} </h1>
-                <h1> {pin.description} </h1>
-                <h1> Created by: {pin.author} </h1>
+                <div>
+                  <h1> {pin.title} </h1>
+                </div>
+                <div>
+                  <h1> {pin.description} </h1>
+                </div>
+                <div>
+                  <h1> Created by: {pin.author} </h1>
+                </div>
               </div>
 
             </div>
+            {this.renderEditTools()}
           </div>
         </div>
       </section>

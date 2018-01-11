@@ -59,27 +59,36 @@ class BoardShow extends React.Component {
   }
 
   renderButton() {
-    if (!this.state.deleteButton) {
-      return(
-        <div className='edit-bar animated fadeInUp'>
-          <div onClick={this.updateBoard}>
-            <img src={window.staticImages.edit} />
+    if (this.props.board &&
+      (this.props.user.id === this.props.board.author_id)) {
+      if (!this.state.deleteButton) {
+        return(
+          <div className='edit-bar animated fadeInUp'>
+            <div onClick={this.updateBoard}>
+              <img src={window.staticImages.edit} />
+            </div>
+            {this.renderTitle()}
+            <button onClick={this.handleButton}>Organize</button>
           </div>
+        );
+      } else {
+        return(
+          <div className='edit-bar animated fadeInDown'>
+            <button
+              onClick={this.deleteModal}
+              className='hidden-button'>
+              Delete</button>
             {this.renderTitle()}
-          <button onClick={this.handleButton}>Organize</button>
-        </div>
-      );
+            <button
+              onClick={this.handleButton}
+              className='hidden-button'>Cancel</button>
+          </div>
+        );
+      }
     } else {
-      return(
-        <div className='edit-bar animated fadeInDown'>
-          <button
-            onClick={this.deleteModal}
-            className='hidden-button'>
-            Delete</button>
-            {this.renderTitle()}
-          <button
-            onClick={this.handleButton}
-            className='hidden-button'>Cancel</button>
+      return (
+        <div className='edit-bar animated fadeInUp'>
+          {this.renderTitle()}
         </div>
       );
     }
