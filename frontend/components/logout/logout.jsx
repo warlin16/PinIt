@@ -16,7 +16,7 @@ class Logout extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    this.setState({ dropdown: false });
+    this.setState({ dropdown: false});
   }
 
   update(field) {
@@ -33,7 +33,7 @@ class Logout extends React.Component {
   dropDown() {
     if (this.state.dropdown) {
       return(
-        <div className='dropdown-menu'>
+        <div className='dropdown-menu' onMouseLeave={this.handleDropdown}>
           <div className='dropdown-settings'>
             <p>Settings</p>
           </div>
@@ -87,7 +87,7 @@ class Logout extends React.Component {
               <h1>{this.props.currentUser.username}</h1></Link>
             </div>
             <div className='logout'
-                onClick={this.handleDropdown} >
+                onMouseEnter={this.handleDropdown} >
               <img src={window.staticImages.drop} />
             </div>
           </div>
