@@ -9,6 +9,7 @@ class Api::PinsController < ApplicationController
     @pin = Pin.new(pin_params)
 
     if @pin.save
+      @author = User.find_by_id(@pin.author_id)
       render 'api/pins/show'
     else
       render json: @pin.errors.full_messages, status: 422
