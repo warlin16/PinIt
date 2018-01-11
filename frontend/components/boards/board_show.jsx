@@ -2,6 +2,8 @@ import React from 'react';
 import UpdateBoardForm from '../modals/board_update_modal';
 import DeleteBoardForm from '../modals/board_delete_modal';
 import { Link } from 'react-router-dom';
+import UserPinItem from '../users/user_pin_item';
+import PinForm from '../modals/pin_create_modal';
 
 class BoardShow extends React.Component {
   constructor(props) {
@@ -11,13 +13,15 @@ class BoardShow extends React.Component {
       show: false,
       deleteButton: false,
     };
-    this.pins = [];
+
+
     this.renderButton = this.renderButton.bind(this);
     this.handleButton = this.handleButton.bind(this);
     this.toggleScroll = this.toggleScroll.bind(this);
     this.updateBoard = this.updateBoard.bind(this);
     this.closeModal = this.closeModal.bind(this);
     this.deleteModal = this.deleteModal.bind(this);
+    this.createPin = this.createPin.bind(this);
   }
 
   componentDidMount() {
@@ -103,7 +107,7 @@ class BoardShow extends React.Component {
     if (!this.props.board) return null;
     if (this.props.board.author_id === this.props.user.id) {
       return(
-        <div className='pin-create' onClick={this.createBoard}>
+        <div className='pin-create' onClick={this.createPin}>
           <div className='pin-create-button'>
             <div>+</div>
           </div>
@@ -118,6 +122,10 @@ class BoardShow extends React.Component {
 
   updateBoard() {
     this.props.updateModal();
+  }
+
+  createPin() {
+    this.props.createPinModal();
   }
 
   deleteModal() {
@@ -145,6 +153,19 @@ class BoardShow extends React.Component {
     }
   }
 
+  renderPinCreate() {
+    if (this.props.pinModal === 'create') {
+      return(
+        <PinForm
+          closeModal={this.closeModal}
+          stopPropagation={this.stopPropagation}
+          currentUserId={this.props.user.id}
+          createPin={this.props.createPin}
+          />
+      );
+    }
+  }
+
   renderBoardUpdate() {
     if (this.props.boardModal === 'update') {
       return(
@@ -161,7 +182,10 @@ class BoardShow extends React.Component {
 
   render() {
     const board = this.props.board ?
-    this.props.board : {title: '', description: ''};
+    this.props.board : {};
+    const pins = this.props.pins.map(pin => <UserPinItem
+    key={pin.id} id={pin.id} title={pin.title}
+    description={pin.description} url={pin.img} />);
     return(
         <div className='board-show-content'>
           {this.renderButton()}
@@ -169,73 +193,16 @@ class BoardShow extends React.Component {
             {board.title}
           </div>
           <div className='pins-count'>
-            0 Pins
+            {this.props.pins ? this.props.pins.length : 0} Pins
           </div>
 
           <section className='board-content-box'>
             <div className="board-content">
               {this.createPinForm()}
+              {this.renderPinCreate()}
               {this.renderBoardUpdate()}
               {this.renderBoardDelete()}
-              <div className='pin-items'>
-                <div className='pin-item-img'>
-                  <div>😎</div>
-                </div>
-
-                <div className='pin-item-title'>
-                  <div>Pin Title Coming Soon!</div>
-                </div>
-              </div>
-
-              <div className='pin-items'>
-                <div className='pin-item-img'>
-                  <div>IMG COMING SOON</div>
-                </div>
-
-                <div className='pin-item-title'>
-                  <div>Pin Title Coming Soon!</div>
-                </div>
-              </div>
-
-              <div className='pin-items'>
-                <div className='pin-item-img'>
-                  <div>IMG COMING SOON</div>
-                </div>
-
-                <div className='pin-item-title'>
-                  <div>Pin Title Coming Soon!</div>
-                </div>
-              </div>
-
-              <div className='pin-items'>
-                <div className='pin-item-img'>
-                  <div>IMG COMING SOON</div>
-                </div>
-
-                <div className='pin-item-title'>
-                  <div>Pin Title Coming Soon!</div>
-                </div>
-              </div>
-
-              <div className='pin-items'>
-                <div className='pin-item-img'>
-                  <div>IMG COMING SOON</div>
-                </div>
-
-                <div className='pin-item-title'>
-                  <div>Pin Title Coming Soon!</div>
-                </div>
-              </div>
-
-              <div className='pin-items'>
-                <div className='pin-item-img'>
-                  <div>IMG COMING SOON</div>
-                </div>
-
-                <div className='pin-item-title'>
-                  <div>Pin Title Coming Soon!</div>
-                </div>
-              </div>
+              {pins}
             </div>
 
           </section>

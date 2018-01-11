@@ -7,6 +7,7 @@ json.boardIds user.boards do |board|
   json.id board.id
   json.title board.title
   json.description board.description
+  json.pins board.pins.length
 end
 
 json.pinIds user.pins do |pin|

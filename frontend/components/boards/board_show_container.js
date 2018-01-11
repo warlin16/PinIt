@@ -6,7 +6,10 @@ import {
 import {
   updateBoardModal,
   closeModal,
+  createPinModal,
   deleteBoardModal } from '../../actions/ui_actions';
+import { createPin } from '../../actions/pin_actions';
+
 import BoardShow from './board_show';
 
 const mapStateToProps = (state, ownProps) => {
@@ -15,6 +18,7 @@ const mapStateToProps = (state, ownProps) => {
     user: state.session.currentUser,
     pins: Object.values(state.entities.pins),
     boardModal: state.ui.boardModal,
+    pinModal: state.ui.pinModal,
   };
 }
 
@@ -26,6 +30,8 @@ const mapDispatchToProps = dispatch => {
     updateModal: () => dispatch(updateBoardModal()),
     deleteModal: () => dispatch(deleteBoardModal()),
     closeModal: () => dispatch(closeModal()),
+    createPinModal: () => dispatch(createPinModal()),
+    createPin: formData => dispatch(createPin(formData)),
   };
 }
 

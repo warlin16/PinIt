@@ -38,7 +38,7 @@ class UserBoardItem extends React.Component {
           <div className='board-item-title'>
             <div>{this.props.title}</div>
             <div className='board-update-icon'>
-              0 Pins
+              {this.props.pins} Pins
               {this.renderEditIcon()}
             </div>
           </div>
