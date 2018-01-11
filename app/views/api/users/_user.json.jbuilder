@@ -13,5 +13,5 @@ json.pinIds user.pins do |pin|
   json.id pin.id
   json.title pin.title
   json.description pin.description
-  json.img asset_path(pin.image.url)
+  json.img pin.image.url
 end

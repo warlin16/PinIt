@@ -9,15 +9,11 @@ class UserShow extends React.Component {
   constructor(props) {
     super(props);
 
-    this.boards = [];
-    this.pins = [];
     this.createBoard = this.createBoard.bind(this);
     this.createPin = this.createPin.bind(this);
     this.closeModal = this.closeModal.bind(this);
     this.boardIndex = this.boardIndex.bind(this);
     this.pinIndex = this.pinIndex.bind(this);
-    this.renderBoards = this.renderBoards.bind(this);
-    this.renderPins = this.renderPins.bind(this);
   }
 
   componentDidMount() {
@@ -161,14 +157,14 @@ class UserShow extends React.Component {
     }
   }
 
-  renderBoards() {
+  renderBoards(boards) {
     if (this.props.user &&
       (this.props.match.url === `/user/${this.props.user.id}`)) {
         return(
           <div className='user-content'>
             {this.renderBoardCreate()}
             {this.createBoardForm()}
-            {this.boards}
+            {boards}
           </div>
         );
     } else if (this.props.user) {
@@ -178,14 +174,14 @@ class UserShow extends React.Component {
     }
   }
 
-  renderPins() {
+  renderPins(pins) {
     if (this.props.user &&
       (this.props.match.url === `/user/${this.props.user.id}/pins`)) {
         return(
           <div className='user-content'>
             {this.renderPinCreate()}
             {this.createPinForm()}
-            {this.pins}
+            {pins}
           </div>
         );
     } else if (this.props.user) {
@@ -197,10 +193,10 @@ class UserShow extends React.Component {
 
   render() {
     const user = this.props.user ? this.props.user : { username: '', id: '' };
-    this.boards = this.props.boards.map(board => <UserBoardItem
+    const boards = this.props.boards.map(board => <UserBoardItem
       key={board.id} id={board.id} title={board.title}
       description={board.description} />);
-      this.pins = this.props.pins.map(pin => <UserPinItem
+      const pins = this.props.pins.map(pin => <UserPinItem
       key={pin.id} id={pin.id} title={pin.title}
       description={pin.description} url={pin.img} />);
     return(
@@ -235,8 +231,8 @@ class UserShow extends React.Component {
         </div>
 
           <section className='user-content-box'>
-            {this.renderBoards()}
-            {this.renderPins()}
+            {this.renderBoards(boards)}
+            {this.renderPins(pins)}
           </section>
 
       </div>
