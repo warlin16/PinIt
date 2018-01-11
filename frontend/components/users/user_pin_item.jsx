@@ -8,7 +8,7 @@ class UserPinItem extends React.Component {
 
   render() {
     return(
-      <div className='pin-items'>
+      <Link to={`/pin/${this.props.id}`} className='pin-items'>
         <div className='pin-item-img'>
           <img src={this.props.url} />
         </div>
@@ -16,7 +16,7 @@ class UserPinItem extends React.Component {
         <div className='pin-item-title'>
           <div>{this.props.title}</div>
         </div>
-      </div>
+      </Link>
     );
   }
 }

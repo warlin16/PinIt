@@ -173,6 +173,8 @@
   cursor: pointer;
   flex-direction: column;
   transition: cubic-bezier(0.96, 2, 0.36, 0.25), background-color 0.2s linear;
+  text-decoration: none;
+  color: black;
 }
 
 .pin-items:hover {

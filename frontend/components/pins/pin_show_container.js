@@ -1,15 +1,16 @@
 import { connect } from 'react-redux';
 import PinShow from './pin_show';
 
-const mapStateTopProps = (state, ownProps) => {
+const mapStateToProps = (state, ownProps) => {
   return {
-
+    pin: state.entities.pins[ownProps.match.params.pinId],
+    currentUser: state.session.currentUser,
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return{
-
+    
   };
 }
 

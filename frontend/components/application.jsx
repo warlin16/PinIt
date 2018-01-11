@@ -7,12 +7,13 @@ import SessionFormContainer from './sessions/session_form_container';
 import LogoutContainer from './logout/logout_container';
 import UserShowContainer from './users/user_container';
 import BoardShowContainer from './boards/board_show_container';
-
+import PinShowContainer from './pins/pin_show_container';
 
 const TestComponent = () => {
   return(
     <div className='Testing'>
       Hello human!
+      I will be something one day I'm sure of it...
     </div>
   );
 };
@@ -24,6 +25,7 @@ const App = ({ currentUser }) => {
       <Switch>
         <AuthRoute path="/signup" component={SessionFormContainer} />
         <AuthRoute path='/login' component={SessionFormContainer} />
+        <ProtectedRoute exact path='/pin/:pinId' component={PinShowContainer} />
         <ProtectedRoute exact path='/user/:userId/pins' component={UserShowContainer} />
         <ProtectedRoute exact path='/user/:userId' component={UserShowContainer} />
         <ProtectedRoute path='/user/board/:boardId' component={BoardShowContainer} />
