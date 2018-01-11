@@ -224,7 +224,6 @@
   button {
     height: 35px;
     border: 0;
-    background-color: #c0c0c05e;
     border-radius: 4px;
     font-size: 15px;
     width: 70px;
@@ -237,22 +236,28 @@
   button:hover {
     cursor: pointer;
     border-radius: 2px;
-    background-color: #c0c0c0de;
   }
 }
 
+.board-cancel:hover {
+  background-color: #c0c0c0de;
+}
+
 .board-cancel {
+  background-color: #c0c0c05e;
   margin-right: 25px;
   font-weight: 530;
 }
 
 .board-submit-button {
   margin-right: 15px;
-  color: #B5B5B5;
+  color: gainsboro;
+  background-color: #a51728;
 }
 
 .board-submit-button:hover {
-  color: #575454;
+  color: white;
+  background-color: #c61b30;
 }
 
 .board-update-icon {

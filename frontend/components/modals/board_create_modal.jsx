@@ -60,7 +60,7 @@ class BoardForm extends React.Component {
               <button
                 onClick={this.props.closeModal}
                 className='board-cancel'>Cancel</button>
-              <button className='board-submit-button'>Submit</button>
+              <button className='board-submit-button'>Create</button>
             </div>
           </form>
         </div>
