@@ -8,15 +8,7 @@ import LogoutContainer from './logout/logout_container';
 import UserShowContainer from './users/user_container';
 import BoardShowContainer from './boards/board_show_container';
 import PinShowContainer from './pins/pin_show_container';
-
-const TestComponent = () => {
-  return(
-    <div className='Testing'>
-      Hello human!
-      I will be something one day I'm sure of it...
-    </div>
-  );
-};
+import PinIndexContainer from './pins/pin_index_container';
 
 const App = ({ currentUser }) => {
   return(
@@ -29,7 +21,7 @@ const App = ({ currentUser }) => {
         <ProtectedRoute exact path='/user/:userId/pins' component={UserShowContainer} />
         <ProtectedRoute exact path='/user/:userId' component={UserShowContainer} />
         <ProtectedRoute path='/user/board/:boardId' component={BoardShowContainer} />
-        <ProtectedRoute path="/" component={TestComponent} />
+        <ProtectedRoute path="/" component={PinIndexContainer} />
       </Switch>
     </div>
   );
