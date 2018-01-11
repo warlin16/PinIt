@@ -53,6 +53,19 @@ class PinForm extends React.Component {
     });
   }
 
+  previewAttachment() {
+    if (this.state.imageUrl) {
+      return (
+        <div className='pin-image-preview'>
+          Image Preview
+          <img src={this.state.imageUrl} alt='Image Preview' />
+        </div>
+      );
+    } else {
+      return null;
+    }
+  }
+
   render() {
     return(
       <div className='create-pin-container' onClick={this.props.closeModal}>
@@ -69,6 +82,7 @@ class PinForm extends React.Component {
                   <label>Click to pin img!
                     <input type='file' onChange={this.updateFile} />
                   </label>
+
                   <img src={window.staticImages.camera} />
                 </div>
               </div>
@@ -85,6 +99,7 @@ class PinForm extends React.Component {
                   <textarea placeholder='Pin a description'
                     onChange={this.update('description')}></textarea>
                 </div>
+                {this.previewAttachment()}
               </div>
 
             </div>

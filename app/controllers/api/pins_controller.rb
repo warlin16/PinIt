@@ -7,7 +7,7 @@ class Api::PinsController < ApplicationController
 
   def create
     @pin = Pin.new(pin_params)
-    
+
     if @pin.save
       render 'api/pins/show'
     else
@@ -17,6 +17,7 @@ class Api::PinsController < ApplicationController
 
   def show
     @pin = Pin.find_by_id(params[:id])
+    @author = User.find_by_id(@pin.author_id)
     render 'api/pins/show'
   end
 
