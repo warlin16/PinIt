@@ -161,7 +161,7 @@
 
 .pin-items {
   width: 275px;
-  height: 274px;
+  height: auto;
   margin-left: 10px;
   margin-right: 10px;
   align-items: center;
@@ -182,15 +182,15 @@
 }
 
 .pin-item-img {
-  width: 90%;
-  height: 200px;
   border-radius: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
 
   img {
-    width: 40%;
+    width: 275px;
+    height: 100%;
   }
 }
 

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 class PinShow extends React.Component {
   constructor(props) {
@@ -62,7 +63,8 @@ class PinShow extends React.Component {
                   <h1> {pin.description} </h1>
                 </div>
                 <div>
-                  <h1> Created by: {pin.author} </h1>
+                  <h1> Created by: <Link to={`/user/${pin.author_id}`}>
+                    {pin.author} </Link></h1>
                 </div>
               </div>
 
