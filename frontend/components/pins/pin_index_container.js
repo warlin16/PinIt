@@ -3,9 +3,10 @@ import PinIndex from './pin_index';
 import { fetchPins } from '../../actions/pin_actions';
 
 
-const mapStateToProps = ({ entities }, ownProps) => {
+const mapStateToProps = (state, ownProps) => {
   return{
-    pins: Object.values(entities.pins),
+    pins: Object.values(state.entities.pins),
+    pinOrder: state.ui.pinOrder
   };
 }
 

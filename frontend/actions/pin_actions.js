@@ -12,10 +12,11 @@ export const receivePin = pin => {
   };
 };
 
-export const receiveAllPins = pins => {
+export const receiveAllPins = payload => {
   return{
     type: RECEIVE_ALL_PINS,
-    pins
+    pins: payload.pins,
+    pinOrder: payload.pinOrder,
   };
 };
 

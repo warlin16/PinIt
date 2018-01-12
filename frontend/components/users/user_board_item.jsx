@@ -28,7 +28,7 @@ class UserBoardItem extends React.Component {
 
   render() {
     return(
-      <Link to={`/user/board/${this.props.id}`} className='board-show-link'>
+      <Link to={`/user/${this.props.userId}/board/${this.props.id}`} className='board-show-link'>
         <div className='board-items' onMouseEnter={this.toggleState}
           onMouseLeave={this.toggleState}>
           <div className='board-item-img'>

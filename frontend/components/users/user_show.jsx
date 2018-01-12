@@ -195,7 +195,8 @@ class UserShow extends React.Component {
     const user = this.props.user ? this.props.user : { username: '', id: '' };
     const boards = this.props.boards.map(board => <UserBoardItem
       key={board.id} id={board.id} title={board.title}
-      description={board.description} pins={board.pins} />);
+      description={board.description} pins={board.pins}
+      userId={user.id} />);
       const pins = this.props.pins.map(pin => <UserPinItem
       key={pin.id} id={pin.id} title={pin.title}
       description={pin.description} url={pin.img} />);
