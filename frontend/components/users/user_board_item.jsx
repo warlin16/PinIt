@@ -32,7 +32,7 @@ class UserBoardItem extends React.Component {
         <div className='board-items' onMouseEnter={this.toggleState}
           onMouseLeave={this.toggleState}>
           <div className='board-item-img'>
-            <div>IMG COMING SOON</div>
+            <div>{this.props.description}</div>
           </div>
 
           <div className='board-item-title'>
