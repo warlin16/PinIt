@@ -80,17 +80,22 @@
   align-items: center;
   transition: border-radius 0.55s cubic-bezier(0.96, 2, 0.36, 0.25), background-color 0.3s linear;
   font-size: 20px;
+  margin-right: 8px;
+
   a {
     text-decoration: none;
     font-weight: 700;
     color: #5f5f5f;
+  }
+
+  a:hover {
+    cursor: pointer;
   }
 }
 
 .home-page:hover {
   border-radius: 50px;
   background-color: #e3e0e0;
-  cursor: pointer;
 }
 
 .show-page {
@@ -101,6 +106,8 @@
   height: 45px;
   transition: border-radius 0.55s cubic-bezier(0.96, 2, 0.36, 0.25), background-color 0.3s linear;
   box-sizing: border-box;
+  margin-left: 5px;
+  margin-right: 5px;
 
   a {
     display: flex;
@@ -117,18 +124,21 @@
   }
 
   h1 {
-    font-size: 12px;
+    font-size: 18px;
     margin-left: 4px;
     text-transform: capitalize;
     color: #a7a7a7;
     font-weight: 800;
+  }
+
+  a:hover {
+    cursor: pointer;
   }
 }
 
 .show-page:hover {
   border-radius: 50px;
   background-color: #e3e0e0;
-  cursor: pointer;
 }
 
 .logout {
@@ -207,6 +217,7 @@
     margin-left: 5px;
     font-weight: 600;
     color: #736f6f;
+    text-transform: capitalize;
   }
 }
 

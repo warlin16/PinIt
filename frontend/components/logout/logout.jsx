@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 class Logout extends React.Component {
   constructor(props) {
     super(props);
+
     this.handleDropdown = this.handleDropdown.bind(this);
     this.handleLogout = this.handleLogout.bind(this);
     this.state = { search: '', dropdown: false };
@@ -35,7 +36,7 @@ class Logout extends React.Component {
       return(
         <div className='dropdown-menu' onMouseLeave={this.handleDropdown}>
           <div className='dropdown-settings'>
-            <p>Settings</p>
+            <p>{this.props.currentUser.username}</p>
           </div>
 
           <section>
@@ -84,7 +85,7 @@ class Logout extends React.Component {
 
             <div className='show-page'>
               <Link to={`/user/${this.props.currentUser.id}`}><img src={this.props.currentUser.avatarUrl} />
-              <h1>{this.props.currentUser.username}</h1></Link>
+              <h1>Show</h1></Link>
             </div>
             <div className='logout'
                 onMouseEnter={this.handleDropdown} >
