@@ -71,12 +71,7 @@ class Logout extends React.Component {
             </div>
 
             <div className='search-input'>
-              <img src={window.staticImages.search} />
-              <input
-                type='text'
-                value={this.state.search}
-                onChange={this.update('search')}
-                placeholder={`This feature doesn't work yet lol`} />
+              
             </div>
 
             <div className='home-page'>

@@ -22,7 +22,6 @@ class PinShow extends React.Component {
 
   handlePinIt(e) {
     e.preventDefault();
-    console.log(`I'm working broooooo`);
   }
 
   renderEditTools() {
