@@ -70,6 +70,7 @@
 
 .board-items:hover {
   background-color: #e9e9e9;
+  border: 0;
 }
 
 .board-show-link {
@@ -92,6 +93,8 @@
   cursor: pointer;
   flex-direction: column;
   transition: cubic-bezier(0.96, 2, 0.36, 0.25), background-color 0.2s linear;
+  border: 1px solid gainsboro;
+
 }
 
 .board-item-title {
