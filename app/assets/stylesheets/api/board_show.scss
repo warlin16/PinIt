@@ -160,8 +160,6 @@
 }
 
 .pin-items {
-  width: 275px;
-  height: auto;
   margin-left: 10px;
   margin-right: 10px;
   align-items: center;
@@ -187,10 +185,12 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  height: 250px;
+  width: 300px;
 
   img {
-    width: 275px;
-    height: 100%;
+    width: 266px;
+    height: 80%;
   }
 }
 
