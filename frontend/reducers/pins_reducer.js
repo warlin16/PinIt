@@ -1,4 +1,5 @@
 import { RECEIVE_PIN,
+  CLEAR_PINS,
   RECEIVE_ALL_PINS,
   REMOVE_PIN } from '../actions/pin_actions';
 import { RECEIVE_USER } from '../actions/user_actions';
@@ -25,6 +26,9 @@ const pinsReducer = (state = {}, action) => {
       newState = merge({}, state);
       delete newState[action.pinId];
       return newState;
+    case CLEAR_PINS:
+      newState = {};
+      return merge({}, newState);
     default:
       return state;
   }

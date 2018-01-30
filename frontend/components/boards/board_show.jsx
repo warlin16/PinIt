@@ -182,10 +182,10 @@ class BoardShow extends React.Component {
 
   render() {
     const board = this.props.board ?
-    this.props.board : {};
-    const pins = this.props.pins.map(pin => <UserPinItem
-    key={pin.id} id={pin.id} title={pin.title}
-    description={pin.description} url={pin.img} />);
+      this.props.board : {};
+      const pins = this.props.pins.map(pin => <UserPinItem
+      key={pin.id} id={pin.id} title={pin.title}
+      description={pin.description} url={pin.img} />);
     return(
         <div className='board-show-content'>
           {this.renderButton()}

@@ -31,6 +31,7 @@ class UserShow extends React.Component {
 
   componentWillUnmount() {
     window.scrollTo(0, 0);
+    this.props.clearPins();
   }
 
   createBoard() {

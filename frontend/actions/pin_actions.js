@@ -3,7 +3,7 @@ export const RECEIVE_PIN = 'RECEIVE_PIN';
 export const RECEIVE_ALL_PINS = 'RECEIVE_ALL_PINS';
 export const REMOVE_PIN = 'REMOVE_PIN';
 export const RECEIVE_PIN_ERRORS = 'RECEIVE_PIN_ERRORS';
-
+export const CLEAR_PINS = 'CLEAR_PINS';
 
 export const receivePin = pin => {
   return{
@@ -31,6 +31,12 @@ export const receiveErrors = errors => {
   return{
     type: RECEIVE_PIN_ERRORS,
     errors
+  }
+}
+
+export const clearPins = () => {
+  return{
+    type: CLEAR_PINS,
   }
 }
 
