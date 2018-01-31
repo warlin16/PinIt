@@ -56,7 +56,7 @@
 
 .show-board-title {
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
   height: 50px;
   font-size: 40px;
@@ -65,6 +65,18 @@
   font-weight: 800;
   text-transform: capitalize;
   margin-top: 90px;
+}
+
+.board-user-link {
+  text-decoration: none;
+  color: #878787;
+  cursor: pointer;
+  transition: cubic-bezier(0.96, 2, 0.36, 0.25), background-color 0.8s linear;
+}
+
+.board-user-link:hover {
+  text-decoration: underline;
+  color: black;
 }
 
 .fixed-title {
@@ -173,6 +185,7 @@
   transition: cubic-bezier(0.96, 2, 0.36, 0.25), background-color 0.2s linear;
   text-decoration: none;
   color: black;
+  height: 250px;
 }
 
 .pin-items:hover {

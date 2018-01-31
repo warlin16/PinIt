@@ -70,28 +70,28 @@ class BoardShow extends React.Component {
 
   renderButton() {
     if (this.props.board &&
-      (this.props.user.id === this.props.board.author_id)) {
+      (this.props.currentUser.id === this.props.board.author_id)) {
       if (!this.state.deleteButton) {
         return(
           <div className='edit-bar'>
-            <div className='animated fadeInDown' onClick={this.updateBoard}>
+            <div className='animated fadeInUp' onClick={this.updateBoard}>
               <img src={window.staticImages.edit} />
             </div>
             {this.renderTitle()}
-            <button className='animated fadeInDown' onClick={this.handleButton}>Organize</button>
+            <button className='animated fadeInUp' onClick={this.handleButton}>Organize</button>
           </div>
         );
       } else {
         return(
-          <div className='edit-bar animated fadeInDown'>
+          <div className='edit-bar'>
             <button
               onClick={this.deleteModal}
-              className='hidden-button'>
+              className='hidden-button animated fadeInDown'>
               Delete</button>
             {this.renderTitle()}
             <button
               onClick={this.handleButton}
-              className='hidden-button'>Cancel</button>
+              className='hidden-button animated fadeInDown'>Cancel</button>
           </div>
         );
       }
@@ -111,7 +111,7 @@ class BoardShow extends React.Component {
 
   createPinForm() {
     if (!this.props.board) return null;
-    if (this.props.board.author_id === this.props.user.id) {
+    if (this.props.board.author_id === this.props.currentUser.id) {
       return(
         <div className='pin-create' onClick={this.createPin}>
           <div className='pin-create-button'>
@@ -154,7 +154,7 @@ class BoardShow extends React.Component {
           stopPropagation={this.stopPropagation}
           deleteBoard={this.props.deleteBoard}
           boardId={this.props.board.id}
-          userId={this.props.user.id} />
+          userId={this.props.currentUser.id} />
       );
     }
   }
@@ -165,7 +165,7 @@ class BoardShow extends React.Component {
         <PinForm
           closeModal={this.closeModal}
           stopPropagation={this.stopPropagation}
-          currentUserId={this.props.user.id}
+          currentUserId={this.props.currentUser.id}
           createPin={this.props.createPin}
           />
       );
@@ -203,11 +203,15 @@ class BoardShow extends React.Component {
     return(
         <div className='board-show-content'>
           {this.renderButton()}
+          {this.state.loading ? null :
           <div className='show-board-title'>
             {board.title}
-          </div>
+            <div>
+              <Link to={`/user/${board.author_id}`} className='board-user-link'>
+                User page </Link>
+            </div>
+          </div>}
           {this.state.loading ? null : this.pinCount()}
-
           <section className='board-content-box'>
             <div className="board-content">
               {this.createPinForm()}
