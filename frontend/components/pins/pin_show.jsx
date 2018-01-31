@@ -28,7 +28,7 @@ class PinShow extends React.Component {
     if (this.props.pin &&
       (this.props.pin.author_id === this.props.currentUser.id)) {
       return (
-        <h1>I am the father!</h1>
+        <h1>I should be visible</h1>
       );
     } else {
       return null;

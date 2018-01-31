@@ -195,6 +195,8 @@ class BoardShow extends React.Component {
   }
 
   render() {
+    if (this.state.loading) return <MDSpinner size={100} className='loader' />;
+    debugger
     const board = this.props.board ?
       this.props.board : {};
       const pins = this.props.pins.map(pin => <UserPinItem
@@ -203,22 +205,21 @@ class BoardShow extends React.Component {
     return(
         <div className='board-show-content'>
           {this.renderButton()}
-          {this.state.loading ? null :
           <div className='show-board-title'>
             {board.title}
             <div>
               <Link to={`/user/${board.author_id}`} className='board-user-link'>
                 User page </Link>
             </div>
-          </div>}
-          {this.state.loading ? null : this.pinCount()}
+          </div>
+          {this.pinCount()}
           <section className='board-content-box'>
             <div className="board-content">
               {this.createPinForm()}
               {this.renderPinCreate()}
               {this.renderBoardUpdate()}
               {this.renderBoardDelete()}
-              {this.state.loading ? <MDSpinner size={100}/> : pins}
+              {pins}
             </div>
 
           </section>
