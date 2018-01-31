@@ -13,7 +13,7 @@ class UserBoardItem extends React.Component {
   renderEditIcon() {
     if (this.state.edit) {
       return(
-        <button className='edit-pencil'>
+        <button className='edit-pencil' onClick={this.handleEdit}>
           <img src={window.staticImages.edit}/>
         </button>
       );
@@ -24,6 +24,10 @@ class UserBoardItem extends React.Component {
 
   toggleState() {
     this.setState({edit: !this.state.edit });
+  }
+
+  handleEdit(e) {
+    e.preventDefault();
   }
 
   render() {
