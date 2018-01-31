@@ -12,6 +12,7 @@ class BoardShow extends React.Component {
     this.state = {
       show: false,
       deleteButton: false,
+      loading: true,
     };
 
 
@@ -35,6 +36,9 @@ class BoardShow extends React.Component {
     } else {
       return false;
     }
+  }
+
+  componentWillReceiveProps() {
   }
 
   toggleScroll() {
@@ -67,12 +71,12 @@ class BoardShow extends React.Component {
       (this.props.user.id === this.props.board.author_id)) {
       if (!this.state.deleteButton) {
         return(
-          <div className='edit-bar animated fadeInUp'>
-            <div onClick={this.updateBoard}>
+          <div className='edit-bar'>
+            <div className='animated fadeInDown' onClick={this.updateBoard}>
               <img src={window.staticImages.edit} />
             </div>
             {this.renderTitle()}
-            <button onClick={this.handleButton}>Organize</button>
+            <button className='animated fadeInDown' onClick={this.handleButton}>Organize</button>
           </div>
         );
       } else {
