@@ -9,7 +9,6 @@ import {
   createPinModal,
   deleteBoardModal } from '../../actions/ui_actions';
 import { createPin } from '../../actions/pin_actions';
-
 import BoardShow from './board_show';
 
 const mapStateToProps = (state, ownProps) => {

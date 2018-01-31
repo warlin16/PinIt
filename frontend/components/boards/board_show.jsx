@@ -4,6 +4,7 @@ import DeleteBoardForm from '../modals/board_delete_modal';
 import { Link } from 'react-router-dom';
 import UserPinItem from '../users/user_pin_item';
 import PinForm from '../modals/pin_create_modal';
+import MDSpinner from 'react-md-spinner';
 
 class BoardShow extends React.Component {
   constructor(props) {
@@ -39,6 +40,7 @@ class BoardShow extends React.Component {
   }
 
   componentWillReceiveProps() {
+    this.setState({loading: false});
   }
 
   toggleScroll() {
@@ -184,21 +186,27 @@ class BoardShow extends React.Component {
     }
   }
 
+  pinCount() {
+    return (
+      <div className='pins-count'>
+        {this.props.pins.length} Pins
+      </div>
+    );
+  }
+
   render() {
     const board = this.props.board ?
       this.props.board : {};
       const pins = this.props.pins.map(pin => <UserPinItem
-      key={pin.id} id={pin.id} title={pin.title}
-      description={pin.description} url={pin.img} />);
+        key={pin.id} id={pin.id} title={pin.title}
+        description={pin.description} url={pin.img} />);
     return(
         <div className='board-show-content'>
           {this.renderButton()}
           <div className='show-board-title'>
             {board.title}
           </div>
-          <div className='pins-count'>
-            {this.props.pins ? this.props.pins.length : 0} Pins
-          </div>
+          {this.state.loading ? null : this.pinCount()}
 
           <section className='board-content-box'>
             <div className="board-content">
@@ -206,7 +214,7 @@ class BoardShow extends React.Component {
               {this.renderPinCreate()}
               {this.renderBoardUpdate()}
               {this.renderBoardDelete()}
-              {pins}
+              {this.state.loading ? <MDSpinner size={100}/> : pins}
             </div>
 
           </section>

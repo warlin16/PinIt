@@ -10,6 +10,10 @@ class PinIndex extends React.Component {
     this.props.fetchPins();
   }
 
+  componentWillUnmount() {
+    this.props.clearPins();
+  }
+
   render() {
     const pins = this.props.pins.map(pin => <UserPinItem
     key={pin.id} id={pin.id} title={pin.title}

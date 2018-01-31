@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import PinIndex from './pin_index';
-import { fetchPins } from '../../actions/pin_actions';
+import { fetchPins, clearPins } from '../../actions/pin_actions';
 
 
 const mapStateToProps = (state, ownProps) => {
@@ -13,6 +13,7 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch) => {
   return{
     fetchPins: () => dispatch(fetchPins()),
+    clearPins: () => dispatch(clearPins()),
   };
 }
 export default connect(mapStateToProps, mapDispatchToProps)(PinIndex);
