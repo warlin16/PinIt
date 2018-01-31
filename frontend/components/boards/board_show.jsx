@@ -27,7 +27,9 @@ class BoardShow extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchBoard(this.props.match.params.boardId);
+    this.props.fetchBoard(this.props.match.params.boardId).then(() => {
+      this.setState( {loading: false} );
+    });
     window.onscroll = () => this.toggleScroll();
   }
 
@@ -37,10 +39,6 @@ class BoardShow extends React.Component {
     } else {
       return false;
     }
-  }
-
-  componentWillReceiveProps() {
-    this.setState({loading: false});
   }
 
   toggleScroll() {
@@ -196,7 +194,6 @@ class BoardShow extends React.Component {
 
   render() {
     if (this.state.loading) return <MDSpinner size={100} className='loader' />;
-    debugger
     const board = this.props.board ?
       this.props.board : {};
       const pins = this.props.pins.map(pin => <UserPinItem
