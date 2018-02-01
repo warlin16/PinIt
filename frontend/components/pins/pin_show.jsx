@@ -11,6 +11,7 @@ class PinShow extends React.Component {
     }
 
     this.handleGoBack = this.handleGoBack.bind(this);
+    this.toggleDropdown = this.toggleDropdown.bind(this);
   }
 
   componentDidMount() {
@@ -34,7 +35,24 @@ class PinShow extends React.Component {
   renderEditTools() {
     if (this.props.pin &&
       (this.props.pin.author_id === this.props.currentUser.id)) {
-        return <img src={window.staticImages.edit} className='pin-edit' />;
+        return <img src={window.staticImages.edit}
+          onClick={this.toggleDropdown}
+          className='pin-edit' />;
+    } else {
+      return null;
+    }
+  }
+
+  toggleDropdown(e) {
+    e.preventDefault();
+    this.setState({ show: !this.state.show });
+  }
+
+  renderDropwdown() {
+    if (this.state.show) {
+      return (
+        <h1>I SHOULD BE VISIBLE</h1>
+      );
     } else {
       return null;
     }
@@ -49,6 +67,7 @@ class PinShow extends React.Component {
           <div className='pin-content'>
             <nav className='pin-save-icon'>
               {this.renderEditTools()}
+              {this.renderDropwdown()}
               <button className='pin-save-button' onClick={this.handlePinIt}>
                 <img src={window.staticImages.dart} />
                 Pin it!
