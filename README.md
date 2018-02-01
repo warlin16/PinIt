@@ -47,3 +47,66 @@ There were 4 main controllers used in this project that being the users, session
 ```
 
 # Frontend implementation
+
+## The Redux Cycle
+
+For sessions on the frontend there is a reducer specifically for the sessions and actions that dispatch AJAX requests. Thunk middleware is used as well with the redux store in order to intercept these AJAX requests before they hit the reducer. The response is then dispatched for the reducer to process. `Board`, `pins`, and `users` all have actions that dispatch AJAX request for CRUD. The main reducer has been structured to consist of four main slices.
+
+```javascript
+const RootReducer = combineReducers({
+  session,
+  errors,
+  ui,
+  entities
+});
+```
+
+## React Components
+
+The `nav` component is conditionally rendered all through out the website if the user is logged in, and also features links to quickly go to the main feed, their show page and a dropdown menu with their username and option to logout.
+
+![](https://media.giphy.com/media/3ohs4gXKGM9unyjKHS/giphy.gif)
+
+The `pin` index is rendered at the main feed where the user can choose to view. The `pin` show page has modal like functionality where the user can click out of the pin content box and go back to the previous page.
+
+![](https://media.giphy.com/media/xUOwFU8ys9xr5Df21y/giphy.gif)
+
+At the User show component if the current user is on their show page they have the option of creating boards and or pins, and if they visit another users show page the option is gone. The option is conditionally rendered if the current users id matches the users show page via url params.
+
+```javascript
+    createBoardForm() {
+      if (!this.props.user) return null;
+      if (this.props.user.id === this.props.currentUser.id) {
+        return(
+          <div className='board-create' onClick={this.createBoard}>
+            <div className='board-create-button'>
+              <div>+</div>
+            </div>
+
+            <div className='board-create-title'>
+              <div>Create A Board!</div>
+            </div>
+          </div>
+        );
+      } else {
+        return null;
+      }
+    }
+```
+
+## Modals
+
+Modal status is stored as a slice of state in the reducer. Modals are rendered if the current status matches the status for the specific modal.
+```javascript
+    const defaultState = {
+      boardModal: null,
+      pinModal: null,
+    };
+```
+
+![](https://media.giphy.com/media/xUOwGcKVUliEldtwC4/giphy.gif)
+
+# CSS
+
+CSS FlexBox was used heavily for responsive design.
+![](https://media.giphy.com/media/3o7WIzZXc9POkRU43C/giphy.gif)
