@@ -109,4 +109,6 @@ Modal status is stored as a slice of state in the reducer. Modals are rendered i
 # CSS
 
 CSS FlexBox was used heavily for responsive design.
+
+
 ![](https://media.giphy.com/media/3o7WIzZXc9POkRU43C/giphy.gif)
