@@ -192,6 +192,16 @@ class BoardShow extends React.Component {
     );
   }
 
+  noPinsMessage(pins) {
+    if (pins.length === 0) {
+      return(
+        <h1 className='no-pins'>You have no pins on this board yet.</h1>
+      )
+    } else {
+      return null;
+    }
+  }
+
   render() {
     if (this.state.loading) return <MDSpinner size={100} className='loader' />;
     const board = this.props.board ?
@@ -217,6 +227,7 @@ class BoardShow extends React.Component {
               {this.renderBoardUpdate()}
               {this.renderBoardDelete()}
               {pins}
+              {this.noPinsMessage(pins)}
             </div>
 
           </section>

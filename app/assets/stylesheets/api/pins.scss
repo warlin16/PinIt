@@ -227,6 +227,7 @@
   align-items: center;
   color: gainsboro;
   transition: cubic-bezier(0.96, 2, 0.36, 0.25), background-color 0.5s linear;
+  margin-left: 20px;
 
   img {
     width: 39px;
@@ -283,5 +284,13 @@
 
 .pin-save-icon {
   display: flex;
-  justify-content: center;
+}
+
+.pin-edit {
+  height: 50px;
+  margin-right: 20px;
+}
+
+.pin-edit:hover {
+  cursor: pointer;
 }
