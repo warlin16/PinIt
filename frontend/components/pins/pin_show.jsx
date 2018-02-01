@@ -66,8 +66,6 @@ class PinShow extends React.Component {
         <div className='pin-content-box' onClick={this.stopPropagation}>
           <div className='pin-content'>
             <nav className='pin-save-icon'>
-              {this.renderEditTools()}
-              {this.renderDropwdown()}
               <button className='pin-save-button' onClick={this.handlePinIt}>
                 <img src={window.staticImages.dart} />
                 Pin it!
