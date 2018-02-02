@@ -1,14 +1,18 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import UserBoardItem from './user_board_item';
-import UserPinItem from './user_pin_item';
-import BoardForm from '../modals/board_create_modal';
-import PinForm from '../modals/pin_create_modal';
+import React from "react";
+import { Link } from "react-router-dom";
+import UserBoardItem from "./user_board_item";
+import UserPinItem from "./user_pin_item";
+import BoardForm from "../modals/board_create_modal";
+import PinForm from "../modals/pin_create_modal";
+import MDSpinner from "react-md-spinner";
 
 class UserShow extends React.Component {
   constructor(props) {
     super(props);
 
+    this.state = {
+      loading: true
+    };
     this.createBoard = this.createBoard.bind(this);
     this.createPin = this.createPin.bind(this);
     this.closeModal = this.closeModal.bind(this);
@@ -17,15 +21,17 @@ class UserShow extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchUser(this.props.match.params.userId);
+    this.props.fetchUser(this.props.match.params.userId).then(() => {
+      this.setState({ loading: false });
+    });
   }
 
   componentWillReceiveProps(nextProps) {
     if (this.props.match.params.userId !== nextProps.match.params.userId) {
       this.props.fetchUser(nextProps.match.params.userId);
     }
-    if (this.props.match.url !== nextProps.match.url ) {
-      window.scrollTo(0,0);
+    if (this.props.match.url !== nextProps.match.url) {
+      window.scrollTo(0, 0);
     }
   }
 
@@ -51,26 +57,27 @@ class UserShow extends React.Component {
   }
 
   renderPinCreate() {
-    if (this.props.pinModal === 'create') {
-      return(
+    if (this.props.pinModal === "create") {
+      return (
         <PinForm
           closeModal={this.closeModal}
           stopPropagation={this.stopPropagation}
           currentUserId={this.props.currentUser.id}
           createPin={this.props.createPin}
-          />
+        />
       );
     }
   }
 
   renderBoardCreate() {
-    if (this.props.boardModal === 'create') {
-      return(
+    if (this.props.boardModal === "create") {
+      return (
         <BoardForm
           closeModal={this.closeModal}
           stopPropagation={this.stopPropagation}
           createBoard={this.props.createBoard}
-          currentUserId={this.props.currentUser.id} />
+          currentUserId={this.props.currentUser.id}
+        />
       );
     }
   }
@@ -78,13 +85,13 @@ class UserShow extends React.Component {
   createBoardForm() {
     if (!this.props.user) return null;
     if (this.props.user.id === this.props.currentUser.id) {
-      return(
-        <div className='board-create' onClick={this.createBoard}>
-          <div className='board-create-button'>
+      return (
+        <div className="board-create" onClick={this.createBoard}>
+          <div className="board-create-button">
             <div>+</div>
           </div>
 
-          <div className='board-create-title'>
+          <div className="board-create-title">
             <div>Create A Board!</div>
           </div>
         </div>
@@ -97,13 +104,13 @@ class UserShow extends React.Component {
   createPinForm() {
     if (!this.props.user) return null;
     if (this.props.user.id === this.props.currentUser.id) {
-      return(
-        <div className='pin-create' onClick={this.createPin}>
-          <div className='pin-create-button'>
+      return (
+        <div className="pin-create" onClick={this.createPin}>
+          <div className="pin-create-button">
             <div>+</div>
           </div>
 
-          <div className='pin-create-title'>
+          <div className="pin-create-title">
             <div>Create A Pin!</div>
           </div>
         </div>
@@ -112,18 +119,21 @@ class UserShow extends React.Component {
   }
 
   boardIndex() {
-    if (this.props.user &&
-      (this.props.match.url === `/user/${this.props.user.id}`)) {
-      return(
-        <Link to={`/user/${this.props.user.id}`}
-          className='user-board-link styled'>
+    if (
+      this.props.user &&
+      this.props.match.url === `/user/${this.props.user.id}`
+    ) {
+      return (
+        <Link
+          to={`/user/${this.props.user.id}`}
+          className="user-board-link styled"
+        >
           <p>Boards</p>
         </Link>
       );
     } else if (this.props.user) {
-      return(
-        <Link to={`/user/${this.props.user.id}`}
-          className='user-board-link'>
+      return (
+        <Link to={`/user/${this.props.user.id}`} className="user-board-link">
           <p>Boards</p>
         </Link>
       );
@@ -133,23 +143,29 @@ class UserShow extends React.Component {
   }
 
   pinIndex() {
-    if (this.props.user &&
-    (this.props.match.url === `/user/${this.props.user.id}/pins`)) {
-      return(
-        <div className='user-pins-index'>
-          <Link to={`/user/${this.props.user.id}/pins`}
-            className='user-pins-link styled'>
+    if (
+      this.props.user &&
+      this.props.match.url === `/user/${this.props.user.id}/pins`
+    ) {
+      return (
+        <div className="user-pins-index">
+          <Link
+            to={`/user/${this.props.user.id}/pins`}
+            className="user-pins-link styled"
+          >
             <p>Pins</p>
           </Link>
-          <div className='user-pin-amount'>
+          <div className="user-pin-amount">
             {this.props.user.pinIds.length} pins
           </div>
         </div>
       );
     } else if (this.props.user) {
-      return(
-        <Link to={`/user/${this.props.user.id}/pins`}
-          className='user-pins-link'>
+      return (
+        <Link
+          to={`/user/${this.props.user.id}/pins`}
+          className="user-pins-link"
+        >
           <p>Pins</p>
         </Link>
       );
@@ -159,84 +175,103 @@ class UserShow extends React.Component {
   }
 
   renderBoards(boards) {
-    if (this.props.user &&
-      (this.props.match.url === `/user/${this.props.user.id}`)) {
-        return(
-          <div className='user-content'>
-            {this.renderBoardCreate()}
-            {this.createBoardForm()}
-            {boards}
-          </div>
-        );
+    if (
+      this.props.user &&
+      this.props.match.url === `/user/${this.props.user.id}`
+    ) {
+      return (
+        <div className="user-content">
+          {this.renderBoardCreate()}
+          {this.createBoardForm()}
+          {boards}
+        </div>
+      );
     } else if (this.props.user) {
-        return null;
+      return null;
     } else {
-        return null;
+      return null;
     }
   }
 
   renderPins(pins) {
-    if (this.props.user &&
-      (this.props.match.url === `/user/${this.props.user.id}/pins`)) {
-        return(
-          <div className='user-content'>
-            {this.renderPinCreate()}
-            {this.createPinForm()}
-            {pins}
-          </div>
-        );
+    if (
+      this.props.user &&
+      this.props.match.url === `/user/${this.props.user.id}/pins`
+    ) {
+      return (
+        <div className="user-content">
+          {this.renderPinCreate()}
+          {this.createPinForm()}
+          {pins}
+        </div>
+      );
     } else if (this.props.user) {
-        return null;
+      return null;
     } else {
-        return null;
+      return null;
     }
   }
 
   render() {
-    const user = this.props.user ? this.props.user : { username: '', id: '' };
-    const boards = this.props.boards.map(board => <UserBoardItem
-      key={board.id} id={board.id} title={board.title}
-      description={board.description} pins={board.pins}
-      userId={user.id} />);
-      const pins = this.props.pins.map(pin => <UserPinItem
-      key={pin.id} id={pin.id} title={pin.title}
-      description={pin.description} url={pin.img} />);
-    return(
-      <div className='show-container'>
-        <div className='user-bio-box'>
-          <div className='user-bio'>
-            <div className='user-info'>
-              <div className='user-name'><h3>{user.username}</h3></div>
+    if (this.state.loading) return <MDSpinner size={100} className="loader" />;
+    const user = this.props.user ? this.props.user : { username: "", id: "" };
+    const boards = this.props.boards.map(board => (
+      <UserBoardItem
+        key={board.id}
+        id={board.id}
+        title={board.title}
+        description={board.description}
+        pins={board.pins}
+        userId={user.id}
+      />
+    ));
+    const pins = this.props.pins.map(pin => (
+      <UserPinItem
+        key={pin.id}
+        id={pin.id}
+        title={pin.title}
+        description={pin.description}
+        url={pin.img}
+      />
+    ));
+    return (
+      <div className="show-container">
+        <div className="user-bio-box">
+          <div className="user-bio">
+            <div className="user-info">
+              <div className="user-name">
+                <h3>{user.username}</h3>
+              </div>
 
-              <div className='follows'>
-                <div className='followers'>
+              <div className="follows">
+                <div className="followers">
                   <div>0</div>
-                    <div>followers</div>
-                  </div>
-                <div className='following'>
+                  <div>followers</div>
+                </div>
+                <div className="following">
                   <div>0</div>
-                    <div>following</div>
-                  </div>
+                  <div>following</div>
+                </div>
               </div>
             </div>
 
-            <div className='user-img'>
-              <div><img src={this.props.user ? this.props.user.avatarUrl : ''} /></div>
+            <div className="user-img">
+              <div>
+                <img src={this.props.user ? this.props.user.avatarUrl : ""} />
+              </div>
             </div>
           </div>
 
-          <div className='content-selector'>
+          <div className="content-selector">
             {this.boardIndex()}
             {this.pinIndex()}
           </div>
-
         </div>
 
-          <section className='user-content-box'>
-            {this.renderBoards(boards)}
-            {this.renderPins(pins)}
-          </section>
-
+        <section className="user-content-box">
+          {this.renderBoards(boards)}
+          {this.renderPins(pins)}
+        </section>
       </div>
     );
   }
