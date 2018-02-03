@@ -65,12 +65,12 @@ class PinShow extends React.Component {
       <section className='pin-show-container' onClick={this.handleGoBack}>
         <div className='pin-content-box' onClick={this.stopPropagation}>
           <div className='pin-content'>
-            <nav className='pin-save-icon'>
+            <div className='pin-save-icon'>
               <button className='pin-save-button' onClick={this.handlePinIt}>
                 <img src={window.staticImages.dart} />
                 Pin it!
               </button>
-            </nav>
+            </div>
 
             <div className='pin-show-column'>
 
