@@ -8,9 +8,11 @@ class Pin < ApplicationRecord
     class_name: 'User',
     foreign_key: :author_id
 
-  belongs_to :board,
-    class_name: 'Board',
-    foreign_key: :board_id,
-    optional: true
+  has_many :pin_boards,
+    class_name: 'PinBoards',
+    foreign_key: :pin_id
+
+  has_many :boards,
+    through: :pin_boards
 
 end

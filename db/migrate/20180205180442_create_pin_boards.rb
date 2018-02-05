@@ -5,5 +5,6 @@ class CreatePinBoards < ActiveRecord::Migration[5.1]
       t.integer :pin_id, null: false
       t.timestamps
     end
+
   end
 end
