@@ -7,9 +7,13 @@ class Api::PinsController < ApplicationController
 
   def create
     @pin = Pin.new(pin_params)
-
     if @pin.save
       @author = User.find_by_id(@pin.author_id)
+      if pin_params[:board_id]
+        PinBoard.create(
+          board_id: pin_params[:board_id],
+          pin_id: @pin.id)
+      end
       render 'api/pins/show'
     else
       render json: @pin.errors.full_messages, status: 422
@@ -38,6 +42,6 @@ class Api::PinsController < ApplicationController
 
   private
   def pin_params
-    params.require(:pin).permit(:title, :description, :image, :author_id)
+    params.require(:pin).permit(:title, :description, :image, :author_id, :board_id)
   end
 end
