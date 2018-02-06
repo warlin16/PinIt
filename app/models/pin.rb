@@ -9,10 +9,9 @@ class Pin < ApplicationRecord
     foreign_key: :author_id
 
   has_many :pin_boards,
-    class_name: 'PinBoards',
+    class_name: 'PinBoard',
     foreign_key: :pin_id
 
   has_many :boards,
     through: :pin_boards
-
 end

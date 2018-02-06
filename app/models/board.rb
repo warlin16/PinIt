@@ -10,6 +10,5 @@ class Board < ApplicationRecord
     foreign_key: :board_id
 
   has_many :pins,
-    class_name: 'Pin',
-    foreign_key: :board_id
+    through: :pin_boards
 end
