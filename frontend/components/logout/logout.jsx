@@ -1,6 +1,5 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-
+import React from "react";
+import { Link } from "react-router-dom";
 
 class Logout extends React.Component {
   constructor(props) {
@@ -8,7 +7,7 @@ class Logout extends React.Component {
 
     this.handleDropdown = this.handleDropdown.bind(this);
     this.handleLogout = this.handleLogout.bind(this);
-    this.state = { search: '', dropdown: false };
+    this.state = { search: "", dropdown: false };
   }
 
   handleDropdown(e) {
@@ -17,39 +16,39 @@ class Logout extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    this.setState({ dropdown: false});
+    this.setState({ dropdown: false });
   }
 
   update(field) {
     return e => {
       this.setState({ [field]: e.target.value });
-    }
+    };
   }
 
   handleLogout() {
-    this.props.history.push('/');
+    this.props.history.push("/");
     this.props.logout();
   }
 
   dropDown() {
     if (this.state.dropdown) {
-      return(
-        <div className='dropdown-menu' onMouseLeave={this.handleDropdown}>
-          <div className='dropdown-settings'>
+      return (
+        <div className="dropdown-menu" onMouseLeave={this.handleDropdown}>
+          <div className="dropdown-settings">
             <p>{this.props.currentUser.username}</p>
           </div>
 
           <section>
-            <a href='https://linkedin.com/in/warlin16'>LinkedIn</a>
+            <a href="https://linkedin.com/in/warlin16">LinkedIn</a>
             <img src={window.staticImages.linked} />
           </section>
 
           <section>
-            <a href='https://github.com/warlin16'>GitHub</a>
+            <a href="https://github.com/warlin16">GitHub</a>
             <img src={window.staticImages.git} />
           </section>
 
-          <div className='dropdown-logout' onClick={this.handleLogout}>
+          <div className="dropdown-logout" onClick={this.handleLogout}>
             <p>Logout</p>
           </div>
         </div>
@@ -61,29 +60,28 @@ class Logout extends React.Component {
 
   navBar() {
     if (this.props.currentUser) {
-      return(
-        <nav className='main-nav'>
-          <div className='nav-container'>
-            <div className='logo-box'>
-              <Link to='/' className='logo-link'>
+      return (
+        <nav className="main-nav">
+          <div className="nav-container">
+            <div className="logo-box">
+              <Link to="/" className="logo-link">
                 <img src={window.staticImages.pinitLogo} />
               </Link>
             </div>
 
-            <div className='search-input'>
+            <div className="search-input" />
 
+            <div className="home-page">
+              <Link to="/">Home</Link>
             </div>
 
-            <div className='home-page'>
-              <Link to='/'>Home</Link>
+            <div className="show-page">
+              <Link to={`/user/${this.props.currentUser.id}`}>
+                <img src={this.props.currentUser.avatarUrl} />
+                <h1>Show</h1>
+              </Link>
             </div>
-
-            <div className='show-page'>
-              <Link to={`/user/${this.props.currentUser.id}`}><img src={this.props.currentUser.avatarUrl} />
-              <h1>Show</h1></Link>
-            </div>
-            <div className='logout'
-                onMouseEnter={this.handleDropdown} >
+            <div className="logout" onMouseEnter={this.handleDropdown}>
               <img src={window.staticImages.drop} />
             </div>
           </div>
@@ -96,12 +94,9 @@ class Logout extends React.Component {
   }
 
   render() {
-    if (this.props.location.pathname.slice(0, 5) === '/pin/') return null;
-    return(
-      <div>{this.navBar()}</div>
-    );
+    if (this.props.location.pathname.slice(0, 5) === "/pin/") return null;
+    return <div>{this.navBar()}</div>;
   }
 }
-
 
 export default Logout;
