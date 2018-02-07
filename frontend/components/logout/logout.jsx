@@ -71,7 +71,7 @@ class Logout extends React.Component {
             </div>
 
             <div className='search-input'>
-              
+
             </div>
 
             <div className='home-page'>
@@ -96,6 +96,7 @@ class Logout extends React.Component {
   }
 
   render() {
+    if (this.props.location.pathname.slice(0, 5) === '/pin/') return null;
     return(
       <div>{this.navBar()}</div>
     );
