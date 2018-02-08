@@ -218,23 +218,16 @@
 }
 
 .pin-save-button {
-  width: 75px;
-  height: 50px;
+  width: 72px;
+  height: 34px;
   border: 0;
   text-align: center;
   cursor: pointer;
-  display: flex;
   background-color: #c32437;
   font-size: 15px;
-  align-items: center;
-  color: gainsboro;
   transition: cubic-bezier(0.96, 2, 0.36, 0.25), background-color 0.5s linear;
-  margin-left: 20px;
-
-  img {
-    width: 39px;
-    margin-right: 2px;
-  }
+  color: white;
+  border-radius: 2px;
 }
 
 .pin-save-button:hover {
@@ -286,6 +279,13 @@
 
 .pin-save-icon {
   display: flex;
+  justify-content: space-between;
+  width: auto;
+  height: 50px;
+  box-sizing: border-box;
+  padding: 7px 31px;
+  position: sticky;
+  top: 0;
 }
 
 .pin-edit {
