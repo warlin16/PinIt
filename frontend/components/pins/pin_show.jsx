@@ -64,13 +64,16 @@ class PinShow extends React.Component {
 
   render() {
     if (this.state.loading) return <MDSpinner size={100} className="loader" />;
-    debugger
     const pin = this.props.pin ? this.props.pin : {};
     return (
       <section className="pin-show-container" onClick={this.handleGoBack}>
         <div className="pin-content-box" onClick={this.stopPropagation}>
           <div className="pin-content">
             <div className="pin-save-icon">
+              <img
+                src={window.staticImages.edit}
+                
+              />
               <button className="pin-save-button" onClick={this.handlePinIt}>
                 Pin it!
               </button>
