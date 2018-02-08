@@ -72,7 +72,7 @@ class PinShow extends React.Component {
             <div className="pin-save-icon">
               <img
                 src={window.staticImages.edit}
-                
+
               />
               <button className="pin-save-button" onClick={this.handlePinIt}>
                 Pin it!
@@ -92,8 +92,8 @@ class PinShow extends React.Component {
                   <h1> {pin.description} </h1>
                 </div>
                 <div>
+                  <img src={pin.authorAvi} />
                   <h1>
-                    {" "}
                     Created by:{" "}
                     <Link to={`/user/${pin.author_id}`}>{pin.author} </Link>
                   </h1>

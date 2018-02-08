@@ -258,22 +258,32 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding-top: 30px;
 
   div {
     width: 80%;
     height: 20%;
     display: flex;
-    justify-content: center;
     align-items: center;
     border-bottom: 2px solid gainsboro;
+    word-break: break-word;
   }
 
   h1 {
-    font-size: 30px;
+    font-size: 25px;
 
     a {
-      text-decoration: none;
+      text-decoration: underline;
+      color: inherit;
     }
+  }
+
+  img {
+    width: 40px;
+    height: 40px;
+    border: 1px solid gainsboro;
+    border-radius: 50%;
+    margin-right: 10px;
   }
 }
 
@@ -289,8 +299,8 @@
   background: white;
 
   img {
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     border-radius: 20px;
     transition: cubic-bezier(0.96, 2, 0.36, 0.25), background-color 0.3s linear;
   }
@@ -299,13 +309,4 @@
     background: gainsboro;
     cursor: pointer;
   }
-}
-
-.pin-edit {
-  height: 50px;
-  margin-right: 20px;
-}
-
-.pin-edit:hover {
-  cursor: pointer;
 }
