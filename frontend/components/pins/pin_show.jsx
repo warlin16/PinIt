@@ -12,6 +12,7 @@ class PinShow extends React.Component {
     };
 
     this.handleGoBack = this.handleGoBack.bind(this);
+    this.updatePin = this.updatePin.bind(this);
   }
 
   componentDidMount() {
@@ -32,12 +33,26 @@ class PinShow extends React.Component {
     e.preventDefault();
   }
 
+  updatePin() {
+    this.props.updatePin();
+  }
+
+  renderUpdateForm() {
+    if (this.props.pinModal === "update") {
+      return <UpdatePinForm
+        closeModal={this.props.closeModal}
+        pinId={this.props.pin.id}
+        title={this.props.pin.title}
+        description={this.props.pin.description} />;
+    }
+  }
+
   renderEditTools() {
     if (
       this.props.pin &&
       this.props.pin.author_id === this.props.currentUser.id
     ) {
-      return <img src={window.staticImages.edit} />;
+      return <img src={window.staticImages.edit} onClick={this.updatePin} />;
     } else {
       return null;
     }
@@ -80,6 +95,7 @@ class PinShow extends React.Component {
             </div>
           </div>
         </div>
+        {this.renderUpdateForm()}
       </section>
     );
   }
