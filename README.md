@@ -10,7 +10,7 @@ Database schema, wireframes and a detailed component hierachy are viewable in th
 
 So far only three tables have been created on the backend that being `users`, `boards`, and `pins`. The `users` table is in charge of storing the users credentials which consist of only their username, password digest, and a session token which indicates wether they're logged in or not. The `boards` table holds a reference to its 'author' with the id of the user that created that board, a title, and a description. The `pins` table holds a reference to its 'author' simirlarly to the `boards` table, and if a pin is 'pinned' to a board it will also hold a reference to the current `board` it is pinned to via a `board_id`, also the `pin` has a title, a description and images can be uploaded with the `paperclip` gem and stored on a cloud hosted on S3 by Amazon Web Services.
 
-Database indexing was added to foreigm keys for fast and efficient look up times. Unique constraints were added at the database level for usernames to ensure users can't sign up with other users usernames.
+Database indexing was added to foreign keys for fast and efficient look up times. Unique constraints were added at the database level for usernames to ensure users can't sign up with other users usernames.
 
 ```ruby
     add_index :users, :username, unique: true
