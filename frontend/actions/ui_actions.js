@@ -33,3 +33,9 @@ export const createPinModal = () => {
     type: CREATE_PIN_MODAL,
   };
 };
+
+export const updatePinModal = () => {
+  return {
+    type: UPDATE_PIN_MODAL,
+  };
+};
