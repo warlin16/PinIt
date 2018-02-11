@@ -73,6 +73,9 @@ class UpdatePinForm extends React.Component {
 
             <div className="board-submit">
               <button onClick={this.props.closeModal} className="board-cancel">
+                Delete
+              </button>
+              <button onClick={this.props.closeModal} className="board-cancel">
                 Cancel
               </button>
               <button className="board-submit-button">Save</button>
