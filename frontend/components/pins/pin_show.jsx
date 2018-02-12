@@ -39,11 +39,15 @@ class PinShow extends React.Component {
 
   renderUpdateForm() {
     if (this.props.pinModal === "update") {
-      return <UpdatePinForm
-        closeModal={this.props.closeModal}
-        pinId={this.props.pin.id}
-        title={this.props.pin.title}
-        description={this.props.pin.description} />;
+      return (
+        <UpdatePinForm
+          closeModal={this.props.closeModal}
+          pinId={this.props.pin.id}
+          title={this.props.pin.title}
+          description={this.props.pin.description}
+          updatePin={this.props.updatePin}
+        />
+      );
     }
   }
 

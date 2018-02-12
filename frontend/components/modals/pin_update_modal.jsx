@@ -11,6 +11,7 @@ class UpdatePinForm extends React.Component {
     };
     this.handleClose = this.handleClose.bind(this);
     this.clearForm = this.clearForm.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   update(field) {
@@ -25,6 +26,7 @@ class UpdatePinForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
+    this.props.updatePin(this.state);
     this.clearForm();
     this.props.closeModal();
   }

@@ -28,6 +28,7 @@ class Api::PinsController < ApplicationController
 
   def update
     @pin = Pin.find_by_id(params[:id])
+    @author = User.find_by_id(@pin.author_id)
     if @pin.update_attributes(pin_params)
       render 'api/pins/show'
     else
