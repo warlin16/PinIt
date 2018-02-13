@@ -1,4 +1,5 @@
 import React from "react";
+import DeletePinForm from "pin_delete_modal";
 
 class UpdatePinForm extends React.Component {
   constructor(props) {
@@ -12,6 +13,7 @@ class UpdatePinForm extends React.Component {
     this.handleClose = this.handleClose.bind(this);
     this.clearForm = this.clearForm.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.renderDelete = this.renderDelete.bind(this);
   }
 
   update(field) {
@@ -22,6 +24,11 @@ class UpdatePinForm extends React.Component {
 
   clearForm() {
     this.setState({ title: "", description: "" });
+  }
+
+  renderDelete(e) {
+    e.preventDefault();
+    console.log('YERRRR');
   }
 
   handleSubmit(e) {
@@ -74,7 +81,7 @@ class UpdatePinForm extends React.Component {
             </div>
 
             <div className="board-submit">
-              <button onClick={this.props.closeModal} className="board-cancel">
+              <button onClick={this.renderDelete} className="board-cancel">
                 Delete
               </button>
               <button onClick={this.props.closeModal} className="board-cancel">
