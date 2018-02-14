@@ -40,3 +40,9 @@ export const updatePinModal = () => {
     type: UPDATE_PIN_MODAL
   };
 };
+
+export const deletePinModal = () => {
+  return {
+    type: DELETE_PIN_MODAL
+  };
+};

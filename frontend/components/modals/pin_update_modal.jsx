@@ -1,5 +1,5 @@
 import React from "react";
-import DeletePinForm from "pin_delete_modal";
+import DeletePinForm from "./pin_delete_modal";
 
 class UpdatePinForm extends React.Component {
   constructor(props) {
@@ -28,7 +28,7 @@ class UpdatePinForm extends React.Component {
 
   renderDelete(e) {
     e.preventDefault();
-    console.log('YERRRR');
+
   }
 
   handleSubmit(e) {
@@ -41,6 +41,12 @@ class UpdatePinForm extends React.Component {
   handleClose(e) {
     e.stopPropagation();
     this.props.closeModal();
+  }
+
+  renderPinDelete() {
+    if (this.props.pinModal === 'Delete') {
+      
+    }
   }
 
   render() {

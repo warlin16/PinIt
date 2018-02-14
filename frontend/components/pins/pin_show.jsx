@@ -47,6 +47,8 @@ class PinShow extends React.Component {
           description={this.props.pin.description}
           updatePin={this.props.updatePin}
           deletePin={this.props.deletePin}
+          deletePinModal={this.props.deletePinModal}
+          pinModal={this.props.pinModal}
         />
       );
     }
