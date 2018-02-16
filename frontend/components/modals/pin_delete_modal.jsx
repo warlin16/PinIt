@@ -10,8 +10,9 @@ class DeletePinForm extends Component {
 
   handleSubmit(e) {
     e.preventDefault();
+    e.stopPropagation();
     this.props
-      .deleteBoard(this.props.boardId)
+      .deletePin(this.props.pinId)
       .then(() => {
         this.props.closeModal();
       })
@@ -28,7 +29,7 @@ class DeletePinForm extends Component {
           onClick={this.props.stopPropagation}
         >
           <div className="board-delete-title">
-            <h1> Don't do it... </h1>
+            <h1> Are you positive? </h1>
             <strong onClick={this.props.closeModal}>X</strong>
           </div>
           <div className="board-delete-content">
@@ -41,7 +42,7 @@ class DeletePinForm extends Component {
               Cancel
             </button>
             <button className="delete-submit" onClick={this.handleSubmit}>
-              Delete :(
+              Delete Pin
             </button>
           </div>
         </div>

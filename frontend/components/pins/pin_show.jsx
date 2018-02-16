@@ -61,6 +61,7 @@ class PinShow extends React.Component {
           pinId={this.props.pin.id}
           deletePin={this.props.deletePin}
           userId={this.props.currentUser.id}
+          stopPropagation={this.stopPropagation}
         />
       );
     }
