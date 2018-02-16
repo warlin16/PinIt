@@ -4,6 +4,7 @@ export const CLOSE_MODAL = "CLOSE_MODAL";
 export const DELETE_BOARD_MODAL = "DELETE_BOARD_MODAL";
 export const CREATE_PIN_MODAL = "CREATE_PIN_MODAL";
 export const UPDATE_PIN_MODAL = "UPDATE_PIN_MODAL";
+export const DELETE_PIN_MODAL = "DELETE_PIN_MODAL";
 
 export const createBoardModal = () => {
   return {
