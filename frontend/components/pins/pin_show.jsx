@@ -23,7 +23,6 @@ class PinShow extends React.Component {
   }
 
   shouldComponentUpdate(nextProps) {
-    debugger
     if (nextProps.pin) {
       return true;
     } else {

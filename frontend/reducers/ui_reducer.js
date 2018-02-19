@@ -6,7 +6,8 @@ import {
   DELETE_BOARD_MODAL,
   CREATE_PIN_MODAL,
   UPDATE_PIN_MODAL,
-  DELETE_PIN_MODAL
+  DELETE_PIN_MODAL,
+  PIN_IT_MODAL
 } from "../actions/ui_actions";
 import { RECEIVE_ALL_PINS } from "../actions/pin_actions";
 
@@ -30,6 +31,8 @@ export const uiReducer = (state = defaultState, action) => {
       return merge({}, state, { pinModal: "update" });
     case DELETE_PIN_MODAL:
       return merge({}, state, { pinModal: "delete" });
+    case PIN_IT_MODAL:
+      return merge({}, state, { pinModal: "pinIt" });
     case CLOSE_MODAL:
       return defaultState;
     case RECEIVE_ALL_PINS:
