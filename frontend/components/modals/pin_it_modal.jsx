@@ -7,8 +7,15 @@ class PinItForm extends Component {
 
   render() {
     return (
+<<<<<<< HEAD
       <section className="">
 
+=======
+      <section className="pin-show-container">
+        <div className="pin-it-box">
+
+        </div>
+>>>>>>> pinItBranch
       </section>
     );
   }
