@@ -3,6 +3,7 @@ import { fetchPin, updatePin, deletePin } from "../../actions/pin_actions";
 import {
   updatePinModal,
   deletePinModal,
+  pinItModal,
   closeModal
 } from "../../actions/ui_actions";
 import PinShow from "./pin_show";
@@ -23,7 +24,8 @@ const mapDispatchToProps = dispatch => {
     closeModal: () => dispatch(closeModal()),
     updatePin: pin => dispatch(updatePin(pin)),
     deletePinModal: () => dispatch(deletePinModal()),
-    deletePin: pinId => dispatch(deletePin(pinId))
+    deletePin: pinId => dispatch(deletePin(pinId)),
+    pinIt: () => dispatch(pinItModal())
   };
 };
 

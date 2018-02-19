@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import MDSpinner from "react-md-spinner";
 import UpdatePinForm from "../modals/pin_update_modal";
 import DeletePinForm from "../modals/pin_delete_modal";
+import PinItForm from "../modals/pin_it_modal";
 
 class PinShow extends React.Component {
   constructor(props) {
@@ -14,6 +15,7 @@ class PinShow extends React.Component {
 
     this.handleGoBack = this.handleGoBack.bind(this);
     this.editPin = this.editPin.bind(this);
+    this.handlePinIt = this.handlePinIt.bind(this);
   }
 
   componentDidMount() {
@@ -40,6 +42,7 @@ class PinShow extends React.Component {
 
   handlePinIt(e) {
     e.preventDefault();
+    this.props.pinIt();
   }
 
   editPin() {
@@ -70,6 +73,18 @@ class PinShow extends React.Component {
           deletePin={this.props.deletePin}
           pinId={this.props.pin.id}
           userId={this.props.currentUser.id}
+        />
+      );
+    }
+  }
+
+  renderPinItForm() {
+    if (this.props.pinModal === "pinIt") {
+      return (
+        <PinItForm
+          closeModal={this.props.closeModal}
+          stopPropagation={this.stopPropagation}
+          user={this.props.currentUser}
         />
       );
     }
@@ -127,6 +142,7 @@ class PinShow extends React.Component {
             </div>
             {this.renderUpdateForm()}
             {this.renderDeleteForm()}
+            {this.renderPinItForm()}
           </div>
         </div>
       </section>
