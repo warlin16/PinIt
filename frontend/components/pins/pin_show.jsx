@@ -22,6 +22,15 @@ class PinShow extends React.Component {
     });
   }
 
+  shouldComponentUpdate(nextProps) {
+    debugger
+    if (nextProps.pin) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
   handleGoBack() {
     this.props.history.goBack();
   }
@@ -55,7 +64,6 @@ class PinShow extends React.Component {
 
   renderDeleteForm() {
     if (this.props.pinModal === "delete") {
-      debugger
       return (
         <DeletePinForm
           closeModal={this.props.closeModal}
@@ -118,10 +126,10 @@ class PinShow extends React.Component {
                 </div>
               </div>
             </div>
+            {this.renderUpdateForm()}
+            {this.renderDeleteForm()}
           </div>
         </div>
-        {this.renderUpdateForm()}
-        {this.renderDeleteForm()}
       </section>
     );
   }
