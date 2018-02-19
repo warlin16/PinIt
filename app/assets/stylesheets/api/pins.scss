@@ -312,8 +312,46 @@
 }
 
 .pin-it-box {
-  width: 600px;
-  height: 600px;
+  width: 660px;
+  height: 660px;
   background-color: white;
   cursor: default;
+  border-radius: 8px;
+  display: flex;
+}
+
+.pin-it-image {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  img {
+    width: 130px;
+    height: 130px;
+    border-radius: 8px;
+  }
+}
+
+.pin-it-edit {
+  width: 130px;
+  height: 30px;
+  display: flex;
+  cursor: pointer;
+  z-index: 10;
+
+  h3 {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: inline-block;
+    white-space: nowrap;
+    font-size: 13px;
+    font-weight: 1000;
+  }
+
+  img {
+    width: 20px;
+    height: 20px;
+  }
 }

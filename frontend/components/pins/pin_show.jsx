@@ -85,6 +85,8 @@ class PinShow extends React.Component {
           closeModal={this.props.closeModal}
           stopPropagation={this.stopPropagation}
           user={this.props.currentUser}
+          url={this.props.pin.img}
+          description={this.props.pin.description}
         />
       );
     }
