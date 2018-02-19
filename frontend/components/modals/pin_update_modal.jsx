@@ -24,11 +24,6 @@ class UpdatePinForm extends React.Component {
     this.setState({ title: "", description: "" });
   }
 
-  renderDelete(e) {
-    e.preventDefault();
-
-  }
-
   handleSubmit(e) {
     e.preventDefault();
     this.props.updatePin(this.state);
@@ -39,15 +34,6 @@ class UpdatePinForm extends React.Component {
   handleClose(e) {
     e.stopPropagation();
     this.props.closeModal();
-  }
-
-  renderPinDelete() {
-    if (this.props.pinModal === 'Delete') {
-      return (
-        <DeletePinForm
-          id={this.props.pinId} />
-      );
-    }
   }
 
   render() {

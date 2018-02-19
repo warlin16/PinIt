@@ -55,13 +55,14 @@ class PinShow extends React.Component {
 
   renderDeleteForm() {
     if (this.props.pinModal === "delete") {
+      debugger
       return (
         <DeletePinForm
           closeModal={this.props.closeModal}
-          pinId={this.props.pin.id}
-          deletePin={this.props.deletePin}
-          userId={this.props.currentUser.id}
           stopPropagation={this.stopPropagation}
+          deletePin={this.props.deletePin}
+          pinId={this.props.pin.id}
+          userId={this.props.currentUser.id}
         />
       );
     }
@@ -72,7 +73,11 @@ class PinShow extends React.Component {
       this.props.pin &&
       this.props.pin.author_id === this.props.currentUser.id
     ) {
-      return <img src={window.staticImages.edit} onClick={this.editPin} />;
+      return (
+        <div>
+          <img src={window.staticImages.edit} onClick={this.editPin} />
+        </div>
+      );
     } else {
       return null;
     }

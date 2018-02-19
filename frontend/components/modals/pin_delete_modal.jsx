@@ -1,7 +1,7 @@
-import React, { Component } from "react";
+import React from "react";
 import { withRouter } from "react-router-dom";
 
-class DeletePinForm extends Component {
+class DeletePinForm extends React.Component {
   constructor(props) {
     super(props);
 
@@ -10,7 +10,6 @@ class DeletePinForm extends Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    e.stopPropagation();
     this.props
       .deletePin(this.props.pinId)
       .then(() => {
@@ -33,9 +32,7 @@ class DeletePinForm extends Component {
             <strong onClick={this.props.closeModal}>X</strong>
           </div>
           <div className="board-delete-content">
-            <p>
-              This pin will miss you when it's gone
-            </p>
+            <p>This pin will miss you when it's gone</p>
           </div>
           <div className="board-delete-buttons">
             <button className="delete-cancel" onClick={this.props.closeModal}>
