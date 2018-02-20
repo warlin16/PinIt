@@ -5,7 +5,9 @@ class PinItForm extends Component {
     super(props);
 
     this.state = {
-      edit: false
+      edit: false,
+      title: this.props.title,
+      description: this.props.description
     };
     this.handleClose = this.handleClose.bind(this);
     this.changeEdit = this.changeEdit.bind(this);
@@ -24,16 +26,25 @@ class PinItForm extends Component {
   changeEdit(e) {
     e.preventDefault();
     this.setState({
-      edit: !this.state.edit,
-      title: this.props.title,
-      description: this.props.description
-     });
+      edit: !this.state.edit
+    });
+  }
+
+  update(field) {
+    return e => {
+      this.setState({ [field]: e.target.value });
+    };
   }
 
   renderEdit() {
     if (this.state.edit) {
       return (
-        <textarea className="animate fadeIn">{this.props.description}</textarea>
+        <textarea
+          onClick={this.props.stopPropagation}
+          onChange={this.update("description")}
+        >
+          {this.state.description}
+        </textarea>
       );
     } else {
       return (
@@ -49,7 +60,7 @@ class PinItForm extends Component {
 
   render() {
     return (
-      <section className="board-delete-container" onClick={this.handleClose}>
+      <section className="pin-it-container" onClick={this.handleClose}>
         <div className="pin-it-box" onClick={this.handlePropagation}>
           <div className="pin-it-image">
             <img src={this.props.url} />
@@ -58,7 +69,7 @@ class PinItForm extends Component {
           <div className="pin-board-list">
             <header>
               <h3>Choose board</h3>
-              <strong>X</strong>
+              <strong onClick={this.handleClose}>X</strong>
             </header>
           </div>
         </div>
