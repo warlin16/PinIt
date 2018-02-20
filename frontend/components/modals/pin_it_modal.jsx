@@ -10,12 +10,14 @@ class PinItForm extends Component {
       description: this.props.description,
       board_id: null,
       author_id: this.props.user.id,
+      imageUrl: this.props.url,
       show: false
     };
     this.handleClose = this.handleClose.bind(this);
     this.changeEdit = this.changeEdit.bind(this);
     this.handlePropagation = this.handlePropagation.bind(this);
     this.handlePinIt = this.handlePinIt.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleClose() {
@@ -72,6 +74,14 @@ class PinItForm extends Component {
 
   handleSubmit(e) {
     e.preventDefault();
+    const formData = new FormData();
+    formData.append("pin[title]", this.state.title);
+    formData.append("pin[description]", this.state.description);
+    formData.append("pin[author_id]", this.state.author_id);
+    formData.append("pin[board_id]", this.state.board_id);
+    this.props.createPin(formData).then(() => {
+      this.props.closeModal();
+    });
   }
 
   renderSubmit() {

@@ -5,10 +5,5 @@ class Board < ApplicationRecord
     class_name: 'User',
     foreign_key: :author_id
 
-  has_many :pin_boards,
-    class_name: 'PinBoard',
-    foreign_key: :board_id
-
-  has_many :pins,
-    through: :pin_boards
+  has_many :pins
 end

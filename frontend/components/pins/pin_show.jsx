@@ -84,8 +84,10 @@ class PinShow extends React.Component {
         <PinItForm
           closeModal={this.props.closeModal}
           stopPropagation={this.stopPropagation}
+          createPin={this.props.createPin}
           user={this.props.currentUser}
           url={this.props.pin.img}
+          title={this.props.pin.title}
           description={this.props.pin.description}
         />
       );
