@@ -8,7 +8,9 @@ class PinItForm extends Component {
       edit: false,
       title: this.props.title,
       description: this.props.description,
-      board_id: null
+      board_id: null,
+      author_id: this.props.user.id,
+      show: false
     };
     this.handleClose = this.handleClose.bind(this);
     this.changeEdit = this.changeEdit.bind(this);
@@ -61,14 +63,31 @@ class PinItForm extends Component {
   }
 
   handlePinIt(e) {
-    this.setState({ board_id: e.target.id });
+    this.setState({ board_id: e.target.id, show: true });
+  }
+
+  doNothing(e) {
+    e.preventDefault();
+  }
+
+  renderSubmit() {
+    if (this.state.show) {
+      return <button className="pin-save-button">Submit</button>
+    } else {
+      return <button className="pin-non-submit" onClick={this.doNothing}>hi</button>
+    }
   }
 
   render() {
     const boards = this.props.user.boardIds.map((board, idx) => (
-      <div id={board.id} key={idx} onClick={this.handlePinIt}>
+      <li
+        id={board.id}
+        key={idx}
+        onClick={this.handlePinIt}
+        className="pin-it-board-item"
+      >
         {board.title}
-      </div>
+      </li>
     ));
     return (
       <section className="pin-it-container" onClick={this.handleClose}>
@@ -88,6 +107,9 @@ class PinItForm extends Component {
                 {boards}
               </div>
             </article>
+            <footer>
+              {this.renderSubmit()}
+            </footer>
           </div>
         </div>
       </section>
