@@ -5,5 +5,6 @@ class Board < ApplicationRecord
     class_name: 'User',
     foreign_key: :author_id
 
-  has_many :pins
+  has_many :pins,
+    dependent: :destroy
 end
