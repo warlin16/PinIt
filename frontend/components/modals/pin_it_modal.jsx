@@ -7,11 +7,13 @@ class PinItForm extends Component {
     this.state = {
       edit: false,
       title: this.props.title,
-      description: this.props.description
+      description: this.props.description,
+      board_id: null
     };
     this.handleClose = this.handleClose.bind(this);
     this.changeEdit = this.changeEdit.bind(this);
     this.handlePropagation = this.handlePropagation.bind(this);
+    this.handlePinIt = this.handlePinIt.bind(this);
   }
 
   handleClose() {
@@ -58,7 +60,16 @@ class PinItForm extends Component {
     }
   }
 
+  handlePinIt(e) {
+    this.setState({ board_id: e.target.id });
+  }
+
   render() {
+    const boards = this.props.user.boardIds.map((board, idx) => (
+      <div id={board.id} key={idx} onClick={this.handlePinIt}>
+        {board.title}
+      </div>
+    ));
     return (
       <section className="pin-it-container" onClick={this.handleClose}>
         <div className="pin-it-box" onClick={this.handlePropagation}>
@@ -71,6 +82,12 @@ class PinItForm extends Component {
               <h3>Choose board</h3>
               <strong onClick={this.handleClose}>X</strong>
             </header>
+            <article>
+              <div>
+                All boards
+                {boards}
+              </div>
+            </article>
           </div>
         </div>
       </section>
