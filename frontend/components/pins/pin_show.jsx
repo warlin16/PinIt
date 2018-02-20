@@ -89,6 +89,7 @@ class PinShow extends React.Component {
           url={this.props.pin.img}
           title={this.props.pin.title}
           description={this.props.pin.description}
+          attachmentId={this.props.pin.attachment_id}
         />
       );
     }

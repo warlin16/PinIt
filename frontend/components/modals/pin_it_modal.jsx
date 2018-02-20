@@ -11,6 +11,7 @@ class PinItForm extends Component {
       board_id: null,
       author_id: this.props.user.id,
       imageUrl: this.props.url,
+      attachment_id: this.props.attachmentId,
       show: false
     };
     this.handleClose = this.handleClose.bind(this);
@@ -79,6 +80,7 @@ class PinItForm extends Component {
     formData.append("pin[description]", this.state.description);
     formData.append("pin[author_id]", this.state.author_id);
     formData.append("pin[board_id]", this.state.board_id);
+    formData.append("pin[attachment_id]", this.state.attachment_id);
     this.props.createPin(formData).then(() => {
       this.props.closeModal();
     });

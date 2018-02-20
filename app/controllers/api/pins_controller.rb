@@ -41,9 +41,11 @@ class Api::PinsController < ApplicationController
     params.require(:pin).permit(
       :title,
       :description,
-      :image,
       :author_id,
       :board_id,
-      :image_url)
+      :img_url,
+      :attachment_id,
+      attachment_attributes:[:image]
+    )
   end
 end

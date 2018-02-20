@@ -51,7 +51,7 @@ class PinForm extends React.Component {
       ? formData.append("pin[board_id]", this.props.match.params.boardId)
       : null;
     if (this.state.imageFile)
-      formData.append("pin[image]", this.state.imageFile);
+      formData.append("pin[attachment_attributes][image]", this.state.imageFile);
     this.props.createPin(formData).then(() => {
       this.props.closeModal();
     });
