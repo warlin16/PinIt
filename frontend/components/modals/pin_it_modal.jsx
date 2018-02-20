@@ -70,11 +70,23 @@ class PinItForm extends Component {
     e.preventDefault();
   }
 
+  handleSubmit(e) {
+    e.preventDefault();
+  }
+
   renderSubmit() {
     if (this.state.show) {
-      return <button className="pin-save-button">Submit</button>
+      return (
+        <button className="pin-save-button" onClick={this.handleSubmit}>
+          Submit
+        </button>
+      );
     } else {
-      return <button className="pin-non-submit" onClick={this.doNothing}>hi</button>
+      return (
+        <button className="pin-non-submit" onClick={this.doNothing}>
+          Submit
+        </button>
+      );
     }
   }
 
@@ -107,9 +119,7 @@ class PinItForm extends Component {
                 {boards}
               </div>
             </article>
-            <footer>
-              {this.renderSubmit()}
-            </footer>
+            <footer>{this.renderSubmit()}</footer>
           </div>
         </div>
       </section>
