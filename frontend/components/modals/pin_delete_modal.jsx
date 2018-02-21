@@ -16,7 +16,7 @@ class DeletePinForm extends React.Component {
         this.props.closeModal();
       })
       .then(() => {
-        this.props.history.push(`/user/${this.props.userId}`);
+        this.props.history.goBack();
       });
   }
 
