@@ -35,7 +35,9 @@ class Logout extends React.Component {
       return (
         <div className="dropdown-menu" onMouseLeave={this.handleDropdown}>
           <div className="dropdown-settings">
-            <p>{this.props.currentUser.username}</p>
+            <Link to={`/user/${this.props.currentUser.id}`}>
+              {this.props.currentUser.username}
+            </Link>
           </div>
 
           <section>
@@ -75,14 +77,8 @@ class Logout extends React.Component {
               <Link to="/">Home</Link>
             </div>
 
-            <div className="show-page">
-              <Link to={`/user/${this.props.currentUser.id}`}>
-                <img src={this.props.currentUser.avatarUrl} />
-                <h1>Show</h1>
-              </Link>
-            </div>
             <div className="logout" onMouseEnter={this.handleDropdown}>
-              <img src={window.staticImages.drop} />
+              <img src={this.props.currentUser.avatarUrl} />
             </div>
           </div>
           {this.dropDown()}

@@ -13,6 +13,7 @@
   background: white;
   z-index: 10;
   overflow: hidden;
+  font-family: 'Lato', sans-serif;
 }
 
 .nav-container {
@@ -29,12 +30,13 @@
   height: 48px;
   align-items: center;
   transition: background-color 0.2s ease-in;
-  margin-left: 15px;
+  margin-left: 20px;
 }
 
 .logo-box:hover {
   background-color: #e3e0e0;
 }
+
 .logo-link {
   display: flex;
   justify-content: center;
@@ -72,7 +74,7 @@
 }
 
 .home-page {
-  margin-left: 5px;
+  margin-left: 25px;
   width: 80px;
   height: 40px;
   display: flex;
@@ -98,49 +100,6 @@
   background-color: #e3e0e0;
 }
 
-.show-page {
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  padding: 0 15px;
-  height: 45px;
-  transition: border-radius 0.55s cubic-bezier(0.96, 2, 0.36, 0.25), background-color 0.3s linear;
-  box-sizing: border-box;
-  margin-left: 5px;
-  margin-right: 5px;
-
-  a {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-decoration: none;
-    width: 50px;
-  }
-
-  img {
-    width: 50%;
-    border-radius: 20px;
-    margin-right: 2px;
-  }
-
-  h1 {
-    font-size: 18px;
-    margin-left: 4px;
-    text-transform: capitalize;
-    color: #a7a7a7;
-    font-weight: 800;
-  }
-
-  a:hover {
-    cursor: pointer;
-  }
-}
-
-.show-page:hover {
-  border-radius: 50px;
-  background-color: #e3e0e0;
-}
-
 .logout {
   margin-left: 2px;
   border: 0;
@@ -154,7 +113,7 @@
   width: 100%;
 
   img {
-    width: 37px;
+    width: 30px;
   }
 }
 
@@ -188,7 +147,6 @@
     font-size: 17px;
 
     a {
-      text-decoration: none;
       margin-left: 5px;
       color: #736f6f;
       font-weight: 600;
@@ -202,7 +160,6 @@
 
   section:hover {
     background-color: #e3e0e0;
-    cursor: pointer;
   }
 }
 
@@ -213,7 +170,8 @@
   align-items: center;
   border-bottom: 1px solid #DCDCDC;
   font-size: 17px;
-  p {
+
+  a {
     margin-left: 5px;
     font-weight: 600;
     color: #736f6f;
@@ -238,7 +196,6 @@
 
 .dropdown-settings:hover {
   background-color: #e3e0e0;
-  cursor: pointer;
 }
 
 .dropdown-logout:hover {
