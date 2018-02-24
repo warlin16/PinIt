@@ -29,7 +29,6 @@
   border-radius: 39px;
   height: 48px;
   align-items: center;
-  transition: background-color 0.2s ease-in;
   margin-left: 20px;
 }
 
@@ -80,7 +79,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: border-radius 0.55s cubic-bezier(0.96, 2, 0.36, 0.25), background-color 0.3s linear;
   font-size: 20px;
   margin-right: 8px;
 
@@ -106,7 +104,6 @@
   font-size: 20px;
   max-width: 51px;
   height: 45px;
-  transition: border-radius 0.55s cubic-bezier(0.96, 2, 0.36, 0.25), background-color 0.3s linear;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -114,6 +111,7 @@
 
   img {
     width: 30px;
+    border-radius: 20px;
   }
 }
 

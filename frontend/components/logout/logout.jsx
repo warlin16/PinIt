@@ -5,14 +5,8 @@ class Logout extends React.Component {
   constructor(props) {
     super(props);
 
-    this.handleDropdown = this.handleDropdown.bind(this);
     this.handleLogout = this.handleLogout.bind(this);
     this.state = { search: "", dropdown: false };
-  }
-
-  handleDropdown(e) {
-    e.preventDefault();
-    this.setState({ dropdown: !this.state.dropdown });
   }
 
   componentWillReceiveProps(nextProps) {
@@ -33,7 +27,10 @@ class Logout extends React.Component {
   dropDown() {
     if (this.state.dropdown) {
       return (
-        <div className="dropdown-menu" onMouseLeave={this.handleDropdown}>
+        <div
+          className="dropdown-menu"
+          onMouseLeave={() => this.setState({ dropdown: false })}
+        >
           <div className="dropdown-settings">
             <Link to={`/user/${this.props.currentUser.id}`}>
               {this.props.currentUser.username}
@@ -77,7 +74,10 @@ class Logout extends React.Component {
               <Link to="/">Home</Link>
             </div>
 
-            <div className="logout" onMouseEnter={this.handleDropdown}>
+            <div
+              className="logout"
+              onMouseEnter={() => this.setState({ dropdown: true })}
+            >
               <img src={this.props.currentUser.avatarUrl} />
             </div>
           </div>
