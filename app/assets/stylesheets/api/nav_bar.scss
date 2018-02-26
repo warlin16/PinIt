@@ -130,15 +130,16 @@
   background: white;
   z-index: 7;
 
-  section {
+  a {
     width: 100%;
     height: 25%;
     display: flex;
     justify-content: flex-start;
     align-items: center;
     font-size: 17px;
+    text-decoration: none;
 
-    a {
+    p {
       margin-left: 5px;
       color: #736f6f;
       font-weight: 600;
@@ -150,7 +151,7 @@
     }
   }
 
-  section:hover {
+  a:hover {
     background-color: #e3e0e0;
   }
 }

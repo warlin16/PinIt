@@ -35,15 +35,15 @@ class Logout extends React.Component {
             <p>{this.props.currentUser.username}</p>
         </Link>
 
-          <section>
-            <a href="https://linkedin.com/in/warlin16">LinkedIn</a>
+          <a href="https://linkedin.com/in/warlin16">
+            <p>LinkedIn</p>
             <img src={window.staticImages.linked} />
-          </section>
+          </a>
 
-          <section>
-            <a href="https://github.com/warlin16">GitHub</a>
+          <a href="https://github.com/warlin16">
+            <p>GitHub</p>
             <img src={window.staticImages.git} />
-          </section>
+          </a>
 
           <div className="dropdown-logout" onClick={this.handleLogout}>
             <p>Logout</p>
