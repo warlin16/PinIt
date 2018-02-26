@@ -4,10 +4,8 @@
 
 .user-content {
   height: 75%;
-  width: 95%;
   display: flex;
   flex-wrap: wrap;
-  margin-left: 50px;
   padding-bottom: 50px;
 }
 
@@ -92,8 +90,6 @@
   cursor: pointer;
   flex-direction: column;
   transition: cubic-bezier(0.96, 2, 0.36, 0.25), background-color 0.2s linear;
-  border: 1px solid gainsboro;
-
 }
 
 .board-item-title {

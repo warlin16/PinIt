@@ -4,6 +4,7 @@ import UserBoardItem from "./user_board_item";
 import UserPinItem from "./user_pin_item";
 import BoardForm from "../modals/board_create_modal";
 import PinForm from "../modals/pin_create_modal";
+import UpdateUserForm from "../modals/user_edit_modal";
 import MDSpinner from "react-md-spinner";
 
 class UserShow extends React.Component {
@@ -214,17 +215,20 @@ class UserShow extends React.Component {
 
   renderUserEdit() {
     if (this.props.userModal === "update") {
-      console.log('Yerrrr');
+      return (
+        <UpdateUserForm
+          id={this.props.user.id}
+          closeModal={this.closeModal}
+          stopPropagation={this.stopPropagation}
+        />
+      );
     } else {
       return null;
     }
   }
 
   userImg() {
-    if (
-      this.props.user &&
-      this.props.match.url === `/user/${this.props.user.id}`
-    ) {
+    if (this.props.user.id === this.props.currentUser.id) {
       return (
         <img
           src={this.props.user ? this.props.user.avatarUrl : ""}
