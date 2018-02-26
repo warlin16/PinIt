@@ -6,6 +6,7 @@ export const CREATE_PIN_MODAL = "CREATE_PIN_MODAL";
 export const UPDATE_PIN_MODAL = "UPDATE_PIN_MODAL";
 export const DELETE_PIN_MODAL = "DELETE_PIN_MODAL";
 export const PIN_IT_MODAL = "PIN_IT_MODAL";
+export const USER_EDIT_MODAL = "USER_EDIT_MODAL";
 
 export const createBoardModal = () => {
   return {
@@ -52,5 +53,11 @@ export const deletePinModal = () => {
 export const pinItModal = () => {
   return {
     type: PIN_IT_MODAL
+  };
+};
+
+export const userEditModal = () => {
+  return {
+    type: USER_EDIT_MODAL
   };
 };

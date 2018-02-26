@@ -212,6 +212,31 @@ class UserShow extends React.Component {
     }
   }
 
+  renderUserEdit() {
+    if (this.props.userModal === "update") {
+      console.log('Yerrrr');
+    } else {
+      return null;
+    }
+  }
+
+  userImg() {
+    if (
+      this.props.user &&
+      this.props.match.url === `/user/${this.props.user.id}`
+    ) {
+      return (
+        <img
+          src={this.props.user ? this.props.user.avatarUrl : ""}
+          onClick={this.props.userEdit}
+          className="user-img-edit"
+        />
+      );
+    } else {
+      return <img src={this.props.user ? this.props.user.avatarUrl : ""} />;
+    }
+  }
+
   render() {
     if (this.state.loading) return <MDSpinner size={100} className="loader" />;
     const user = this.props.user ? this.props.user : { username: "", id: "" };
@@ -256,9 +281,8 @@ class UserShow extends React.Component {
             </div>
 
             <div className="user-img">
-              <div>
-                <img src={this.props.user ? this.props.user.avatarUrl : ""} />
-              </div>
+              {this.userImg()}
+              <div />
             </div>
           </div>
 
@@ -272,6 +296,7 @@ class UserShow extends React.Component {
           {this.renderBoards(boards)}
           {this.renderPins(pins)}
         </section>
+        {this.renderUserEdit()}
       </div>
     );
   }

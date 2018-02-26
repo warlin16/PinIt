@@ -1,12 +1,15 @@
-import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
-import { fetchUser } from '../../actions/user_actions';
-import { createBoardModal,
+import { connect } from "react-redux";
+import { withRouter } from "react-router-dom";
+import { fetchUser } from "../../actions/user_actions";
+import {
+  createBoardModal,
   closeModal,
-  createPinModal } from '../../actions/ui_actions';
-import { createBoard } from '../../actions/board_actions';
-import { createPin, clearPins } from '../../actions/pin_actions';
-import UserShow from './user_show';
+  createPinModal,
+  userEditModal
+} from "../../actions/ui_actions";
+import { createBoard } from "../../actions/board_actions";
+import { createPin, clearPins } from "../../actions/pin_actions";
+import UserShow from "./user_show";
 
 const mapStateToProps = (state, ownProps) => {
   return {
@@ -15,9 +18,10 @@ const mapStateToProps = (state, ownProps) => {
     pins: Object.values(state.entities.pins),
     boardModal: state.ui.boardModal,
     pinModal: state.ui.pinModal,
-    currentUser: state.session.currentUser,
+    userModal: state.ui.userModal,
+    currentUser: state.session.currentUser
   };
-}
+};
 
 const mapDispatchToProps = dispatch => {
   return {
@@ -28,7 +32,10 @@ const mapDispatchToProps = dispatch => {
     createBoard: board => dispatch(createBoard(board)),
     createPin: formData => dispatch(createPin(formData)),
     clearPins: () => dispatch(clearPins()),
+    userEdit: () => dispatch(userEditModal())
   };
-}
+};
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(UserShow));
+export default withRouter(
+  connect(mapStateToProps, mapDispatchToProps)(UserShow)
+);
