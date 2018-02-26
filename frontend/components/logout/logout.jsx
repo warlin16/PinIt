@@ -31,11 +31,9 @@ class Logout extends React.Component {
           className="dropdown-menu"
           onMouseLeave={() => this.setState({ dropdown: false })}
         >
-          <div className="dropdown-settings">
-            <Link to={`/user/${this.props.currentUser.id}`}>
-              {this.props.currentUser.username}
-            </Link>
-          </div>
+        <Link to={`/user/${this.props.currentUser.id}`} className="dropdown-settings">
+            <p>{this.props.currentUser.username}</p>
+        </Link>
 
           <section>
             <a href="https://linkedin.com/in/warlin16">LinkedIn</a>
