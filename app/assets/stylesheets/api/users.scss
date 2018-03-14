@@ -180,3 +180,15 @@
 .user-img-edit {
   cursor: pointer;
 }
+
+.user-edit-container {
+  width: 400px;
+  height: 350px;
+  background-color: white;
+  cursor: default;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}

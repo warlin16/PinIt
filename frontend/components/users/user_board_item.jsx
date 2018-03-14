@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import UpdateBoardForm from '../modals/board_update_modal';
 
 class UserBoardItem extends React.Component {
   constructor(props) {
@@ -8,6 +9,7 @@ class UserBoardItem extends React.Component {
     this.state = { edit: false };
     this.renderEditIcon = this.renderEditIcon.bind(this);
     this.toggleState = this.toggleState.bind(this);
+    this.handleEdit = this.handleEdit.bind(this);
   }
 
   renderEditIcon() {
@@ -28,6 +30,8 @@ class UserBoardItem extends React.Component {
 
   handleEdit(e) {
     e.preventDefault();
+    this.props.updateBoardModal();
+
   }
 
   render() {

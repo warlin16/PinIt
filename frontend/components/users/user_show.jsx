@@ -220,6 +220,7 @@ class UserShow extends React.Component {
           id={this.props.user.id}
           closeModal={this.closeModal}
           stopPropagation={this.stopPropagation}
+          updateUserProfile={this.props.updateUserProfile}
         />
       );
     } else {
@@ -252,6 +253,8 @@ class UserShow extends React.Component {
         description={board.description}
         pins={board.pins}
         userId={user.id}
+        boardModal={this.props.boardModal}
+        updateBoardModal={this.props.updateBoardModal}
       />
     ));
     const pins = this.props.pins.map(pin => (

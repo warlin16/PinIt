@@ -1,11 +1,12 @@
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
-import { fetchUser } from "../../actions/user_actions";
+import { fetchUser, updateUserProfile } from "../../actions/user_actions";
 import {
   createBoardModal,
   closeModal,
   createPinModal,
-  userEditModal
+  userEditModal,
+  updateBoardModal
 } from "../../actions/ui_actions";
 import { createBoard } from "../../actions/board_actions";
 import { createPin, clearPins } from "../../actions/pin_actions";
@@ -32,7 +33,9 @@ const mapDispatchToProps = dispatch => {
     createBoard: board => dispatch(createBoard(board)),
     createPin: formData => dispatch(createPin(formData)),
     clearPins: () => dispatch(clearPins()),
-    userEdit: () => dispatch(userEditModal())
+    userEdit: () => dispatch(userEditModal()),
+    updateBoardModal: () => dispatch(updateBoardModal()),
+    updateUserProfile: user => dispatch(updateUserProfile(user))
   };
 };
 
