@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import UpdateBoardForm from '../modals/board_update_modal';
 
 class UserBoardItem extends React.Component {
@@ -30,8 +30,8 @@ class UserBoardItem extends React.Component {
 
   handleEdit(e) {
     e.preventDefault();
+    this.props.history.push(`/user/${this.props.userId}/board/${this.props.id}`);
     this.props.updateBoardModal();
-
   }
 
   render() {
@@ -55,4 +55,4 @@ class UserBoardItem extends React.Component {
     );
   }
 }
-export default UserBoardItem;
+export default withRouter(UserBoardItem);
