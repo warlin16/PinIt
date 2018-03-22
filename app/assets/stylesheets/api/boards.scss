@@ -114,6 +114,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
+
+  div {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+  }
 }
 
 .create-board-container {
