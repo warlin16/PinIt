@@ -24,7 +24,7 @@ class PinIndex extends React.Component {
     if (this.state.loading) return <MDSpinner className='loader' size={100} />;
     const pins = this.props.pins.map(pin => <UserPinItem
     key={pin.id} id={pin.id} title={pin.title}
-    description={pin.description} url={pin.img} />);
+    description={pin.description} url={pin.img} />).reverse();
     return(
       <div className='show-container'>
         <section className='user-content-box'>
