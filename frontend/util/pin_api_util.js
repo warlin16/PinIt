@@ -5,10 +5,11 @@ export const fetchPin = pinId => {
   });
 };
 
-export const fetchPins = () => {
+export const fetchPins = (pageNum) => {
   return $.ajax({
     method: 'get',
-    url: `/api/pins`
+    url: `/api/pins`,
+    data: { pageNum }
   });
 };
 
