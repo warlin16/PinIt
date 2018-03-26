@@ -1,7 +1,7 @@
 class Api::PinsController < ApplicationController
 
   def index
-    @pins = Pin.all.order(created_at: :desc).limit(5)
+    @pins = Pin.all.page(params[:page]).per(5)
     render 'api/pins/index'
   end
 
@@ -45,6 +45,7 @@ class Api::PinsController < ApplicationController
       :board_id,
       :img_url,
       :attachment_id,
+      :page,
       attachment_attributes:[:image]
     )
   end
