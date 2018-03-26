@@ -1,7 +1,7 @@
 class Api::PinsController < ApplicationController
 
   def index
-    @pins = Pin.all.shuffle
+    @pins = Pin.all.order(created_at: :desc).limit(5)
     render 'api/pins/index'
   end
 
