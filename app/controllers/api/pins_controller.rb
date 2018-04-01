@@ -1,7 +1,7 @@
 class Api::PinsController < ApplicationController
 
   def index
-    @pins = Pin.all.page(params[:page]).per(5)
+    @pins = Pin.all.page(params[:pageNum]).per(10)
     render 'api/pins/index'
   end
 
