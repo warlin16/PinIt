@@ -1,23 +1,32 @@
-import React from 'react';
-import UserPinItem from '../users/user_pin_item';
-import MDSpinner from 'react-md-spinner';
+import React from "react";
+import UserPinItem from "../users/user_pin_item";
+import MDSpinner from "react-md-spinner";
+import Waypoint from "react-waypoint";
+
 
 class PinIndex extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       loading: true,
+      page: 1
     }
+
+    this.getPins = this.getPins.bind(this);
   }
 
   componentDidMount() {
-    this.props.fetchPins().then(() => {
-      this.setState({ loading: false });
-    });
+    this.getPins();
   }
 
   componentWillUnmount() {
     this.props.clearPins();
+  }
+
+  getPins() {
+    this.props.fetchPins(this.state.page).then(() => {
+      this.setState({ loading: false, page: this.state.page + 1});
+    });
   }
 
   render() {
@@ -30,6 +39,7 @@ class PinIndex extends React.Component {
         <section className='user-content-box'>
             <div className='user-content'>
               {pins}
+              <Waypoint onEnter={this.getPins} />
             </div>
         </section>
       </div>

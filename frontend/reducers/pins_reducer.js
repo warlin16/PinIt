@@ -21,7 +21,7 @@ const pinsReducer = (state = {}, action) => {
       action.board.pinIds.forEach(pin => newState[pin.id] = pin);
       return merge({}, newState);
     case RECEIVE_ALL_PINS:
-      return action.pins
+      return merge({}, state, action.pins);
     case REMOVE_PIN:
       newState = merge({}, state);
       delete newState[action.pinId];

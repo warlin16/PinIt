@@ -12,7 +12,7 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch) => {
   return{
-    fetchPins: () => dispatch(fetchPins()),
+    fetchPins: pageNum => dispatch(fetchPins(pageNum)),
     clearPins: () => dispatch(clearPins()),
   };
 }
