@@ -3,11 +3,13 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .user-content {
-  height: 75%;
+  height: 85%;
   display: flex;
   flex-wrap: wrap;
   padding-bottom: 50px;
   margin-left: 25px;
+  margin-top: 68px;
+  overflow-y: scroll;
 }
 
 .board-create {
