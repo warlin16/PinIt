@@ -12,6 +12,7 @@ func main() {
 	r := mux.NewRouter()
 	http.Handle("/", r)
 	r.HandleFunc("/test", testHandler)
+	fmt.Println("Your go server is running and listening on port 8000")
 	log.Fatal(http.ListenAndServe(":8000", nil))
 }
 
