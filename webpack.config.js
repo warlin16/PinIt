@@ -26,7 +26,7 @@ module.exports = {
   context: __dirname,
   entry: "./frontend/pin_it.jsx",
   output: {
-    path: path.resolve(__dirname, 'app', 'assets', 'javascripts'),
+    path: path.resolve(__dirname, 'static'),
     filename: "bundle.js"
   },
   plugins: plugins,
