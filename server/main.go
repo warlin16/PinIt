@@ -4,16 +4,25 @@ import (
 	"fmt"
 	"log"
 	"net/http"
+	v1 "pinit/api/v1"
 
 	"github.com/gorilla/mux"
 )
 
 func main() {
 	r := mux.NewRouter()
-	http.Handle("/", r)
+	api := r.PathPrefix("/api/").Subrouter()
 	r.HandleFunc("/test", testHandler)
-	fmt.Println("Your go server is up and running on port 8000!")
-	log.Fatal(http.ListenAndServe(":8000", nil))
+	api.HandleFunc("/test", v1.TestHandlerForAPI)
+	r.PathPrefix("/").HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		http.ServeFile(w, r, "./static/index.html")
+	})
+	log.Println(fmt.Sprintf("Server running on http://localhost%s", ":8000"))
+	err := http.ListenAndServe(":8000", r)
+	if err != nil {
+		log.Fatalf("could not run the server %v", err)
+		return
+	}
 }
 
 func testHandler(w http.ResponseWriter, r *http.Request) {
