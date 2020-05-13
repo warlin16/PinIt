@@ -14,6 +14,7 @@ func main() {
 	api := r.PathPrefix("/api/").Subrouter()
 	r.HandleFunc("/test", testHandler)
 	api.HandleFunc("/test", v1.TestHandlerForAPI)
+	r.PathPrefix("/static/").Handler(http.StripPrefix("/static/", http.FileServer(http.Dir("static"))))
 	r.PathPrefix("/").HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		http.ServeFile(w, r, "./static/index.html")
 	})
